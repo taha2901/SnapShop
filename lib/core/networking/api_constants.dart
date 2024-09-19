@@ -2,6 +2,8 @@ class ApiConstants {
   static const String apiBaseUrl = 'https://student.valuxapps.com/api/';
 
   static const String login = 'login';
+
+  static const String register = 'register';
 }
 
 class ApiErrors {

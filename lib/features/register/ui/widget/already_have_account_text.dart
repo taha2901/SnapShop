@@ -1,29 +1,26 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:snap_shop/core/helpers/extentions.dart';
-import 'package:snap_shop/core/routings/routers.dart';
-
 import '../../../../core/theming/styles.dart';
 
-class DontHaveAccountText extends StatelessWidget {
-  const DontHaveAccountText({super.key});
+class AlreadyHaveAccountText extends StatelessWidget {
+  const AlreadyHaveAccountText({super.key});
 
   @override
   Widget build(BuildContext context) {
     return RichText(
-      textAlign: TextAlign.start,
+      textAlign: TextAlign.center,
       text: TextSpan(
         children: [
           TextSpan(
-            text: 'Don\'t have an Account?',
+            text: 'Forget Password?',
             style: TextStyles.font13DarkBlueRegular,
           ),
           TextSpan(
-            text: ' Create One',
+            text: ' Reset',
             style: TextStyles.font13BlueSemiBold,
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                context.pushReplacementNamed(Routers.register);
+                // context.pushReplacementNamed(Routers.login);
               },
           ),
         ],

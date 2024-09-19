@@ -5,7 +5,6 @@ import 'package:snap_shop/features/login/logic/login_cubit.dart';
 import '../../../../core/helpers/app_regex.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/widget/app_text_form_field.dart';
-import 'password_validation.dart';
 class EmailAndPassword extends StatefulWidget {
   const EmailAndPassword({super.key});
 
