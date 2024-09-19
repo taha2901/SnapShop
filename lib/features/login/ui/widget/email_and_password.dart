@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:snap_shop/features/login/logic/login_cubit.dart';
 
 import '../../../../core/helpers/app_regex.dart';
 import '../../../../core/helpers/spacing.dart';
@@ -22,8 +24,12 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
   bool hasSpecialChar = false;
   bool hasLength = false;
 
-
-
+  @override
+  void initState() {
+    super.initState();
+    passwordController = context.read<LoginCubit>().passwordController;
+    setUpPasswordControllerListener();
+  }
   void setUpPasswordControllerListener() {
     passwordController.addListener(() {
       setState(() {
@@ -38,49 +44,45 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        AppTextFormField(
-
-          hintText: 'Email Address',
-          validator: (value) {
-            if (value == null ||
-                value.isEmpty ||
-                !AppRegex.isEmailValid(value)) {
-              return 'Please enter your email';
-            }
-            return null;
-          },
-        ),
-        verticalSpace(18),
-        AppTextFormField(
-          validator: (value) {
-            if (value == null || value.isEmpty) {
-              return 'Please enter your password';
-            }
-            return null;
-          },
-          hintText: 'Password',
-          isObscureText: isObscureText,
-          suffixIcon: IconButton(
-            onPressed: () {
-              setState(() {
-                isObscureText = !isObscureText;
-              });
+    return Form(
+      key: context.read<LoginCubit>().formKey,
+      child: Column(
+        children: [
+          AppTextFormField(
+            hintText: 'Email Address',
+            controller: context.read<LoginCubit>().emailController,
+            validator: (value) {
+              if (value == null ||
+                  value.isEmpty ||
+                  !AppRegex.isEmailValid(value)) {
+                return 'Please enter your email';
+              }
+              return null;
             },
-            icon: Icon(
-                isObscureText ? Icons.visibility : Icons.visibility_off),
           ),
-        ),
-        verticalSpace(24),
-        PasswordValidation(
-          hasLowerCase: hasLowerCase,
-          hasUpperCase: hasUpperCase,
-          hasNumber: hasNumber,
-          hasSpecialCharacter: hasSpecialChar,
-          hasMinLength: hasLength,
-        ),
-      ],
+          verticalSpace(18),
+          AppTextFormField(
+            controller: context.read<LoginCubit>().passwordController,
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Please enter your password';
+              }
+              return null;
+            },
+            hintText: 'Password',
+            isObscureText: isObscureText,
+            suffixIcon: IconButton(
+              onPressed: () {
+                setState(() {
+                  isObscureText = !isObscureText;
+                });
+              },
+              icon: Icon(
+                  isObscureText ? Icons.visibility : Icons.visibility_off),
+            ),
+          ),
+        ],
+      ),
     );
   }
 

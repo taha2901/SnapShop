@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:snap_shop/core/helpers/spacing.dart';
 import 'package:snap_shop/core/theming/styles.dart';
+import 'package:snap_shop/features/login/logic/login_cubit.dart';
 import 'package:snap_shop/features/login/ui/widget/dont_have_account_text.dart';
+import 'package:snap_shop/features/login/ui/widget/login_bloc_listenter.dart';
 
 import '../../../core/widget/app_text_button.dart';
 import 'widget/email_and_password.dart';
@@ -18,7 +21,7 @@ class LoginScreen extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children:  [
+              children: [
                 Text(
                   'Sign in',
                   style: TextStyles.font24BlackBold,
@@ -32,11 +35,12 @@ class LoginScreen extends StatelessWidget {
                       buttonText: 'Continue',
                       textStyle: TextStyles.font16WhiteSemiBold,
                       onPressed: () {
-                        // validateThenDoLogin(context);
+                        validateThenDoLogin(context);
                       },
                     ),
                     verticalSpace(24),
                     const DontHaveAccountText(),
+                    const LoginBlocListenter(),
                   ],
                 ),
               ],
@@ -45,5 +49,17 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+  void validateThenDoLogin(BuildContext context) {
+    if (context.read<LoginCubit>().formKey.currentState!.validate()) {
+      context.read<LoginCubit>().emitLoginState();
+    }
+    // if (context.read<LoginCubit>().formKey.currentState!.validate()) {
+    //   context.read<LoginCubit>().emitLoginState(
+    //         LoginRequestBody(
+    //             email: context.read<LoginCubit>().emailController.text,
+    //             password: context.read<LoginCubit>().passwordController.text),
+    //       );
+    // }
   }
 }
