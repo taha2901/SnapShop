@@ -1,20 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:snap_shop/core/routings/routers.dart';
+import 'package:snap_shop/features/login/ui/login_screen.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
     final arguments = settings.arguments;
     switch (settings.name) {
-      case Routers.onBoarding:
+      case Routers.login:
         return MaterialPageRoute(
-          builder: (_) => Scaffold(
-            body: Center(
-              child: Container(
-                color: Colors.blue,
-                child: const Text('onBoarding'),
-              ),
-            ),
-          ),
+          builder: (_) => const LoginScreen(),
         );
       // case Routers.login:
       //   return MaterialPageRoute(
