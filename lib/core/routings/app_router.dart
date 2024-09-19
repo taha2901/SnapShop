@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:snap_shop/core/di/dependency_injection.dart';
 import 'package:snap_shop/core/routings/routers.dart';
+import 'package:snap_shop/features/login/logic/login_cubit.dart';
 import 'package:snap_shop/features/login/ui/login_screen.dart';
 
 class AppRouter {
@@ -8,7 +11,10 @@ class AppRouter {
     switch (settings.name) {
       case Routers.login:
         return MaterialPageRoute(
-          builder: (_) => const LoginScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => getit<LoginCubit>(),
+            child: const LoginScreen(),
+          ),
         );
       // case Routers.login:
       //   return MaterialPageRoute(
