@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:snap_shop/features/login/data/model/login_request_body.dart';
+import 'package:snap_shop/features/register/data/models/register_request_body.dart';
+import 'package:snap_shop/features/register/data/models/register_response.dart';
 import '../../features/login/data/model/login_response_body.dart';
 import 'api_constants.dart';
 part 'api_services.g.dart';
@@ -12,5 +14,10 @@ abstract class ApiServices {
   @POST(ApiConstants.login)
   Future<LoginResponseBody> login(
     @Body() LoginRequestBody loginRequestBody,
+  );
+
+  @POST(ApiConstants.register)
+  Future<RegisterResponseBody> register(
+    @Body() RegisterRequestBody loginRequestBody,
   );
 }

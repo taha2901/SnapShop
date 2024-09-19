@@ -54,12 +54,5 @@ class LoginScreen extends StatelessWidget {
     if (context.read<LoginCubit>().formKey.currentState!.validate()) {
       context.read<LoginCubit>().emitLoginState();
     }
-    // if (context.read<LoginCubit>().formKey.currentState!.validate()) {
-    //   context.read<LoginCubit>().emitLoginState(
-    //         LoginRequestBody(
-    //             email: context.read<LoginCubit>().emailController.text,
-    //             password: context.read<LoginCubit>().passwordController.text),
-    //       );
-    // }
   }
 }
