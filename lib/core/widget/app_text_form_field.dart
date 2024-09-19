@@ -4,9 +4,10 @@ import 'package:snap_shop/core/theming/colors.dart';
 import 'package:snap_shop/core/theming/styles.dart';
 
 class AppTextFormField extends StatelessWidget {
+  final BorderRadius borderRadius;
   final String hintText;
   // final String labelText;
-  final String? Function(String?) validator;
+  final String? Function(String?)? validator;
   // final TextInputType? keyboardType;
   // final TextInputAction? textInputAction;
   final TextEditingController? controller;
@@ -16,6 +17,7 @@ class AppTextFormField extends StatelessWidget {
   // final VoidCallback? onTap;
   final Color? backFroundColor;
   final bool? isObscureText;
+  final Widget? prefixIcon;
   final Widget? suffixIcon;
   final EdgeInsetsGeometry? contentPadding;
   final InputBorder? focusedBorder;
@@ -23,9 +25,10 @@ class AppTextFormField extends StatelessWidget {
   final TextStyle? hintStyle;
   final TextStyle? inputTextStyle;
 
-  const AppTextFormField({
+   const AppTextFormField({
     super.key,
     required this.hintText,
+    
     this.isObscureText,
     this.suffixIcon,
     this.contentPadding,
@@ -34,19 +37,19 @@ class AppTextFormField extends StatelessWidget {
     this.hintStyle,
     this.inputTextStyle,
     this.backFroundColor,
-    required this.validator,
+    this.validator,
     this.controller,
+    this.prefixIcon, required this.borderRadius,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
-      validator:  (value){
-        return validator(value);
+      validator: (value) {
+        return validator!(value);
       },
       decoration: InputDecoration(
-        
         isDense: true,
         contentPadding: contentPadding ??
             EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
@@ -54,27 +57,32 @@ class AppTextFormField extends StatelessWidget {
         // labelText: 'Email',
         focusedBorder: focusedBorder ??
             OutlineInputBorder(
-              borderRadius: BorderRadius.circular(5),
+              // borderRadius: BorderRadius.circular(5),
+              borderRadius: borderRadius,
               borderSide:
                   const BorderSide(color: ColorsManager.mainColor, width: 1.3),
             ),
         enabledBorder: enabledBorder ??
             OutlineInputBorder(
-              borderRadius: BorderRadius.circular(5),
+              // borderRadius: BorderRadius.circular(5),
+              borderRadius: borderRadius,
               borderSide:
                   const BorderSide(color: ColorsManager.lighterGrey, width: 2),
             ),
-        errorBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(5)),
-          borderSide: BorderSide(color: Colors.red, width: 1.3),
+        errorBorder:  OutlineInputBorder(
+          // borderRadius: BorderRadius.all(Radius.circular(5)),
+          borderRadius: borderRadius,
+          borderSide: const BorderSide(color: Colors.red, width: 1.3),
         ),
-        focusedErrorBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(5)),
-          borderSide: BorderSide(color: Colors.red, width: 2),
+        focusedErrorBorder:  OutlineInputBorder(
+          // borderRadius: BorderRadius.all(Radius.circular(5)),
+          borderRadius: borderRadius,
+          borderSide: const BorderSide(color: Colors.red, width: 2),
         ),
         hintStyle: hintStyle ?? TextStyles.font14LightGreyRegular,
         hintText: hintText,
         suffixIcon: suffixIcon,
+        prefixIcon: prefixIcon,
         fillColor: backFroundColor ?? ColorsManager.lighterGrey,
         filled: true,
       ),

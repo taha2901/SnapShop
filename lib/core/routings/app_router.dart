@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:snap_shop/core/di/dependency_injection.dart';
 import 'package:snap_shop/core/routings/routers.dart';
+import 'package:snap_shop/features/home/ui/home_screen.dart';
+import 'package:snap_shop/features/home/ui/widget/categories_screen_list_view.dart';
+import 'package:snap_shop/features/layout/ui/souq_layout.dart';
 import 'package:snap_shop/features/login/logic/login_cubit.dart';
 import 'package:snap_shop/features/login/ui/login_screen.dart';
 import 'package:snap_shop/features/register/logic/register_cubit.dart';
@@ -11,6 +14,10 @@ class AppRouter {
   Route? generateRoute(RouteSettings settings) {
     final arguments = settings.arguments;
     switch (settings.name) {
+       case Routers.souqLayout:
+        return MaterialPageRoute(
+          builder: (_) => const SouqLayout(),
+        );
       case Routers.login:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
@@ -25,10 +32,14 @@ class AppRouter {
             child: const RegisterScreen(),
           ),
         );
-      // case Routers.home:
-      //   return MaterialPageRoute(
-      //     builder: (_) => const LoginScreen(),
-      //   );
+      case Routers.home:
+        return MaterialPageRoute(
+          builder: (_) => const HomeScreen(),
+        );
+        case Routers.categories:
+        return MaterialPageRoute(
+          builder: (_) => const CategoriesScreen(),
+        );
       default:
         return null;
     }

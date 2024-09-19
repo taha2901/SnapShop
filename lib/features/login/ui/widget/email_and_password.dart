@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snap_shop/features/login/logic/login_cubit.dart';
 
 import '../../../../core/helpers/app_regex.dart';
@@ -48,6 +49,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
       child: Column(
         children: [
           AppTextFormField(
+            borderRadius: BorderRadius.all(Radius.circular(5.r)),
             hintText: 'Email Address',
             controller: context.read<LoginCubit>().emailController,
             validator: (value) {
@@ -61,6 +63,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
           ),
           verticalSpace(18),
           AppTextFormField(
+            borderRadius: BorderRadius.all(Radius.circular(5.r)),
             controller: context.read<LoginCubit>().passwordController,
             validator: (value) {
               if (value == null || value.isEmpty) {

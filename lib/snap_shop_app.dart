@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:snap_shop/core/helpers/constants.dart';
 import 'package:snap_shop/core/routings/app_router.dart';
 import 'package:snap_shop/core/routings/routers.dart';
 import 'package:snap_shop/core/theming/colors.dart';
@@ -22,7 +23,7 @@ class SnapShop extends StatelessWidget {
             scaffoldBackgroundColor: Colors.white,
             useMaterial3: true,
           ),
-          initialRoute: Routers.login,
+          initialRoute: isLoggedInUser ? Routers.souqLayout : Routers.login,
           debugShowCheckedModeBanner: false,
           onGenerateRoute: appRouter.generateRoute,
         );

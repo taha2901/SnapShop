@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snap_shop/core/widget/app_text_form_field.dart';
 import 'package:snap_shop/features/register/logic/register_cubit.dart';
 
@@ -52,6 +53,7 @@ class _SignupFormState extends State<SignupForm> {
       child: Column(
         children: [
           AppTextFormField(
+            borderRadius: BorderRadius.all(Radius.circular(5.r)),
             hintText: 'Name',
             validator: (value) {
               if (value == null || value.isEmpty) {
@@ -62,6 +64,7 @@ class _SignupFormState extends State<SignupForm> {
           ),
           verticalSpace(18),
           AppTextFormField(
+            borderRadius: BorderRadius.all(Radius.circular(5.r)),
             hintText: 'Phone number',
             validator: (value) {
               if (value == null ||
@@ -74,6 +77,7 @@ class _SignupFormState extends State<SignupForm> {
           ),
           verticalSpace(18),
           AppTextFormField(
+            borderRadius: BorderRadius.all(Radius.circular(5.r)),
             hintText: 'Email',
             validator: (value) {
               if (value == null ||
@@ -86,6 +90,7 @@ class _SignupFormState extends State<SignupForm> {
           ),
           verticalSpace(18),
           AppTextFormField(
+            borderRadius: BorderRadius.all(Radius.circular(5.r)),
             controller: context.read<RegisterCubit>().passwordController,
             hintText: 'Password',
             isObscureText: isPasswordObscureText,
