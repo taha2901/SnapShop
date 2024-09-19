@@ -22,7 +22,7 @@ class SnapShop extends StatelessWidget {
             scaffoldBackgroundColor: Colors.white,
             useMaterial3: true,
           ),
-          initialRoute: Routers.onBoarding,
+          initialRoute: Routers.login,
           debugShowCheckedModeBanner: false,
           onGenerateRoute: appRouter.generateRoute,
         );
