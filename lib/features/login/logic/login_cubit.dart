@@ -21,8 +21,8 @@ class LoginCubit extends Cubit<LoginState> {
     emit(const LoginState.loading());
     final response = await _loginRepo.login(
       LoginRequestBody(
-        email: emailController.text,
-        password: passwordController.text,
+        email: emailController.text.trim(),
+        password: passwordController.text.trim(),
       ),
     );
 
@@ -38,7 +38,7 @@ class LoginCubit extends Cubit<LoginState> {
     
   }
   Future<void> saveUserToken(String token) async {
-    await SharedPrefHelper.setSecuredString(SharedPrefKeys.userToken, token);
+    await SharedPrefHelper.setData(SharedPrefKeys.userToken, token);
     DioFactory.setTokenIntoHeaderAfterLogin(token);
   }
 }

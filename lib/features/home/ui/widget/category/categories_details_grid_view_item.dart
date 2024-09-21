@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snap_shop/core/helpers/spacing.dart';
 
-class MyProductsGridViewItem extends StatelessWidget {
-  const MyProductsGridViewItem({
+class CategoriesDetailsGridViewItem extends StatelessWidget {
+  const CategoriesDetailsGridViewItem({
     super.key,
   });
 

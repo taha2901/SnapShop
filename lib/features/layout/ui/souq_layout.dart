@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:snap_shop/core/theming/colors.dart';
-import 'package:snap_shop/features/layout/ui/widgets/custom_sign_out.dart';
-
 import '../logic/layout_cubit.dart';
 
 class SouqLayout extends StatelessWidget {
-  final String? name;
-  const SouqLayout({super.key, this.name});
-
+  const SouqLayout({super.key});
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -17,8 +13,7 @@ class SouqLayout extends StatelessWidget {
         listener: (context, state) {},
         builder: (context, state) {
           var cubit = LayoutCubit.get(context);
-          return Scaffold(
-            
+          return Scaffold(        
             body: cubit.screens[cubit.currentIndex],
             bottomNavigationBar: BottomNavigationBar(
               selectedItemColor: ColorsManager.mainColor,

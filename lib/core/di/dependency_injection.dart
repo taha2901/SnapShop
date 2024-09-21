@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:snap_shop/features/home/data/repo/home_repo.dart';
+import 'package:snap_shop/features/home/logic/home_cubit.dart';
 import 'package:snap_shop/features/register/data/repo/register_repo.dart';
 import 'package:snap_shop/features/register/logic/register_cubit.dart';
 
@@ -24,8 +26,6 @@ Future<void> setUpGetIt() async {
   getit.registerLazySingleton<RegisterRepo>(() => RegisterRepo(getit()));
   getit.registerFactory<RegisterCubit>(() => RegisterCubit(getit()));
 
-  // //home
-  // getit.registerLazySingleton<HomeApiServices>(() => HomeApiServices(dio));
-  // getit.registerLazySingleton<HomeRepo>(() => HomeRepo(getit()));
-  // // getit.registerFactory<HomeCubit>(() => HomeCubit(getit()));
-}
+  //home
+  getit.registerLazySingleton<HomeRepo>(() => HomeRepo(getit()));
+  getit.registerFactory<HomeCubit>(() => HomeCubit(getit()));}

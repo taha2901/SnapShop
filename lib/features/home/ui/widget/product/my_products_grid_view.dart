@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:snap_shop/features/home/ui/widget/my_products_grid_view_item.dart';
+import 'package:snap_shop/features/home/data/model/products/product.dart';
+import 'package:snap_shop/features/home/ui/widget/product/my_products_grid_view_item.dart';
 
 class MyProductsGridView extends StatelessWidget {
-  const MyProductsGridView({super.key});
+  final List<ProductDataList?> productsDataList;
+  const MyProductsGridView({super.key, required this.productsDataList});
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +16,9 @@ class MyProductsGridView extends StatelessWidget {
             mainAxisSpacing: 10.0, // المسافة العمودية بين العناصر
             childAspectRatio: 1 / 1.3, // نسبة العرض إلى الارتفاع
           ),
-          itemCount: 10,
+          itemCount: productsDataList.length,
           itemBuilder: (context, index) {
-            return const MyProductsGridViewItem();
+            return  MyProductsGridViewItem(productsData:  productsDataList[index],);
           }),
     );
   }
