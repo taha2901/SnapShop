@@ -3,12 +3,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snap_shop/core/helpers/spacing.dart';
 import 'package:snap_shop/core/theming/colors.dart';
 import 'package:snap_shop/core/theming/styles.dart';
+import 'package:snap_shop/features/home/data/model/categories/datum.dart';
 
 class CategoriesListViewitem extends StatelessWidget {
+  final CategoriesDataList? categoriesDate;
   final int itemIndex;
   const CategoriesListViewitem({
     super.key,
     required this.itemIndex,
+    required this.categoriesDate,
   });
 
   @override
@@ -20,12 +23,12 @@ class CategoriesListViewitem extends StatelessWidget {
           CircleAvatar(
             radius: 26.r,
             backgroundColor: ColorsManager.lightBlue,
-            child: Image.asset('assets/images/Ellipse 13.png'),
+            child: Image.network(categoriesDate?.image ?? 'https://student.valuxapps.com/storage/uploads/categories/16445230161CiW8.Light bulb-amico.png'),
           ),
           verticalSpace(8),
           Text(
-            'Shorts',
-            style:TextStyles.font12DarkBlueRegular,
+            categoriesDate?.name ?? 'shorts',
+            style: TextStyles.font12DarkBlueRegular,
           ),
         ],
       ),

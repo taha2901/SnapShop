@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
+import 'package:snap_shop/features/home/data/model/categories/categories_response_model.dart';
+import 'package:snap_shop/features/home/data/model/products/products_response_model.dart';
 import 'package:snap_shop/features/login/data/model/login_request_body.dart';
 import 'package:snap_shop/features/register/data/models/register_request_body.dart';
 import 'package:snap_shop/features/register/data/models/register_response.dart';
@@ -20,4 +22,10 @@ abstract class ApiServices {
   Future<RegisterResponseBody> register(
     @Body() RegisterRequestBody loginRequestBody,
   );
+
+  @GET(ApiConstants.categories)
+  Future<CategoriesResponseModel> getCategories();
+
+  @GET(ApiConstants.home)
+  Future<ProductsResponseModel> getProducts();
 }

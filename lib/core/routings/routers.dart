@@ -4,4 +4,5 @@ class Routers {
   static const String register = '/registerScreen';
   static const String home = '/homeScreen';
   static const String categories = '/categories';
+  static const String categoriesDetailsGridView = '/categoriesss';
 }

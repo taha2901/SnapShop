@@ -17,13 +17,13 @@ class SnapShop extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) {
         return MaterialApp(
-          title: 'Doc App',
+          title: 'Snap Shop',
           theme: ThemeData(
             primaryColor: ColorsManager.mainColor,
             scaffoldBackgroundColor: Colors.white,
             useMaterial3: true,
           ),
-          initialRoute: isLoggedInUser ? Routers.souqLayout : Routers.login,
+          initialRoute: isLoggedInUser ? Routers.home : Routers.login,
           debugShowCheckedModeBanner: false,
           onGenerateRoute: appRouter.generateRoute,
         );
