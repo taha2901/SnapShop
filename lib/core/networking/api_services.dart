@@ -4,6 +4,7 @@ import 'package:snap_shop/features/home/data/model/categories/categories_respons
 import 'package:snap_shop/features/home/data/model/categories_details_response_model/categories_details_response_model.dart';
 import 'package:snap_shop/features/home/data/model/products/products_response_model.dart';
 import 'package:snap_shop/features/login/data/model/login_request_body.dart';
+import 'package:snap_shop/features/notification/data/model/notification.dart';
 import 'package:snap_shop/features/register/data/models/register_request_body.dart';
 import 'package:snap_shop/features/register/data/models/register_response.dart';
 import '../../features/login/data/model/login_response_body.dart';
@@ -30,8 +31,10 @@ abstract class ApiServices {
   @GET(ApiConstants.home)
   Future<ProductsResponseModel> getProducts();
   
-  // @GET(ApiConstants.categoryDetails)
   @GET('categories/{categoryId}')
   Future<CategoriesDetailsResponseModel> getCategoriesDetails(
       @Path("categoryId") int categoryId);
+
+  @GET(ApiConstants.notifications)
+  Future<NotificationResponseModel> getNotification();
 }

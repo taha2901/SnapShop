@@ -8,6 +8,8 @@ import 'package:snap_shop/features/home/ui/home_screen.dart';
 import 'package:snap_shop/features/home/ui/widget/all_category_screen/categories_screen_bloc_builder.dart';
 import 'package:snap_shop/features/login/logic/login_cubit.dart';
 import 'package:snap_shop/features/login/ui/login_screen.dart';
+import 'package:snap_shop/features/notification/logic/notification_cubit.dart';
+import 'package:snap_shop/features/notification/ui/notification_view.dart';
 import 'package:snap_shop/features/register/logic/register_cubit.dart';
 import 'package:snap_shop/features/register/ui/sign_up_screen.dart';
 import '../../features/home/ui/widget/all_categories_details/categories_details_grid_view_bloc_builder.dart';
@@ -16,10 +18,6 @@ class AppRouter {
   Route? generateRoute(RouteSettings settings) {
     final arguments = settings.arguments;
     switch (settings.name) {
-      // case Routers.souqLayout:
-      //   return MaterialPageRoute(
-      //     builder: (_) => const SouqLayout(),
-      //   );
       case Routers.login:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
@@ -62,7 +60,7 @@ class AppRouter {
               )),
         );
 
-      case Routers.LayoutShop:
+      case Routers.layoutShop:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
             create: (context) => getit<HomeCubit>()
@@ -71,6 +69,14 @@ class AppRouter {
             child: const LayoutShop(),
           ),
         );
+
+      // case Routers.notification:
+      //   return MaterialPageRoute(
+      //     builder: (_) => BlocProvider(
+      //       create: (context) => getit<NotificationCubit>()..getNotification(),
+      //       child:  const NotificationScreen(),
+      //     ),
+      //   );
 
       default:
         return null;
