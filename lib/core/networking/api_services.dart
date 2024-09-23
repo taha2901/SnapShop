@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:snap_shop/features/home/data/model/categories/categories_response_model.dart';
+import 'package:snap_shop/features/home/data/model/categories_details_response_model/categories_details_response_model.dart';
 import 'package:snap_shop/features/home/data/model/products/products_response_model.dart';
 import 'package:snap_shop/features/login/data/model/login_request_body.dart';
 import 'package:snap_shop/features/register/data/models/register_request_body.dart';
@@ -9,7 +10,7 @@ import '../../features/login/data/model/login_response_body.dart';
 import 'api_constants.dart';
 part 'api_services.g.dart';
 
-@RestApi(baseUrl: ApiConstants.apiBaseUrl) 
+@RestApi(baseUrl: ApiConstants.apiBaseUrl)
 abstract class ApiServices {
   factory ApiServices(Dio dio, {String baseUrl}) = _ApiServices;
 
@@ -28,4 +29,9 @@ abstract class ApiServices {
 
   @GET(ApiConstants.home)
   Future<ProductsResponseModel> getProducts();
+  
+  // @GET(ApiConstants.categoryDetails)
+  @GET('categories/{categoryId}')
+  Future<CategoriesDetailsResponseModel> getCategoriesDetails(
+      @Path("categoryId") int categoryId);
 }

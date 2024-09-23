@@ -4,13 +4,13 @@ import 'package:snap_shop/core/di/dependency_injection.dart';
 import 'package:snap_shop/core/routings/routers.dart';
 import 'package:snap_shop/features/home/logic/home_cubit.dart';
 import 'package:snap_shop/features/home/ui/home_screen.dart';
-import 'package:snap_shop/features/home/ui/widget/categories_screen_list_view.dart';
-import 'package:snap_shop/features/home/ui/widget/category/categories_details_grid_view.dart';
+import 'package:snap_shop/features/home/ui/widget/all_category_screen/categories_screen_bloc_builder.dart';
 import 'package:snap_shop/features/layout/ui/souq_layout.dart';
 import 'package:snap_shop/features/login/logic/login_cubit.dart';
 import 'package:snap_shop/features/login/ui/login_screen.dart';
 import 'package:snap_shop/features/register/logic/register_cubit.dart';
 import 'package:snap_shop/features/register/ui/sign_up_screen.dart';
+import '../../features/home/ui/widget/all_categories_details/categories_details_grid_view_bloc_builder.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
@@ -37,18 +37,30 @@ class AppRouter {
       case Routers.home:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
-            create: (context) => getit<HomeCubit>()..getCategories()..getProducts(),
+            create: (context) => getit<HomeCubit>()
+              ..getCategories()
+              ..getProducts(),
             child: const HomeScreen(),
           ),
         );
       case Routers.categories:
         return MaterialPageRoute(
-          builder: (_) => const CategoriesScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => getit<HomeCubit>()..getCategories(),
+            child: const CategoriesScreenBlocBuilder(),
+          ),
         );
-      case Routers.categoriesDetailsGridView:
-      return MaterialPageRoute(
-        builder: (_) => const CategoriesDetailsGridView(),
-      );
+      case Routers.categoriesDetails:
+        final categoryId = arguments as int; // استلام categoryId من arguments
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+              create: (context) =>
+                  getit<HomeCubit>()..getCategoriesDetails(categoryId),
+              child: CategoriesDetailsBlocBuilder(
+                categoryId: categoryId,
+              )),
+        );
+
       default:
         return null;
     }

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:snap_shop/core/helpers/extentions.dart';
+import 'package:snap_shop/core/routings/routers.dart';
 import 'package:snap_shop/core/theming/styles.dart';
+import 'package:snap_shop/features/home/ui/widget/all_category_screen/categories_screen_bloc_builder.dart';
 
 class CategoriesSeeAll extends StatelessWidget {
   const CategoriesSeeAll({super.key});
@@ -13,10 +16,16 @@ class CategoriesSeeAll extends StatelessWidget {
           style: TextStyles.font16BlackBold,
         ),
         const Spacer(),
-        Text(
-          'See All',
-          style: TextStyles.font15DarkBlueMedium,
+        GestureDetector(
+          onTap: () {
+            context.pushNamed(Routers.categories);
+          },
+          child: Text(
+            'See All',
+            style: TextStyles.font15DarkBlueMedium,
+          ),
         ),
+        // const CategoriesScreenBlocBuilder(),
       ],
     );
   }
