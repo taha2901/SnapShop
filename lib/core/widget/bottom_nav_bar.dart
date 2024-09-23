@@ -1,7 +1,10 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:snap_shop/core/di/dependency_injection.dart';
 import 'package:snap_shop/features/home/ui/home_screen.dart';
-
+import 'package:snap_shop/features/notification/logic/notification_cubit.dart';
+import 'package:snap_shop/features/notification/ui/notification_view.dart';
 
 class LayoutShop extends StatefulWidget {
   const LayoutShop({super.key});
@@ -16,14 +19,17 @@ class _LayoutShopState extends State<LayoutShop> {
 
   final List<Widget> _pages = [
     const HomeScreen(),
-    Container(),
+    BlocProvider(
+      create: (context) => getit<NotificationCubit>()..getNotification(),
+      child: const NotificationScreen(),
+    ),
     Container(),
     Container(),
   ];
 
   List<IconData> iconList = [
     Icons.home,
-    Icons.category,
+    Icons.notifications_active,
     Icons.shopping_cart,
     Icons.person,
   ];

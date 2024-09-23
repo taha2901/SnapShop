@@ -10,6 +10,8 @@ class ApiConstants {
   static const String categoryDetails = '$categories/{categoryId}';
 
   static const String home = 'home';
+
+  static const String notifications = 'notifications';
 }
 
 class ApiErrors {

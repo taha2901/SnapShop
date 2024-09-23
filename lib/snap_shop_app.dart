@@ -24,7 +24,7 @@ class SnapShop extends StatelessWidget {
             scaffoldBackgroundColor: Colors.white,
             useMaterial3: true,
           ),
-          initialRoute: isLoggedInUser ? Routers.LayoutShop : Routers.login,
+          initialRoute: isLoggedInUser ? Routers.layoutShop : Routers.login,
           debugShowCheckedModeBanner: false,
           onGenerateRoute: appRouter.generateRoute,
         );
