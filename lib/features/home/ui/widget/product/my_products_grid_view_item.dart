@@ -24,11 +24,14 @@ class MyProductsGridViewItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
-                  child: Image.network(
-                    width: double.infinity,
-                    fit: BoxFit.contain,
-                    productsData?.image ??
-                        'https://student.valuxapps.com/storage/uploads/products/16445230161CiW8.Light bulb-amico.png',
+                  child: Center(
+                    child: Image.network(
+                      height: 100.h,
+                      width: 100.w,
+                      fit: BoxFit.cover,
+                      productsData?.image ??
+                          'https://student.valuxapps.com/storage/uploads/products/16445230161CiW8.Light bulb-amico.png',
+                    ),
                   ),
                 ),
                 verticalSpace(10),
