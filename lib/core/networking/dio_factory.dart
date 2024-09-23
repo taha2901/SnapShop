@@ -19,8 +19,8 @@ class DioFactory {
       dio!
         ..options.connectTimeout = timeOut
         ..options.receiveTimeout = timeOut;
-      // addDioHeaders();
-      addDioInterceptor();
+      addDioHeaders();
+      // addDioInterceptor();
       return dio!;
     } else {
       return dio!;
@@ -29,12 +29,9 @@ class DioFactory {
 
   static void addDioHeaders() async {
     dio?.options.headers = {
+      'lang': 'en',
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-
-      'lang': 'en',
-
-
       'Authorization': 
           'Bearer ${await SharedPrefHelper.getString(SharedPrefKeys.userToken)}',
     };
@@ -47,13 +44,13 @@ class DioFactory {
     };
   }
 
-  static void addDioInterceptor() {
-    dio?.interceptors.add(
-      PrettyDioLogger(
-        requestBody: true,
-        requestHeader: true,
-        responseHeader: true,
-      ),
-    );
-  }
+  // static void addDioInterceptor() {
+  //   dio?.interceptors.add(
+  //     PrettyDioLogger(
+  //       requestBody: true,
+  //       requestHeader: true,
+  //       responseHeader: true,
+  //     ),
+  //   );
+  // }
 }

@@ -1,5 +1,3 @@
-
-// import 'package:doc/core/networking/api_error_handler.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'api_error_handler.dart';
 part 'api_result.freezed.dart';

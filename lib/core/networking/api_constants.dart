@@ -7,6 +7,8 @@ class ApiConstants {
 
   static const String categories = 'categories';
 
+  static const String categoryDetails = '$categories/{categoryId}';
+
   static const String home = 'home';
 }
 

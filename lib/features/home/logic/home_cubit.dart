@@ -13,12 +13,12 @@ class HomeCubit extends Cubit<HomeState> {
     final response = await _homeRepo.getCategories();
     response.when(success: (categoriesResponseModel) {
       print(
-          'categoriesResponseModel: ${categoriesResponseModel.categoriesData}');
+          'categoriesRRResponseModel: ${categoriesResponseModel.categoriesData}');
       emit(HomeState.categoriesSuccess(
           categoriesDataList:
               categoriesResponseModel.categoriesData!.categoriesDataList!));
     }, failure: (errorHandler) {
-      print('Error: ${errorHandler.toString()}');
+      print('Error: ${errorHandler.apiErrorModel.message}');
       emit(HomeState.categoriesError(errorHandler: errorHandler));
     });
   }
@@ -28,12 +28,31 @@ class HomeCubit extends Cubit<HomeState> {
 
     final response = await _homeRepo.getProducts();
     response.when(success: (productsResponseModel) {
-      print(
-          'productsResponseModel: ${productsResponseModel.data?.products.toString()}');
       emit(HomeState.productsSuccess(
           productsDataList: productsResponseModel.data?.products ?? []));
     }, failure: (errorHandler) {
       emit(HomeState.productsError(errorHandler: errorHandler));
     });
+  }
+
+  void getCategoriesDetails(int categoryId) async {
+    emit(const HomeState.categoriesDetailsLoading());
+    final response = await _homeRepo.getCategoriesDetails(categoryId);
+
+    // طباعة الاستجابة للتحقق منها
+    print('Response: $response');
+    print('Requesting categories details for categoryId: $categoryId');
+
+    response.when(
+      success: (categoriesDetailsResponseModel) {
+        emit(HomeState.categoriesDetailsSuccess(
+          categoriesDetialsDataList:
+              categoriesDetailsResponseModel.categoriesDetailsData?.categoriesDetailsDataList,
+        ));
+      },
+      failure: (errorHandler) {
+        emit(HomeState.categoriesDetailsError(errorHandler: errorHandler));
+      },
+    );
   }
 }

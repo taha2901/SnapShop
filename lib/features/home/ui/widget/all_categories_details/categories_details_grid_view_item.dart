@@ -2,10 +2,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snap_shop/core/helpers/spacing.dart';
+import 'package:snap_shop/core/theming/styles.dart';
+import 'package:snap_shop/features/home/data/model/categories_details_response_model/datum.dart';
 
 class CategoriesDetailsGridViewItem extends StatelessWidget {
+  final CategoriesDetailsDataList? categoriesData;
   const CategoriesDetailsGridViewItem({
-    super.key,
+    super.key, this.categoriesData,
   });
 
   @override
@@ -21,15 +24,16 @@ class CategoriesDetailsGridViewItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
-                child: Image.asset(
+                child: Image.network(
+
+                  categoriesData?.image?? "https://student.valuxapps.com/storage/uploads/products/163873839146spo.21.jpg",
                   width: double.infinity,
                   fit: BoxFit.fill,
-                  'assets/images/Rectangle 8.png',
                 ),
               ),
               verticalSpace(10),
-              const Text('  Mens Jacket'),
-              const Text('  \$148'),
+               Text('  ${categoriesData?.name}' ,  maxLines: 1, overflow: TextOverflow.ellipsis),
+               Text('  \$${categoriesData?.price}',style: TextStyles.font16BlackBold,),
               verticalSpace(10),
             ],
           ),
