@@ -4,6 +4,7 @@ import 'package:snap_shop/core/helpers/constants.dart';
 import 'package:snap_shop/core/routings/app_router.dart';
 import 'package:snap_shop/core/routings/routers.dart';
 import 'package:snap_shop/core/theming/colors.dart';
+import 'package:snap_shop/core/widget/bottom_nav_bar.dart';
 
 class SnapShop extends StatelessWidget {
   final AppRouter appRouter;
@@ -23,7 +24,7 @@ class SnapShop extends StatelessWidget {
             scaffoldBackgroundColor: Colors.white,
             useMaterial3: true,
           ),
-          initialRoute: isLoggedInUser ? Routers.home : Routers.login,
+          initialRoute: isLoggedInUser ? Routers.LayoutShop : Routers.login,
           debugShowCheckedModeBanner: false,
           onGenerateRoute: appRouter.generateRoute,
         );

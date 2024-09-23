@@ -5,4 +5,5 @@ class Routers {
   static const String home = '/homeScreen';
   static const String categories = '/categories';
   static const String categoriesDetails = '/categoriesDetails';
+  static const String LayoutShop = '/layoutShop';
 }

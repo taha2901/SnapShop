@@ -18,7 +18,9 @@ class MyProductsGridView extends StatelessWidget {
           ),
           itemCount: productsDataList.length,
           itemBuilder: (context, index) {
-            return  MyProductsGridViewItem(productsData:  productsDataList[index],);
+            return MyProductsGridViewItem(
+              productsData: productsDataList[index],
+            );
           }),
     );
   }

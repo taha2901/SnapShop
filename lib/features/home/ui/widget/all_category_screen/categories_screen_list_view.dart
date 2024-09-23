@@ -14,7 +14,7 @@ class CategoriesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 24.h),
         child: SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
