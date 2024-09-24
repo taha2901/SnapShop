@@ -2,6 +2,8 @@ import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.da
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:snap_shop/core/di/dependency_injection.dart';
+import 'package:snap_shop/features/cart/logic/cart_cubit.dart';
+import 'package:snap_shop/features/cart/ui/cart_screen.dart';
 import 'package:snap_shop/features/home/ui/home_screen.dart';
 import 'package:snap_shop/features/notification/logic/notification_cubit.dart';
 import 'package:snap_shop/features/notification/ui/notification_view.dart';
@@ -23,7 +25,11 @@ class _LayoutShopState extends State<LayoutShop> {
       create: (context) => getit<NotificationCubit>()..getNotification(),
       child: const NotificationScreen(),
     ),
-    Container(),
+    BlocProvider(
+      create: (context) => getit<CartCubit>()..getCart(),
+      child:  CartScreen(),
+    ),
+    // const CartScreen(),
     Container(),
   ];
 
@@ -38,14 +44,14 @@ class _LayoutShopState extends State<LayoutShop> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _pages[_bottomNavIndex], // الصفحة الحالية بناءً على الـ index
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // هنا يمكن وضع الأكشن الخاص بالـ FloatingActionButton إذا أردت
-        },
-        child: const Icon(Icons.add),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation
-          .centerDocked, // وضع الزر في منتصف الـ Bottom Navigation Bar
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {
+      //     // هنا يمكن وضع الأكشن الخاص بالـ FloatingActionButton إذا أردت
+      //   },
+      //   child: const Icon(Icons.add),
+      // ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation
+      //     .centerDocked, // وضع الزر في منتصف الـ Bottom Navigation Bar
       bottomNavigationBar: AnimatedBottomNavigationBar(
         icons: iconList, // الأيقونات
         activeIndex: _bottomNavIndex, // المؤشر الحالي

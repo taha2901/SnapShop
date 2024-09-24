@@ -8,8 +8,6 @@ import 'package:snap_shop/features/home/ui/home_screen.dart';
 import 'package:snap_shop/features/home/ui/widget/all_category_screen/categories_screen_bloc_builder.dart';
 import 'package:snap_shop/features/login/logic/login_cubit.dart';
 import 'package:snap_shop/features/login/ui/login_screen.dart';
-import 'package:snap_shop/features/notification/logic/notification_cubit.dart';
-import 'package:snap_shop/features/notification/ui/notification_view.dart';
 import 'package:snap_shop/features/register/logic/register_cubit.dart';
 import 'package:snap_shop/features/register/ui/sign_up_screen.dart';
 import '../../features/home/ui/widget/all_categories_details/categories_details_grid_view_bloc_builder.dart';
@@ -35,12 +33,6 @@ class AppRouter {
       case Routers.home:
         return MaterialPageRoute(
            builder: (_) => const HomeScreen(),
-          // builder: (_) => BlocProvider(
-          //   create: (context) => getit<HomeCubit>()
-          //     ..getCategories()
-          //     ..getProducts(),
-          //   child: const HomeScreen(),
-          // ),
         );
       case Routers.categories:
         return MaterialPageRoute(

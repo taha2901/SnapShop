@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
+import 'package:snap_shop/features/cart/data/model/cart_response_model.dart';
 import 'package:snap_shop/features/home/data/model/categories/categories_response_model.dart';
 import 'package:snap_shop/features/home/data/model/categories_details_response_model/categories_details_response_model.dart';
 import 'package:snap_shop/features/home/data/model/products/products_response_model.dart';
@@ -37,4 +38,7 @@ abstract class ApiServices {
 
   @GET(ApiConstants.notifications)
   Future<NotificationResponseModel> getNotification();
+
+  @GET(ApiConstants.cart)
+  Future<CartResponseModel> getCart();
 }

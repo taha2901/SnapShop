@@ -4,7 +4,6 @@ import 'package:snap_shop/core/helpers/constants.dart';
 
 import '../helpers/shared_pref_helper.dart';
 
-
 class DioFactory {
   /// private constructor as I don't want to allow creating an instance of this class
   DioFactory._();
@@ -20,7 +19,7 @@ class DioFactory {
         ..options.connectTimeout = timeOut
         ..options.receiveTimeout = timeOut;
       addDioHeaders();
-      // addDioInterceptor();
+      addDioInterceptor();
       return dio!;
     } else {
       return dio!;
@@ -28,12 +27,14 @@ class DioFactory {
   }
 
   static void addDioHeaders() async {
+    String? token = await SharedPrefHelper.getString(SharedPrefKeys.userToken);
+    print('Token: $token'); // Debug the token
     dio?.options.headers = {
       'lang': 'en',
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'Authorization': 
-          'Bearer ${await SharedPrefHelper.getString(SharedPrefKeys.userToken)}',
+      'Authorization':
+          '$token',
     };
   }
 
@@ -44,13 +45,13 @@ class DioFactory {
     };
   }
 
-  // static void addDioInterceptor() {
-  //   dio?.interceptors.add(
-  //     PrettyDioLogger(
-  //       requestBody: true,
-  //       requestHeader: true,
-  //       responseHeader: true,
-  //     ),
-  //   );
-  // }
+  static void addDioInterceptor() {
+    dio?.interceptors.add(
+      PrettyDioLogger(
+        requestBody: true,
+        requestHeader: true,
+        responseHeader: true,
+      ),
+    );
+  }
 }
