@@ -18,7 +18,7 @@ class NotificationCubit extends Cubit<NotificationState> {
           notificationDataList:
               notificationResponseModel.notificationData!.notificationDataList!));
     }, failure: (errorHandler) {
-      print('Error: ${errorHandler.apiErrorModel.message}');
+      print('Error: ${errorHandler}');
       emit(NotificationState.notificationError(errorHandler: errorHandler));
     });
   }

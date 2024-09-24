@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:snap_shop/features/cart/data/repo/cart_repo.dart';
+import 'package:snap_shop/features/cart/logic/cart_cubit.dart';
 import 'package:snap_shop/features/home/data/repo/home_repo.dart';
 import 'package:snap_shop/features/home/logic/home_cubit.dart';
 import 'package:snap_shop/features/notification/data/repo/notification_repo.dart';
@@ -34,5 +36,9 @@ Future<void> setUpGetIt() async {
   //notification
   getit.registerLazySingleton<NotificationRepo>(() => NotificationRepo(getit()));
   getit.registerFactory<NotificationCubit>(() => NotificationCubit(getit()));
+
+  //cart
+  getit.registerLazySingleton<CartRepo>(() => CartRepo(getit()));
+  getit.registerFactory<CartCubit>(() => CartCubit(getit()));
 
 }
