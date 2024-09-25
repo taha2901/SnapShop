@@ -20,16 +20,16 @@ class CartRepo {
     }
   }
 
-  // Future<ApiResult<AddOrRemoveCartResponseModel>> addOrRemoveCart(
-  //     AddOrRemoveCartRequestModel addOrRemoveCartRequestModel) async {
-  //   try {
-  //     final response =
-  //         await _apiServices.addOrRemoveCart(addOrRemoveCartRequestModel);
-  //     return ApiResult.success(response);
-  //   } catch (error) {
-  //     return ApiResult.failure(
-  //       ErrorHandler.handle(error),
-  //     );
-  //   }
-  // }
+  Future<ApiResult<AddOrRemoveCartResponseModel>> addOrRemoveCart(
+      AddOrRemoveCartRequestModel addOrRemoveCartRequestModel) async {
+    try {
+      final response =
+          await _apiServices.addOrRemoveCart(addOrRemoveCartRequestModel);
+      return ApiResult.success(response);
+    } catch (error) {
+      return ApiResult.failure(
+        ErrorHandler.handle(error),
+      );
+    }
+  }
 }

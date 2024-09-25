@@ -14,7 +14,6 @@ class CartListViewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
@@ -50,42 +49,11 @@ class CartListViewItem extends StatelessWidget {
                   '\$${cartItem.product!.price}', // عرض السعر الإجمالي بناءً على الكمية
                   style: TextStyles.font14DarkBlueRegular,
                 ),
-                // verticalSpace(8),
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.center,
-                //   children: [
-                //     GestureDetector(
-                //       onTap: () {
-                //         setState(() {
-                //           quantity++; // زيادة الكمية
-                //         });
-                //       },
-                //       child: const Icon(
-                //         Iconsax.add,
-                //         color: ColorsManager.mainColor,
-                //       ),
-                //     ),
-                //     horizontalSpace(8),
-                //     Text(
-                //       '$quantity', // عرض الكمية
-                //       style: TextStyles.font14DarkBlueRegular,
-                //     ),
-                //     horizontalSpace(8),
-                //     GestureDetector(
-                //       onTap: () {
-                //         setState(() {
-                //           if (quantity > 1) {
-                //             quantity--; // تقليل الكمية بشرط ألا تقل عن 1
-                //           }
-                //         });
-                //       },
-                //       child: const Icon(
-                //         Iconsax.minus,
-                //         color: ColorsManager.mainColor,
-                //       ),
-                //     ),
-                //   ],
-                // ),
+                verticalSpace(8),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.delete),
+                ),
               ],
             ),
           ),
