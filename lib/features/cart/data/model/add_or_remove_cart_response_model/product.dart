@@ -1,16 +1,13 @@
-class Product {
+class AddOrRemoveCartProduct {
 	int? id;
-	int? price;
-	int? oldPrice;
+	double? price;
+	double? oldPrice;
 	int? discount;
 	String? image;
 	String? name;
 	String? description;
-	List<dynamic>? images;
-	bool? inFavorites;
-	bool? inCart;
 
-	Product({
+	AddOrRemoveCartProduct({
 		this.id, 
 		this.price, 
 		this.oldPrice, 
@@ -18,22 +15,16 @@ class Product {
 		this.image, 
 		this.name, 
 		this.description, 
-		this.images, 
-		this.inFavorites, 
-		this.inCart, 
 	});
 
-	factory Product.fromJson(Map<String, dynamic> json) => Product(
+	factory AddOrRemoveCartProduct.fromJson(Map<String, dynamic> json) => AddOrRemoveCartProduct(
 				id: json['id'] as int?,
-				price: json['price'] as int?,
-				oldPrice: json['old_price'] as int?,
+				price: json['price'] as double?,
+				oldPrice: json['old_price'] as double?,
 				discount: json['discount'] as int?,
 				image: json['image'] as String?,
 				name: json['name'] as String?,
 				description: json['description'] as String?,
-				images: json['images'] as List<dynamic>,
-				inFavorites: json['in_favorites'] as bool?,
-				inCart: json['in_cart'] as bool?,
 			);
 
 	Map<String, dynamic> toJson() => {
@@ -44,8 +35,5 @@ class Product {
 				'image': image,
 				'name': name,
 				'description': description,
-				'images': images,
-				'in_favorites': inFavorites,
-				'in_cart': inCart,
 			};
 }

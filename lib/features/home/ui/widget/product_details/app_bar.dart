@@ -3,15 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snap_shop/core/helpers/extentions.dart';
 
-class CheckoutAppBar extends StatelessWidget {
-  const CheckoutAppBar({
+class ProductDetailsAppBar extends StatelessWidget {
+  const ProductDetailsAppBar({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         GestureDetector(
           onTap: () {
@@ -23,12 +22,14 @@ class CheckoutAppBar extends StatelessWidget {
             width: 40.w,
           ),
         ),
-        // const Spacer(),
-        const Text('Checkout'),
-        // const Spacer(),
-        const Text(
-          'ksksw',
-          style: TextStyle(color: Colors.white),
+        const Spacer(),
+        GestureDetector(
+          onTap: () {},
+          child: Image.asset(
+            'assets/images/Frame 16.png',
+            height: 40.h,
+            width: 40.w,
+          ),
         ),
       ],
     );

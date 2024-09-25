@@ -14,6 +14,8 @@ class ApiConstants {
   static const String notifications = 'notifications';
 
   static const String cart = 'carts';
+
+  static const String addOrRemoveCart = 'carts';
 }
 
 class ApiErrors {

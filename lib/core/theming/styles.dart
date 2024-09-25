@@ -4,6 +4,17 @@ import 'package:snap_shop/core/theming/colors.dart';
 import 'package:snap_shop/core/theming/font_weight_helper.dart';
 
 class TextStyles {
+
+  static TextStyle font16MainColorMedium = TextStyle(
+    color: ColorsManager.mainColor,
+    fontWeight: FontWeightHelper.medium,
+    fontSize: 16.sp,
+  );
+  static TextStyle font12greyRegular = TextStyle(
+    color:  Colors.grey,
+    fontWeight: FontWeightHelper.medium,
+    fontSize: 12.sp,
+  );
   static TextStyle font24BlackBold = TextStyle(
     color: Colors.black,
     fontWeight: FontWeightHelper.bold,
@@ -128,11 +139,11 @@ class TextStyles {
   // static TextStyle font18WhiteMedium = TextStyle(
   //   fontSize: 18.sp,
   //   fontWeight: FontWeightHelper.medium,
-  //   color: Colors.white,  
+  //   color: Colors.white,
   // );
 
   // static TextStyle font12BlueRegular = TextStyle(
-  //   fontSize: 12.sp,  
+  //   fontSize: 12.sp,
   //   fontWeight: FontWeightHelper.regular,
   //   color: ColorsManager.mainBlue,
   // );
@@ -154,5 +165,4 @@ class TextStyles {
   //   fontWeight: FontWeightHelper.medium,
   //   color: ColorsManager.grey,
   // );
-  
 }

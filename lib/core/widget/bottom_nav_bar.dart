@@ -17,7 +17,7 @@ class LayoutShop extends StatefulWidget {
 }
 
 class _LayoutShopState extends State<LayoutShop> {
-  int _bottomNavIndex = 0; // مؤشر الصفحة الحالية
+  int _bottomNavIndex = 0; 
 
   final List<Widget> _pages = [
     const HomeScreen(),
@@ -25,11 +25,11 @@ class _LayoutShopState extends State<LayoutShop> {
       create: (context) => getit<NotificationCubit>()..getNotification(),
       child: const NotificationScreen(),
     ),
-    BlocProvider(
-      create: (context) => getit<CartCubit>()..getCart(),
-      child:  CartScreen(),
-    ),
-    // const CartScreen(),
+    // BlocProvider(
+    //   create: (context) => getit<CartCubit>()..getCart(),
+    //   child: const CartScreen(),
+    // ),
+    const CartScreen(),
     Container(),
   ];
 
@@ -44,14 +44,6 @@ class _LayoutShopState extends State<LayoutShop> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _pages[_bottomNavIndex], // الصفحة الحالية بناءً على الـ index
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: () {
-      //     // هنا يمكن وضع الأكشن الخاص بالـ FloatingActionButton إذا أردت
-      //   },
-      //   child: const Icon(Icons.add),
-      // ),
-      // floatingActionButtonLocation: FloatingActionButtonLocation
-      //     .centerDocked, // وضع الزر في منتصف الـ Bottom Navigation Bar
       bottomNavigationBar: AnimatedBottomNavigationBar(
         icons: iconList, // الأيقونات
         activeIndex: _bottomNavIndex, // المؤشر الحالي
