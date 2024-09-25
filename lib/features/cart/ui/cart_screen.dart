@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snap_shop/core/helpers/extentions.dart';
 import 'package:snap_shop/core/helpers/spacing.dart';
+import 'package:snap_shop/core/routings/routers.dart';
 import 'package:snap_shop/core/theming/colors.dart';
 import 'package:snap_shop/core/theming/styles.dart';
 import 'package:snap_shop/core/widget/app_text_button.dart';
+import 'package:snap_shop/features/cart/data/model/cart_response_model/cart_item.dart';
 import 'package:snap_shop/features/cart/ui/widget/cart/cart_app_bar.dart';
 import 'package:snap_shop/features/cart/ui/widget/cart/cart_bloc_builder.dart';
 
 class CartScreen extends StatelessWidget {
-  const CartScreen({super.key});
+  final CartItem? cartDataList;
+  const CartScreen({super.key, this.cartDataList});
 
   @override
   Widget build(BuildContext context) {
@@ -21,12 +23,16 @@ class CartScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const CartAppBar(),
+              verticalSpace(24),
               Container(
-                height: MediaQuery.of(context).size.height * 0.5,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.grey.shade200,
+                ),                
+                height: MediaQuery.of(context).size.height * 0.6,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    const Text('Remove all'),
                     verticalSpace(24),
                     const Expanded(
                       child: CartBlocBuilder(),
@@ -40,26 +46,15 @@ class CartScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    // Row(
-                    //   children: [
-                    //     Text('Subtotal',
-                    //         style: TextStyles.font14LightGreyRegular),
-                    //     const Spacer(),
-                    //     Text('\$${cartDataList?.subTotal}'),
-                    //   ],
-                    // ),
-                    // Row(
-                    //   children: [
-                    //     Text('Total', style: TextStyles.font14LightGreyRegular),
-                    //     const Spacer(),
-                    //     Text('\$${cartDataList?.total}'),
-                    //   ],
-                    // ),
                     verticalSpace(24),
                     AppTextButton(
                       buttonText: 'Checkout',
                       textStyle: TextStyles.font16WhiteSemiBold,
-                      onPressed: () {},
+                      onPressed: () {
+                        context.pushNamed(
+                          Routers.checkout,
+                        );
+                      },
                       backgroundColor: ColorsManager.mainColor,
                       borderRadius: 50.0,
                     ),

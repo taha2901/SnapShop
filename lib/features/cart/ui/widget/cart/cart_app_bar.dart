@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snap_shop/core/helpers/extentions.dart';
+import 'package:snap_shop/core/routings/routers.dart';
 
 class CartAppBar extends StatelessWidget {
   const CartAppBar({
@@ -15,7 +16,7 @@ class CartAppBar extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            context.pop();
+            // context.pushNamed(Routers.home);
           },
           child: Image.asset(
             'assets/images/Frame 17.png',

@@ -41,4 +41,5 @@ Future<void> setUpGetIt() async {
   getit.registerLazySingleton<CartRepo>(() => CartRepo(getit()));
   getit.registerFactory<CartCubit>(() => CartCubit(getit()));
 
+
 }

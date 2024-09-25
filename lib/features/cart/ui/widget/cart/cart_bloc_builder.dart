@@ -28,17 +28,20 @@ class CartBlocBuilder extends StatelessWidget {
         });
   }
 
+  // ignore: body_might_complete_normally_nullable
   Widget? setupError(error) {
     showToast(msg: error.toString(), state: ToastStates.ERROR);
   }
 
   Widget setUpSuccess(cartsDataList) {
     return CartListView(
-      cartItem: cartsDataList,
+      cartItems: cartsDataList ?? [],
     );
+    
   }
 
   Widget setUpLoading() {
     return const Scaffold(body: Center(child: CircularProgressIndicator()));
   }
 }
+

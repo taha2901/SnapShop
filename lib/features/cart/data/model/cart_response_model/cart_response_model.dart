@@ -2,7 +2,7 @@ import 'data.dart';
 
 class CartResponseModel {
 	bool? status;
-	dynamic message;
+	String? message;
 	CartDataList? data;
 
 	CartResponseModel({this.status, this.message, this.data});
@@ -10,7 +10,7 @@ class CartResponseModel {
 	factory CartResponseModel.fromJson(Map<String, dynamic> json) {
 		return CartResponseModel(
 			status: json['status'] as bool?,
-			message: json['message'] as dynamic,
+			message: json['message'] as String?,
 			data: json['data'] == null
 						? null
 						: CartDataList.fromJson(json['data'] as Map<String, dynamic>),

@@ -7,6 +7,8 @@ class Routers {
   static const String categoriesDetails = '/categoriesDetails';
   static const String layoutShop = '/layoutShop';
 
-  // static const String notification = '/notificationScreen';
+  static const String checkout = '/checkout';
+
+  static const String productDetails = '/productDetails';
 
 }

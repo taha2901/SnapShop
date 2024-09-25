@@ -4,7 +4,6 @@ import 'package:snap_shop/core/helpers/constants.dart';
 import 'package:snap_shop/core/routings/app_router.dart';
 import 'package:snap_shop/core/routings/routers.dart';
 import 'package:snap_shop/core/theming/colors.dart';
-import 'package:snap_shop/core/widget/bottom_nav_bar.dart';
 
 class SnapShop extends StatelessWidget {
   final AppRouter appRouter;
@@ -13,7 +12,7 @@ class SnapShop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(375, 812),
+      designSize: const Size(390, 844),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
