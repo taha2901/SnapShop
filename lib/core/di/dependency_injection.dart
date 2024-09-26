@@ -6,6 +6,8 @@ import 'package:snap_shop/features/home/data/repo/home_repo.dart';
 import 'package:snap_shop/features/home/logic/home_cubit.dart';
 import 'package:snap_shop/features/notification/data/repo/notification_repo.dart';
 import 'package:snap_shop/features/notification/logic/notification_cubit.dart';
+import 'package:snap_shop/features/profile/data/repo/profile_repo.dart';
+import 'package:snap_shop/features/profile/logic/profile_cubit.dart';
 import 'package:snap_shop/features/register/data/repo/register_repo.dart';
 import 'package:snap_shop/features/register/logic/register_cubit.dart';
 
@@ -40,6 +42,12 @@ Future<void> setUpGetIt() async {
   //cart
   getit.registerLazySingleton<CartRepo>(() => CartRepo(getit()));
   getit.registerFactory<CartCubit>(() => CartCubit(getit()));
+
+  //profile
+  getit.registerLazySingleton<ProfileRepo>(() => ProfileRepo(getit())); 
+  getit.registerFactory<ProfileCubit>(() => ProfileCubit(getit()));
+
+  
 
 
 }

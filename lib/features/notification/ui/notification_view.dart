@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:snap_shop/features/notification/ui/widget/categories_details_grid_view_bloc_builder.dart';
+import 'package:snap_shop/features/notification/ui/widget/notifications_details_grid_view_bloc_builder.dart';
 
 class NotificationScreen extends StatelessWidget {
   const NotificationScreen({super.key});

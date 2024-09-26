@@ -4,16 +4,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:snap_shop/core/di/dependency_injection.dart';
 import 'package:snap_shop/core/theming/colors.dart';
-import 'package:snap_shop/features/cart/logic/cart_cubit.dart';
 import 'package:snap_shop/features/cart/ui/cart_screen.dart';
 import 'package:snap_shop/features/home/ui/home_screen.dart';
 import 'package:snap_shop/features/notification/logic/notification_cubit.dart';
 import 'package:snap_shop/features/notification/ui/notification_view.dart';
+import 'package:snap_shop/features/profile/logic/profile_cubit.dart';
+import 'package:snap_shop/features/profile/ui/widget/profile_bloc_builder.dart';
 
 class LayoutShop extends StatefulWidget {
   const LayoutShop({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _LayoutShopState createState() => _LayoutShopState();
 }
 
@@ -39,7 +41,10 @@ class _LayoutShopState extends State<LayoutShop> {
         child: const NotificationScreen(),
       ),
       const CartScreen(),
-      Container(), 
+      BlocProvider(
+        create: (context) => getit<ProfileCubit>()..getUserData(),
+        child: const ProfileBlocBuilder(),
+      ),
     ];
   }
 
@@ -55,7 +60,7 @@ class _LayoutShopState extends State<LayoutShop> {
         notchSmoothness: NotchSmoothness.verySmoothEdge, // جعل الزاوية ناعمة
         leftCornerRadius: 32, // زوايا دائرية لليسار
         rightCornerRadius: 32,
-        
+
         activeColor: ColorsManager.mainColor, // زوايا دائرية لليمين
         onTap: (index) {
           setState(() {
