@@ -12,6 +12,7 @@ import 'package:snap_shop/features/login/logic/login_cubit.dart';
 import 'package:snap_shop/features/login/ui/login_screen.dart';
 import 'package:snap_shop/features/profile/logic/profile_cubit.dart';
 import 'package:snap_shop/features/profile/ui/widget/change_password_screen.dart';
+import 'package:snap_shop/features/profile/ui/widget/update_user_data_screen.dart';
 import 'package:snap_shop/features/register/logic/register_cubit.dart';
 import 'package:snap_shop/features/register/ui/sign_up_screen.dart';
 import '../../features/home/ui/widget/all_categories_details/categories_details_grid_view_bloc_builder.dart';
@@ -67,6 +68,14 @@ class AppRouter {
                   create: (context) => getit<ProfileCubit>(),
                   child: ChangePasswordScreen(),
                 ));
+
+      case Routers.updateProfile:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getit<ProfileCubit>(),
+            child: UpdateUserDataScreen(),
+          ),
+        );
 
       case Routers.checkout:
         return MaterialPageRoute(builder: (_) => const CheckoutScreen());

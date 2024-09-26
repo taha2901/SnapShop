@@ -17,4 +17,11 @@ class ProfileState with _$ProfileState {
       {required ChangePasswordResponseModel? changePasswordResponseModel}) = ChangePasswordSuccess;
 
   const factory ProfileState.changePasswordError({required ErrorHandler errorHandler}) = ChangePasswordError;
+
+  //update profile
+  const factory ProfileState.updateProfileLoading() = UpdateProfileLoading;
+
+  const factory ProfileState.updateProfileSuccess() = UpdateProfileSuccess;
+
+  const factory ProfileState.updateProfileError({required ErrorHandler errorHandler}) = UpdateProfileError;
 }

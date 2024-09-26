@@ -1,11 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:snap_shop/core/helpers/constants.dart';
-import 'package:snap_shop/core/helpers/shared_pref_helper.dart';
 import 'package:snap_shop/core/networking/api_error_handler.dart';
 import 'package:snap_shop/features/profile/data/model/change_password/change_password.dart';
 import 'package:snap_shop/features/profile/data/model/change_password/change_password_request_model.dart';
 import 'package:snap_shop/features/profile/data/model/profile_model/profile_model.dart';
+import 'package:snap_shop/features/profile/data/model/update_profile_request_model.dart';
 import 'package:snap_shop/features/profile/data/repo/profile_repo.dart';
 
 part 'profile_state.dart';
@@ -34,10 +33,30 @@ class ProfileCubit extends Cubit<ProfileState> {
     response.when(success: (changePasswordResponseModel) {
       emit(ProfileState.changePasswordSuccess(
           changePasswordResponseModel: changePasswordResponseModel));
-    // SharedPrefHelper.setData(SharedPrefKeys.userPassword, newPassword);
-    // SharedPrefHelper.getString(SharedPrefKeys.userPassword);
+      // SharedPrefHelper.setData(SharedPrefKeys.userPassword, newPassword);
+      // SharedPrefHelper.getString(SharedPrefKeys.userPassword);
     }, failure: (errorHandler) {
       emit(ProfileState.changePasswordError(errorHandler: errorHandler));
+    });
+  }
+
+  void updateProfile(
+    String name,
+    String phone,
+    String email,
+  ) async {
+    emit(const ProfileState.updateProfileLoading());
+    final response = await _profileRepo.updateProfile(
+      UpdateProfileRequestModel(
+        name: name,
+        phone: phone,
+        email: email,
+      ),
+    );
+    response.when(success: (loginResponseBody) {
+      emit(const ProfileState.updateProfileSuccess());
+    }, failure: (errorHandler) {
+      emit(ProfileState.updateProfileError(errorHandler: errorHandler));
     });
   }
 }
