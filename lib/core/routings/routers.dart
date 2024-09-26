@@ -11,4 +11,11 @@ class Routers {
 
   static const String productDetails = '/productDetails';
 
+  static const String profile = '/profile';
+  static const String changePassword = '/changePassword';
+  // static const String account = '/account';
+  // static const String editProfile = '/editProfile';
+  // static const String address = '/address';
+  // static const String addAddress = '/addAddress';
+
 }

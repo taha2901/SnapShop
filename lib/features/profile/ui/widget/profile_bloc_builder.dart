@@ -18,11 +18,11 @@ class ProfileBlocBuilder extends StatelessWidget {
             current is ProfileError,
         builder: (context, state) {
           return state.maybeWhen(
-            settingsLoading: () => setUpLoading(),
-            settingsSuccess: (profileData) {
+            profileLoading: () => setUpLoading(),
+            profileSuccess: (profileData) {
               return setUpSuccess(profileData);
             },
-            settingsError: (error) => setupError(error),
+            profileError: (error) => setupError(error),
             orElse: () => const SizedBox.shrink(),
           );
         });

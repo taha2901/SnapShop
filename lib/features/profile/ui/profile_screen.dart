@@ -2,35 +2,37 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
+import 'package:snap_shop/core/helpers/extentions.dart';
 import 'package:snap_shop/core/helpers/spacing.dart';
+import 'package:snap_shop/core/routings/routers.dart';
 import 'package:snap_shop/core/theming/styles.dart';
 import 'package:snap_shop/features/profile/data/model/profile_model/profile_model.dart';
 import 'package:snap_shop/features/profile/logic/profile_cubit.dart';
 
 class ProfileScreen extends StatelessWidget {
   final ProfileModel profileModel;
-  const ProfileScreen({super.key,required this.profileModel});
+  const ProfileScreen({super.key, required this.profileModel});
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ProfileCubit, ProfileState>(
       listener: (context, state) {
         state.whenOrNull(
-          settingsSuccess: (profileModel) {
+          profileSuccess: (profileModel) {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
                 content: Text('Success'),
               ),
             );
           },
-          settingsLoading: () {
+          profileLoading: () {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
                 content: Text('Loading...'),
               ),
             );
           },
-          settingsError: (error) {
+          profileError: (error) {
             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
               content: Text(error.apiErrorModel.message ?? ''),
             ));
@@ -101,16 +103,11 @@ class ProfileScreen extends StatelessWidget {
                       leading: const Icon(Iconsax.timer_1),
                       title: const Text("Change Password"),
                       onTap: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => ChangePasswordScreen(),
-                        //   ),
-                        // );
+                        context.pushNamed(Routers.changePassword);
                       },
                     ),
                   ),
-                  Card(
+                  Card( 
                     child: ListTile(
                       leading: const Icon(Iconsax.information),
                       trailing: IconButton(
