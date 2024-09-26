@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:snap_shop/features/address/data/repo/address_repo.dart';
+import 'package:snap_shop/features/address/logic/address_cubit.dart';
 import 'package:snap_shop/features/cart/data/repo/cart_repo.dart';
 import 'package:snap_shop/features/cart/logic/cart_cubit.dart';
 import 'package:snap_shop/features/home/data/repo/home_repo.dart';
@@ -46,6 +48,10 @@ Future<void> setUpGetIt() async {
   //profile
   getit.registerLazySingleton<ProfileRepo>(() => ProfileRepo(getit())); 
   getit.registerFactory<ProfileCubit>(() => ProfileCubit(getit()));
+
+  //address
+  getit.registerLazySingleton<AddressRepo>(() => AddressRepo(getit()));
+  getit.registerFactory<AddressCubit>(() => AddressCubit(getit()));
 
   
 

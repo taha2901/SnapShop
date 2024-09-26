@@ -3,6 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:snap_shop/core/di/dependency_injection.dart';
 import 'package:snap_shop/core/routings/routers.dart';
 import 'package:snap_shop/core/widget/bottom_nav_bar.dart';
+import 'package:snap_shop/features/address/logic/address_cubit.dart';
+import 'package:snap_shop/features/address/ui/address_screen.dart';
+import 'package:snap_shop/features/address/ui/widget/address_bloc_builder.dart';
 import 'package:snap_shop/features/cart/ui/checkout_screen.dart';
 import 'package:snap_shop/features/home/logic/home_cubit.dart';
 import 'package:snap_shop/features/home/ui/home_screen.dart';
@@ -72,16 +75,28 @@ class AppRouter {
       case Routers.updateProfile:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
-            create: (context) => getit<ProfileCubit>(),
+            create: (context) => getit<ProfileCubit>()..getUserData(),
             child: UpdateUserDataScreen(),
           ),
         );
 
       case Routers.checkout:
-        return MaterialPageRoute(builder: (_) => const CheckoutScreen());
+        return MaterialPageRoute(
+          builder: (_) => const CheckoutScreen(),
+        );
 
       case Routers.productDetails:
-        return MaterialPageRoute(builder: (_) => const ProductDetailsScreen());
+        return MaterialPageRoute(
+          builder: (_) => const ProductDetailsScreen(),
+        );
+
+      case Routers.addAddress:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getit<AddressCubit>(),
+            child: const AddAddressScreen(),
+          ),
+        );
 
       default:
         return null;

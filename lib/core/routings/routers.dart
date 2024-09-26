@@ -15,7 +15,7 @@ class Routers {
   static const String changePassword = '/changePassword';
   static const String updateProfile = '/updateProfile';
   // static const String editProfile = '/editProfile';
-  // static const String address = '/address';
-  // static const String addAddress = '/addAddress';
+  static const String address = '/address';
+  static const String addAddress = '/addAddress';
 
 }

@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
+import 'package:snap_shop/features/address/data/model/address_request_model.dart';
+import 'package:snap_shop/features/address/data/model/address_response_model/address_response_model.dart';
 import 'package:snap_shop/features/cart/data/model/add_or_remove_cart_request_model.dart';
 import 'package:snap_shop/features/cart/data/model/add_or_remove_cart_response_model/add_or_remove_cart_response_model.dart';
 import 'package:snap_shop/features/cart/data/model/cart_response_model/cart_response_model.dart';
@@ -63,5 +65,10 @@ abstract class ApiServices {
   @PUT(ApiConstants.updateProfile)
   Future<LoginResponseBody> updateProfile(
     @Body() UpdateProfileRequestModel updateProfileRequestModel,
+  );
+
+  @POST(ApiConstants.addresses)
+  Future<AddressResponseModel> addAddress(
+    @Body() AddressRequestModel addressRequestModel,
   );
 }
