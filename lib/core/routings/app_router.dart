@@ -58,19 +58,7 @@ class AppRouter {
 
       case Routers.layoutShop:
         return MaterialPageRoute(
-          builder: (_) => MultiBlocProvider(
-            providers: [
-              BlocProvider(
-                create: (context) => getit<HomeCubit>()
-                  ..getCategories()
-                  ..getProducts(),
-              ),
-              BlocProvider(
-                create: (context) => getit<CartCubit>()..getCart(),
-              ),
-            ],
-            child: const LayoutShop(),
-          ),
+          builder: (_) => const LayoutShop(),
         );
 
       case Routers.checkout:

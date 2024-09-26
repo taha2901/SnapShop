@@ -11,37 +11,48 @@ class CartBlocBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CartCubit, CartState>(
+    return BlocConsumer<CartCubit, CartState>(
+      listener: (context, state) {
+        state.maybeWhen(
+          addOrRemoveCartError: (error) {
+            showToast(msg: 'Failed', state: ToastStates.ERROR);
+          },
+          addOrRemoveCartSuccess: (data) {
+            showToast(msg: 'Succesfully', state: ToastStates.SUCCESS);
+          },
+          orElse: () => const SizedBox.shrink(),
+
+        );
+      },
         buildWhen: (previous, current) =>
             current is CartLoading ||
             current is CartSuccess ||
-            current is CartError,
+            current is CartError , 
         builder: (context, state) {
           return state.maybeWhen(
             cartloading: () => setUpLoading(),
             cartsuccess: (cartsDataList) {
               return setUpSuccess(cartsDataList);
-            },
-            carterror: (error) => setupError(error)!,
+            },            
+            carterror: (error) => setupError(error),
             orElse: () => const SizedBox.shrink(),
           );
         });
   }
 
   // ignore: body_might_complete_normally_nullable
-  Widget? setupError(error) {
+  Widget setupError(error) {
     showToast(msg: error.toString(), state: ToastStates.ERROR);
+    return const SizedBox.shrink(); // أو يمكنك استخدام أي عنصر آخر كبديل
   }
 
   Widget setUpSuccess(cartsDataList) {
     return CartListView(
-      cartItems: cartsDataList ?? [],
+      cartItems: cartsDataList,
     );
-    
   }
 
   Widget setUpLoading() {
     return const Scaffold(body: Center(child: CircularProgressIndicator()));
   }
 }
-

@@ -1,6 +1,5 @@
 // import 'package:flutter/material.dart';
 // import 'package:flutter_bloc/flutter_bloc.dart';
-// import 'package:snap_shop/core/theming/colors.dart';
 // import 'package:snap_shop/core/widget/custom_show_toast.dart';
 // import 'package:snap_shop/features/cart/logic/cart_cubit.dart';
 
@@ -19,7 +18,6 @@
 //             showToast(msg: 'Addded Succesfully', state: ToastStates.SUCCESS);
 //           },
 //           addOrRemoveCartError: (error) {
-//             // setupErrorState(context, error.apiErrorModel.message!);
 //             showToast(msg: 'Addded Failed', state: ToastStates.ERROR);
 //           },
 //         );

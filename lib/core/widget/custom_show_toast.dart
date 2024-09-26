@@ -6,7 +6,7 @@ void showToast({required String msg, required ToastStates state}) {
       msg: msg,
       toastLength: Toast.LENGTH_LONG,
       gravity: ToastGravity.BOTTOM,
-      timeInSecForIosWeb: 5,
+      timeInSecForIosWeb: 2,
       backgroundColor: chooseToastColor(state),
       textColor: Colors.white,
       fontSize: 16.0);

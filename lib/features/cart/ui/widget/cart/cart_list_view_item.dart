@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snap_shop/core/helpers/spacing.dart';
 import 'package:snap_shop/core/theming/styles.dart';
 import 'package:snap_shop/features/cart/data/model/cart_response_model/cart_item.dart';
+import 'package:snap_shop/features/cart/logic/cart_cubit.dart';
 
 class CartListViewItem extends StatelessWidget {
   final CartItem cartItem;
@@ -14,10 +16,10 @@ class CartListViewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
+        color: Colors.grey.shade200,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -50,42 +52,17 @@ class CartListViewItem extends StatelessWidget {
                   '\$${cartItem.product!.price}', // عرض السعر الإجمالي بناءً على الكمية
                   style: TextStyles.font14DarkBlueRegular,
                 ),
-                // verticalSpace(8),
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.center,
-                //   children: [
-                //     GestureDetector(
-                //       onTap: () {
-                //         setState(() {
-                //           quantity++; // زيادة الكمية
-                //         });
-                //       },
-                //       child: const Icon(
-                //         Iconsax.add,
-                //         color: ColorsManager.mainColor,
-                //       ),
-                //     ),
-                //     horizontalSpace(8),
-                //     Text(
-                //       '$quantity', // عرض الكمية
-                //       style: TextStyles.font14DarkBlueRegular,
-                //     ),
-                //     horizontalSpace(8),
-                //     GestureDetector(
-                //       onTap: () {
-                //         setState(() {
-                //           if (quantity > 1) {
-                //             quantity--; // تقليل الكمية بشرط ألا تقل عن 1
-                //           }
-                //         });
-                //       },
-                //       child: const Icon(
-                //         Iconsax.minus,
-                //         color: ColorsManager.mainColor,
-                //       ),
-                //     ),
-                //   ],
-                // ),
+                verticalSpace(8),
+                IconButton(
+                  onPressed: () {
+                    context.read<CartCubit>().emitAddOrRemoveCartItem(
+                        productId: cartItem.product!.id!.toInt());
+
+                    // context.read<CartCubit>().getCart(); 
+
+                  },
+                  icon: const Icon(Icons.delete),
+                ),
               ],
             ),
           ),

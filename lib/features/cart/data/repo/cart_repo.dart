@@ -20,16 +20,20 @@ class CartRepo {
     }
   }
 
-  // Future<ApiResult<AddOrRemoveCartResponseModel>> addOrRemoveCart(
-  //     AddOrRemoveCartRequestModel addOrRemoveCartRequestModel) async {
-  //   try {
-  //     final response =
-  //         await _apiServices.addOrRemoveCart(addOrRemoveCartRequestModel);
-  //     return ApiResult.success(response);
-  //   } catch (error) {
-  //     return ApiResult.failure(
-  //       ErrorHandler.handle(error),
-  //     );
-  //   }
-  // }
+  Future<ApiResult<AddOrRemoveCartResponseModel>> addOrRemoveCart(
+      AddOrRemoveCartRequestModel addOrRemoveCartRequestModel) async {
+    try {
+      final response =
+          await _apiServices.addOrRemoveCart(addOrRemoveCartRequestModel);
+      print('API Response in addOrRemoveCart: $response');
+      print('you are success adding to cart or remove from cart');
+      return ApiResult.success(response);
+    } catch (error) {
+      print('API Error in addOrRemoveCart: $error');
+      print('you are success adding to cart or remove from cart');
+      return ApiResult.failure(
+        ErrorHandler.handle(error),
+      );
+    }
+  }
 }
