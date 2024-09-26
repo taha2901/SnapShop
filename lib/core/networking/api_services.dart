@@ -8,6 +8,8 @@ import 'package:snap_shop/features/home/data/model/categories_details_response_m
 import 'package:snap_shop/features/home/data/model/products/products_response_model.dart';
 import 'package:snap_shop/features/login/data/model/login_request_body.dart';
 import 'package:snap_shop/features/notification/data/model/notification.dart';
+import 'package:snap_shop/features/profile/data/model/change_password/change_password.dart';
+import 'package:snap_shop/features/profile/data/model/change_password/change_password_request_model.dart';
 import 'package:snap_shop/features/register/data/models/register_request_body.dart';
 import 'package:snap_shop/features/register/data/models/register_response.dart';
 import 'package:snap_shop/features/profile/data/model/profile_model/profile_model.dart';
@@ -51,4 +53,9 @@ abstract class ApiServices {
 
   @GET(ApiConstants.settings)
   Future<ProfileModel> getProfile();
+
+  @POST(ApiConstants.changePassword)
+  Future<ChangePasswordResponseModel> changePassword(
+    @Body() ChangePasswordRequestModel changePassword,
+  );
 }

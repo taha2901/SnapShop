@@ -12,6 +12,9 @@ void main() async {
   setUpGetIt();
   await ScreenUtil.ensureScreenSize();
   await checkLoggedInUser();
+  currentPassword =
+      await SharedPrefHelper.getString(SharedPrefKeys.userPassword);
+  print('currentPassword: $currentPassword');
   ();
   runApp(
     SnapShop(

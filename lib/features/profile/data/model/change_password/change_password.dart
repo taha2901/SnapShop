@@ -1,14 +1,14 @@
 import 'data.dart';
 
-class ChangePassword {
+class ChangePasswordResponseModel {
 	bool? status;
 	String? message;
 	Data? data;
 
-	ChangePassword({this.status, this.message, this.data});
+	ChangePasswordResponseModel({this.status, this.message, this.data});
 
-	factory ChangePassword.fromJson(Map<String, dynamic> json) {
-		return ChangePassword(
+	factory ChangePasswordResponseModel.fromJson(Map<String, dynamic> json) {
+		return ChangePasswordResponseModel(
 			status: json['status'] as bool?,
 			message: json['message'] as String?,
 			data: json['data'] == null

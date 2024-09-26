@@ -3,8 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:snap_shop/core/di/dependency_injection.dart';
 import 'package:snap_shop/core/routings/routers.dart';
 import 'package:snap_shop/core/widget/bottom_nav_bar.dart';
-import 'package:snap_shop/features/cart/data/model/cart_response_model/product.dart';
-import 'package:snap_shop/features/cart/logic/cart_cubit.dart';
 import 'package:snap_shop/features/cart/ui/checkout_screen.dart';
 import 'package:snap_shop/features/home/logic/home_cubit.dart';
 import 'package:snap_shop/features/home/ui/home_screen.dart';
@@ -12,6 +10,8 @@ import 'package:snap_shop/features/home/ui/product_details_screen.dart';
 import 'package:snap_shop/features/home/ui/widget/all_category_screen/categories_screen_bloc_builder.dart';
 import 'package:snap_shop/features/login/logic/login_cubit.dart';
 import 'package:snap_shop/features/login/ui/login_screen.dart';
+import 'package:snap_shop/features/profile/logic/profile_cubit.dart';
+import 'package:snap_shop/features/profile/ui/widget/change_password_screen.dart';
 import 'package:snap_shop/features/register/logic/register_cubit.dart';
 import 'package:snap_shop/features/register/ui/sign_up_screen.dart';
 import '../../features/home/ui/widget/all_categories_details/categories_details_grid_view_bloc_builder.dart';
@@ -60,6 +60,13 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const LayoutShop(),
         );
+
+      case Routers.changePassword:
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider(
+                  create: (context) => getit<ProfileCubit>(),
+                  child: ChangePasswordScreen(),
+                ));
 
       case Routers.checkout:
         return MaterialPageRoute(builder: (_) => const CheckoutScreen());

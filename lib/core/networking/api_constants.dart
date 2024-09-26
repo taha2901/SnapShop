@@ -18,6 +18,10 @@ class ApiConstants {
   static const String addOrRemoveCart = 'carts';
 
   static const String settings = 'profile';
+
+  static const String changePassword = 'change-password';
+
+  static const String updateProfile = 'update-profile';
 }
 
 class ApiErrors {
