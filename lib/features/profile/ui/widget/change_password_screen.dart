@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:snap_shop/core/helpers/constants.dart';
-import 'package:snap_shop/core/helpers/shared_pref_helper.dart';
 import 'package:snap_shop/core/theming/colors.dart';
 import 'package:snap_shop/core/widget/app_text_form_field.dart';
 import 'package:snap_shop/features/profile/logic/profile_cubit.dart';

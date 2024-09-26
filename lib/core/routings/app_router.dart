@@ -71,7 +71,10 @@ class AppRouter {
 
       case Routers.updateProfile:
         return MaterialPageRoute(
-          builder: (_) => UpdateUserDataScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => getit<ProfileCubit>(),
+            child: UpdateUserDataScreen(),
+          ),
         );
 
       case Routers.checkout:

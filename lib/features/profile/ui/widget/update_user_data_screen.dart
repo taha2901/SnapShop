@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:snap_shop/core/helpers/spacing.dart';
 import 'package:snap_shop/core/theming/colors.dart';
 import 'package:snap_shop/core/widget/app_text_form_field.dart';
+import 'package:snap_shop/features/profile/logic/profile_cubit.dart';
 
 class UpdateUserDataScreen extends StatelessWidget {
   final nameController = TextEditingController();
@@ -19,38 +22,46 @@ class UpdateUserDataScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            AppTextFormField(hintText: "Name", borderRadius:  BorderRadius.circular(10), controller: nameController),
-            const SizedBox(
-              height: 15,
-            ),
-            AppTextFormField(hintText: "Phone", borderRadius:  BorderRadius.circular(10), controller: phoneController),
-            const SizedBox(
-              height: 15,
-            ),
-            AppTextFormField(hintText: "Email", borderRadius:  BorderRadius.circular(10), controller: emailController),
+            AppTextFormField(
+                hintText: "Name",
+                borderRadius: BorderRadius.circular(10),
+                controller: nameController),
+            verticalSpace(15),
+            AppTextFormField(
+                hintText: "Email",
+                borderRadius: BorderRadius.circular(10),
+                controller: emailController),
+            verticalSpace(15),
+            AppTextFormField(
+                hintText: "Phone",
+                borderRadius: BorderRadius.circular(10),
+                controller: phoneController),
             const Spacer(),
             Container(
               width: double.infinity,
               height: MediaQuery.of(context).size.height * 0.07,
-              decoration:  BoxDecoration(
+              decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
                 color: ColorsManager.mainColor,
-
               ),
               child: TextButton(
-                
                 onPressed: () {
-                  // if( nameController.text.isNotEmpty && phoneController.text.isNotEmpty && emailController.text.isNotEmpty )
-                  // {
-                  //   cubit.updateUserData(name: nameController.text, phone: phoneController.text, email: emailController.text);
-                  // }
-                  // else
-                  // {
-                  //   showSnackBarItem(context, 'Please, Enter all Data !!', false);
-                  // }
+                  if (nameController.text.isNotEmpty &&
+                      phoneController.text.isNotEmpty &&
+                      emailController.text.isNotEmpty) {
+                    context.read<ProfileCubit>().updateProfile(
+                        nameController.text,
+                        phoneController.text,
+                        emailController.text);
+                  } else {
+                    showSnackBarItem(
+                        context, 'Please, Enter all Data !!', false);
+                  }
                 },
-                
-                child: const Text("Update", style: TextStyle(color: Colors.white),),
+                child: const Text(
+                  "Update",
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
             )
           ],
