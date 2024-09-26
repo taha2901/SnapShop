@@ -22,6 +22,8 @@ class ApiConstants {
   static const String changePassword = 'change-password';
 
   static const String updateProfile = 'update-profile';
+
+  static const String addresses = 'addresses';
 }
 
 class ApiErrors {
