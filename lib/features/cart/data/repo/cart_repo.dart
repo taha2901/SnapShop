@@ -25,8 +25,12 @@ class CartRepo {
     try {
       final response =
           await _apiServices.addOrRemoveCart(addOrRemoveCartRequestModel);
+      print('API Response in addOrRemoveCart: $response');
+      print('you are success adding to cart or remove from cart');
       return ApiResult.success(response);
     } catch (error) {
+      print('API Error in addOrRemoveCart: $error');
+      print('you are success adding to cart or remove from cart');
       return ApiResult.failure(
         ErrorHandler.handle(error),
       );

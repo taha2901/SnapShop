@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snap_shop/core/helpers/spacing.dart';
 import 'package:snap_shop/core/theming/styles.dart';
 import 'package:snap_shop/features/cart/data/model/cart_response_model/cart_item.dart';
+import 'package:snap_shop/features/cart/logic/cart_cubit.dart';
 
 class CartListViewItem extends StatelessWidget {
   final CartItem cartItem;
@@ -17,6 +19,7 @@ class CartListViewItem extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
+        color: Colors.grey.shade200,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -51,7 +54,13 @@ class CartListViewItem extends StatelessWidget {
                 ),
                 verticalSpace(8),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.read<CartCubit>().emitAddOrRemoveCartItem(
+                        productId: cartItem.product!.id!.toInt());
+
+                    // context.read<CartCubit>().getCart(); 
+
+                  },
                   icon: const Icon(Icons.delete),
                 ),
               ],

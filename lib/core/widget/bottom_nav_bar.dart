@@ -1,7 +1,9 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:snap_shop/core/di/dependency_injection.dart';
+import 'package:snap_shop/core/theming/colors.dart';
 import 'package:snap_shop/features/cart/logic/cart_cubit.dart';
 import 'package:snap_shop/features/cart/ui/cart_screen.dart';
 import 'package:snap_shop/features/home/ui/home_screen.dart';
@@ -12,33 +14,34 @@ class LayoutShop extends StatefulWidget {
   const LayoutShop({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _LayoutShopState createState() => _LayoutShopState();
 }
 
 class _LayoutShopState extends State<LayoutShop> {
-  int _bottomNavIndex = 0; 
+  int _bottomNavIndex = 0;
 
-  final List<Widget> _pages = [
-    const HomeScreen(),
-    BlocProvider(
-      create: (context) => getit<NotificationCubit>()..getNotification(),
-      child: const NotificationScreen(),
-    ),
-    // BlocProvider(
-    //   create: (context) => getit<CartCubit>()..getCart(),
-    //   child: const CartScreen(),
-    // ),
-    const CartScreen(),
-    Container(),
-  ];
-
-  List<IconData> iconList = [
+  final List<IconData> iconList = [
     Icons.home,
-    Icons.notifications_active,
+    Iconsax.notification,
     Icons.shopping_cart,
     Icons.person,
   ];
+
+  late List<Widget> _pages;
+
+  @override
+  void initState() {
+    super.initState();
+    _pages = [
+      const HomeScreen(),
+      BlocProvider(
+        create: (context) => getit<NotificationCubit>()..getNotification(),
+        child: const NotificationScreen(),
+      ),
+      const CartScreen(),
+      Container(), 
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +54,9 @@ class _LayoutShopState extends State<LayoutShop> {
             GapLocation.center, // وجود فجوة في منتصف الـ Bottom Navigation Bar
         notchSmoothness: NotchSmoothness.verySmoothEdge, // جعل الزاوية ناعمة
         leftCornerRadius: 32, // زوايا دائرية لليسار
-        rightCornerRadius: 32, // زوايا دائرية لليمين
+        rightCornerRadius: 32,
+        
+        activeColor: ColorsManager.mainColor, // زوايا دائرية لليمين
         onTap: (index) {
           setState(() {
             _bottomNavIndex = index; // تحديث الصفحة عند تغيير المؤشر

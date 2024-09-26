@@ -8,81 +8,36 @@ import 'package:snap_shop/features/cart/data/repo/cart_repo.dart';
 part 'cart_state.dart';
 part 'cart_cubit.freezed.dart';
 
-// class CartCubit extends Cubit<CartState> {
-//   static CartCubit get(context) => BlocProvider.of(context);
-//   final CartRepo _cartRepo;
-//   CartCubit(this._cartRepo) : super(const CartState.initial());
-
-//   Set<String> cartsId = {};
-
-//   void getCart() async {
-//     emit(const CartState.cartloading());
-
-//     final response = await _cartRepo.getCart();
-//     response.when(success: (cartResponseModel) {
-//       print('cartRRResponseModel: ${cartResponseModel.data!.cartItems}');
-//       emit(CartState.cartsuccess(
-//           cartDataList: cartResponseModel.data!.cartItems!));
-//     }, failure: (errorHandler) {
-//       print('Error: ${errorHandler.toString()}');
-//       emit(CartState.carterror(error: errorHandler));
-//     });
-//   }
-
-//   void emitAddOrRemoveCartItem({required int productId}) async {
-//     final response = await _cartRepo.addOrRemoveCart(
-//       AddOrRemoveCartRequestModel(
-//         productId: productId,
-//       ),
-//     );
-
-//     response.when(
-//       success: (addOrRemoveCartResponseModel) async {
-//         emit(CartState.addOrRemoveCartSuccess(
-//           addOrRemoveCartResponseModel,
-//         ));
-//       },
-//       failure: (error) {
-//         emit(CartState.addOrRemoveCartError(error: error));
-//       },
-//     );
-//   }
-// }
-
 class CartCubit extends Cubit<CartState> {
   static CartCubit get(context) => BlocProvider.of(context);
   final CartRepo _cartRepo;
+  List<CartItem> cartItems = [];
   CartCubit(this._cartRepo) : super(const CartState.initial());
 
   Set<String> cartsId = {}; // لمتابعة العناصر في السلة
 
   // دالة لجلب بيانات السلة
-  void getCart() async {
+  Future<void> getCart() async {
     emit(const CartState.cartloading());
 
     final response = await _cartRepo.getCart();
     response.when(success: (cartResponseModel) {
+      cartItems = cartResponseModel.data!.cartItems!;
       // تحديث cartsId بناءً على العناصر الحالية في السلة
       cartsId.clear();
       cartResponseModel.data!.cartItems?.forEach((item) {
-        cartsId.add(item.id.toString());
+        cartsId.add(item.product!.id.toString());
       });
-
-      print('cartResponseModel: ${cartResponseModel.data!.cartItems}');
-      emit(CartState.cartsuccess(
-          cartDataList: cartResponseModel.data!.cartItems!));
+      print('Carts Number is ${cartResponseModel.data!.cartItems!.length}');
+      emit(CartState.cartsuccess(cartDataList: cartItems));
     }, failure: (errorHandler) {
-      print('Error: ${errorHandler.toString()}');
       emit(CartState.carterror(error: errorHandler));
     });
   }
 
-  // دالة لإضافة أو إزالة عنصر من السلة
-  void emitAddOrRemoveCartItem({required int productId}) async {
+  Future<void> emitAddOrRemoveCartItem({required int productId}) async {
     final response = await _cartRepo.addOrRemoveCart(
-      AddOrRemoveCartRequestModel(
-        productId: productId,
-      ),
+      AddOrRemoveCartRequestModel(productId: productId),
     );
 
     response.when(
@@ -93,15 +48,14 @@ class CartCubit extends Cubit<CartState> {
         } else {
           cartsId.add(productId.toString());
         }
-
-        // إعادة جلب السلة بعد الإضافة أو الإزالة
-        getCart();
-
         emit(CartState.addOrRemoveCartSuccess(
           addOrRemoveCartResponseModel,
         ));
+        print('you are success adding to cart or remove from cart');
+        await getCart();
       },
       failure: (error) {
+        print('you are failed adding to cart or remove from cart');
         emit(CartState.addOrRemoveCartError(error: error));
       },
     );

@@ -14,21 +14,23 @@ class CartListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return cartItems!.isEmpty ?? true  ? const CartLessScreen() : ListView.separated(
-      separatorBuilder: (context, index) => Container(
-        height: 10.h,
-        color: Colors.white,
-      ),
-      itemBuilder: (context, index) {
-        return Padding(
-          padding: const EdgeInsets.only(bottom: 8.0),
-          child: CartListViewItem(
-            cartItem: cartItems![index]!,
-          ),
-        );
-      },
-      itemCount: cartItems?.length.toInt() ?? 0,
-      // shrinkWrap: true,
-    );
+    return (cartItems == null || cartItems!.isEmpty)
+        ? const CartLessScreen()
+        : ListView.separated(
+            separatorBuilder: (context, index) => Container(
+              height: 10.h,
+              color: Colors.white,
+            ),
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: const EdgeInsets.only(bottom: 8.0),
+                child: CartListViewItem(
+                  cartItem: cartItems![index]!,
+                ),
+              );
+            },
+            itemCount: cartItems?.length.toInt() ?? 0,
+            // shrinkWrap: true,
+          );
   }
 }
