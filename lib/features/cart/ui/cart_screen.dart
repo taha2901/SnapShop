@@ -7,7 +7,6 @@ import 'package:snap_shop/core/theming/colors.dart';
 import 'package:snap_shop/core/theming/styles.dart';
 import 'package:snap_shop/core/widget/app_text_button.dart';
 import 'package:snap_shop/features/cart/data/model/cart_response_model/cart_item.dart';
-import 'package:snap_shop/features/cart/logic/cart_cubit.dart';
 import 'package:snap_shop/features/cart/ui/widget/cart/cart_app_bar.dart';
 import 'package:snap_shop/features/cart/ui/widget/cart/cart_bloc_builder.dart';
 

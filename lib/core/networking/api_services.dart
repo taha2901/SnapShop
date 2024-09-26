@@ -10,6 +10,7 @@ import 'package:snap_shop/features/login/data/model/login_request_body.dart';
 import 'package:snap_shop/features/notification/data/model/notification.dart';
 import 'package:snap_shop/features/register/data/models/register_request_body.dart';
 import 'package:snap_shop/features/register/data/models/register_response.dart';
+import 'package:snap_shop/features/profile/data/model/profile_model/profile_model.dart';
 import '../../features/login/data/model/login_response_body.dart';
 import 'api_constants.dart';
 part 'api_services.g.dart';
@@ -33,7 +34,7 @@ abstract class ApiServices {
 
   @GET(ApiConstants.home)
   Future<ProductsResponseModel> getProducts();
-  
+
   @GET('categories/{categoryId}')
   Future<CategoriesDetailsResponseModel> getCategoriesDetails(
       @Path("categoryId") int categoryId);
@@ -47,4 +48,7 @@ abstract class ApiServices {
   @POST(ApiConstants.addOrRemoveCart)
   Future<AddOrRemoveCartResponseModel> addOrRemoveCart(
       @Body() AddOrRemoveCartRequestModel addOrRemoveCartRequestModel);
+
+  @GET(ApiConstants.settings)
+  Future<ProfileModel> getProfile();
 }

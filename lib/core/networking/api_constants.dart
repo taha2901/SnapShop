@@ -16,6 +16,8 @@ class ApiConstants {
   static const String cart = 'carts';
 
   static const String addOrRemoveCart = 'carts';
+
+  static const String settings = 'profile';
 }
 
 class ApiErrors {
