@@ -4,8 +4,8 @@ import 'package:snap_shop/core/di/dependency_injection.dart';
 import 'package:snap_shop/core/routings/routers.dart';
 import 'package:snap_shop/core/widget/bottom_nav_bar.dart';
 import 'package:snap_shop/features/address/logic/address_cubit.dart';
+import 'package:snap_shop/features/address/ui/add_address_screen.dart';
 import 'package:snap_shop/features/address/ui/address_screen.dart';
-import 'package:snap_shop/features/address/ui/widget/address_bloc_builder.dart';
 import 'package:snap_shop/features/cart/ui/checkout_screen.dart';
 import 'package:snap_shop/features/home/logic/home_cubit.dart';
 import 'package:snap_shop/features/home/ui/home_screen.dart';
@@ -96,6 +96,15 @@ class AppRouter {
             create: (context) => getit<AddressCubit>(),
             child: const AddAddressScreen(),
           ),
+        );
+
+      case Routers.address:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getit<AddressCubit>()..emitGetAddressStates(),
+            child: const AddressScreen(),
+          ),
+          // builder: (_) => const AddressScreen(),
         );
 
       default:

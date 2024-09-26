@@ -129,7 +129,7 @@ class ProfileScreen extends StatelessWidget {
                         ),
                         title: const Text("Address"),
                         onTap: () {
-                          //  context.pushNamed(Routers.addAddress);
+                           context.pushNamed(Routers.address);
                         },
                       ),
                     ),
