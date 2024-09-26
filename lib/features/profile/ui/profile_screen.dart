@@ -114,12 +114,7 @@ class ProfileScreen extends StatelessWidget {
                           onPressed: () {}, icon: const Icon(Iconsax.edit)),
                       title: const Text("Update Profile"),
                       onTap: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => UpdateUserDataScreen(),
-                        //   ),
-                        // );
+                       context.pushNamed(Routers.updateProfile);
                       },
                     ),
                   ),
