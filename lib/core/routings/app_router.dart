@@ -4,9 +4,11 @@ import 'package:snap_shop/core/di/dependency_injection.dart';
 import 'package:snap_shop/core/routings/routers.dart';
 import 'package:snap_shop/core/widget/bottom_nav_bar.dart';
 import 'package:snap_shop/features/address/logic/address_cubit.dart';
+import 'package:snap_shop/features/address/ui/add_address_screen.dart';
 import 'package:snap_shop/features/address/ui/address_screen.dart';
-import 'package:snap_shop/features/address/ui/widget/address_bloc_builder.dart';
 import 'package:snap_shop/features/cart/ui/checkout_screen.dart';
+import 'package:snap_shop/features/favourite/logic/favourite_cubit.dart';
+import 'package:snap_shop/features/favourite/ui/favourite_screen.dart';
 import 'package:snap_shop/features/home/logic/home_cubit.dart';
 import 'package:snap_shop/features/home/ui/home_screen.dart';
 import 'package:snap_shop/features/home/ui/product_details_screen.dart';
@@ -95,6 +97,22 @@ class AppRouter {
           builder: (_) => BlocProvider(
             create: (context) => getit<AddressCubit>(),
             child: const AddAddressScreen(),
+          ),
+        );
+
+      case Routers.address:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getit<AddressCubit>()..emitGetAddressStates(),
+            child: const AddressScreen(),
+          ),
+        );
+
+      case Routers.favourite:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getit<FavouriteCubit>()..getFavourites(),
+            child: const FavouriteScreen(),
           ),
         );
 

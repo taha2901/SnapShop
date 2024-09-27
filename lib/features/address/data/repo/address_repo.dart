@@ -3,6 +3,7 @@ import 'package:snap_shop/core/networking/api_result.dart';
 import 'package:snap_shop/core/networking/api_services.dart';
 import 'package:snap_shop/features/address/data/model/address_request_model.dart';
 import 'package:snap_shop/features/address/data/model/address_response_model/address_response_model.dart';
+import 'package:snap_shop/features/address/data/model/get_address_response_model/get_address_response_model.dart';
 
 class AddressRepo {
   final ApiServices _apiServices;
@@ -24,4 +25,19 @@ class AddressRepo {
       );
     }
   }
+
+  Future<ApiResult<GetAddressResponseModel>> getAddresses() async {
+    try {
+      final response = await _apiServices.getAddresses();
+      print('API Response: $response');
+      return ApiResult.success(response);
+    } catch (error) {
+      print('API Error: $error');
+      return ApiResult.failure(
+        ErrorHandler.handle(error),
+      );
+    }
+  }
+
+
 }

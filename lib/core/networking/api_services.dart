@@ -2,9 +2,12 @@ import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:snap_shop/features/address/data/model/address_request_model.dart';
 import 'package:snap_shop/features/address/data/model/address_response_model/address_response_model.dart';
+import 'package:snap_shop/features/address/data/model/get_address_response_model/get_address_response_model.dart';
 import 'package:snap_shop/features/cart/data/model/add_or_remove_cart_request_model.dart';
 import 'package:snap_shop/features/cart/data/model/add_or_remove_cart_response_model/add_or_remove_cart_response_model.dart';
 import 'package:snap_shop/features/cart/data/model/cart_response_model/cart_response_model.dart';
+import 'package:snap_shop/features/favourite/data/model/add_or_remove_favourite_model/add_or_remove_favourite_model.dart';
+import 'package:snap_shop/features/favourite/data/model/favourite/favourite.dart';
 import 'package:snap_shop/features/home/data/model/categories/categories_response_model.dart';
 import 'package:snap_shop/features/home/data/model/categories_details_response_model/categories_details_response_model.dart';
 import 'package:snap_shop/features/home/data/model/products/products_response_model.dart';
@@ -70,5 +73,16 @@ abstract class ApiServices {
   @POST(ApiConstants.addresses)
   Future<AddressResponseModel> addAddress(
     @Body() AddressRequestModel addressRequestModel,
+  );
+
+  @GET(ApiConstants.addresses)
+  Future<GetAddressResponseModel> getAddresses();
+
+  @GET(ApiConstants.favourite)
+  Future<FavouriteModel> getFavourite();
+
+  @POST(ApiConstants.favourite)
+  Future<FavouriteModel> addOrRemoveFavourite(
+    @Body() AddOrRemoveFavouriteModel addOrRemoveFavouriteRequestModel,
   );
 }
