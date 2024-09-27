@@ -24,6 +24,8 @@ class ApiConstants {
   static const String updateProfile = 'update-profile';
 
   static const String addresses = 'addresses';
+
+  static const String favourite = 'favorites';
 }
 
 class ApiErrors {

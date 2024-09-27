@@ -64,17 +64,6 @@ class TextStyles {
     fontWeight: FontWeightHelper.bold,
     fontSize: 24.sp,
   );
-  // static TextStyle font14greyRegular = TextStyle(
-  //   color: ColorsManager.grey,
-  //   fontWeight: FontWeightHelper.regular,
-  //   fontSize: 14.sp,
-  // );
-  // static TextStyle font13GreyRegular = TextStyle(
-  //   color: ColorsManager.grey,
-  //   fontWeight: FontWeightHelper.regular,
-  //   fontSize: 10.sp,
-  // );
-
   static TextStyle font16WhiteMedium = TextStyle(
     color: Colors.white,
     fontWeight: FontWeightHelper.medium,
@@ -135,52 +124,4 @@ class TextStyles {
     fontWeight: FontWeightHelper.semiBold,
     // color: ColorsManager.mainBlue,
   );
-
-  // static TextStyle font14GrayRegular = TextStyle(
-  //   fontSize: 14.sp,
-  //   fontWeight: FontWeightHelper.regular,
-  //   color: ColorsManager.grey,
-  // );
-
-  // static TextStyle font18DarkBlueBold = TextStyle(
-  //   fontSize: 18.sp,
-  //   fontWeight: FontWeightHelper.bold,
-  //   color: ColorsManager.darkBlue,
-  // );
-
-  // static TextStyle font12GrayRegular = TextStyle(
-  //   fontSize: 12.sp,
-  //   fontWeight: FontWeightHelper.regular,
-  //   color: ColorsManager.grey,
-  // );
-
-  // static TextStyle font18WhiteMedium = TextStyle(
-  //   fontSize: 18.sp,
-  //   fontWeight: FontWeightHelper.medium,
-  //   color: Colors.white,
-  // );
-
-  // static TextStyle font12BlueRegular = TextStyle(
-  //   fontSize: 12.sp,
-  //   fontWeight: FontWeightHelper.regular,
-  //   color: ColorsManager.mainBlue,
-  // );
-
-  // static TextStyle font18DarkBlueSemiBold = TextStyle(
-  //   fontSize: 18.sp,
-  //   fontWeight: FontWeightHelper.semiBold,
-  //   color: ColorsManager.darkBlue,
-  // );
-
-  // static TextStyle font12DarkBlueRegular = TextStyle(
-  //   fontSize: 12.sp,
-  //   fontWeight: FontWeightHelper.regular,
-  //   color: ColorsManager.darkBlue,
-  // );
-
-  // static TextStyle font12GrayMedium = TextStyle(
-  //   fontSize: 12.sp,
-  //   fontWeight: FontWeightHelper.medium,
-  //   color: ColorsManager.grey,
-  // );
 }

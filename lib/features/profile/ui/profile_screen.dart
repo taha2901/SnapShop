@@ -141,7 +141,7 @@ class ProfileScreen extends StatelessWidget {
                         ),
                         title: const Text("wishlist"),
                         onTap: () {
-                          //  context.pushNamed(Routers.updateProfile);
+                           context.pushNamed(Routers.favourite);
                         },
                       ),
                     ),

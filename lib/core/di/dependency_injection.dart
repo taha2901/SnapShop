@@ -4,6 +4,8 @@ import 'package:snap_shop/features/address/data/repo/address_repo.dart';
 import 'package:snap_shop/features/address/logic/address_cubit.dart';
 import 'package:snap_shop/features/cart/data/repo/cart_repo.dart';
 import 'package:snap_shop/features/cart/logic/cart_cubit.dart';
+import 'package:snap_shop/features/favourite/data/repo/favourite_repo.dart';
+import 'package:snap_shop/features/favourite/logic/favourite_cubit.dart';
 import 'package:snap_shop/features/home/data/repo/home_repo.dart';
 import 'package:snap_shop/features/home/logic/home_cubit.dart';
 import 'package:snap_shop/features/notification/data/repo/notification_repo.dart';
@@ -52,6 +54,10 @@ Future<void> setUpGetIt() async {
   //address
   getit.registerLazySingleton<AddressRepo>(() => AddressRepo(getit()));
   getit.registerFactory<AddressCubit>(() => AddressCubit(getit()));
+
+  //favourite
+  getit.registerLazySingleton<FavouriteRepo>(() => FavouriteRepo(getit()));
+  getit.registerFactory<FavouriteCubit>(() => FavouriteCubit(getit()));
 
   
 
