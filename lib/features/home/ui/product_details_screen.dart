@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:snap_shop/core/helpers/extentions.dart';
 import 'package:snap_shop/core/helpers/spacing.dart';
 import 'package:snap_shop/core/theming/colors.dart';
 import 'package:snap_shop/core/theming/styles.dart';
 import 'package:snap_shop/core/widget/custom_show_toast.dart';
 import 'package:snap_shop/features/cart/logic/cart_cubit.dart';
+import 'package:snap_shop/features/favourite/logic/favourite_cubit.dart';
 import 'package:snap_shop/features/home/data/model/products/product.dart';
 import 'package:snap_shop/features/home/ui/widget/product_details/app_bar.dart';
 
@@ -24,7 +27,6 @@ class ProductDetailsScreen extends StatelessWidget {
           addOrRemoveCartError: (error) {
             showToast(msg: 'Failed', state: ToastStates.ERROR);
           },
-          
         );
       },
       builder: (context, state) {
@@ -35,7 +37,71 @@ class ProductDetailsScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const ProductDetailsAppBar(),
+                  verticalSpace(16),
+                  // const ProductDetailsAppBar(),
+
+                  BlocConsumer<FavouriteCubit, FavouriteState>(
+                    listener: (context, state) {
+                      state.maybeWhen(
+                        addOrRemoveFavouriteSuccess: () {
+                          showToast(
+                              msg: 'Succesfully', state: ToastStates.SUCCESS);
+                        },
+                        addOrRemoveFavouriteError: () {
+                          showToast(msg: 'Failed', state: ToastStates.ERROR);
+                        },
+                        orElse: () {},
+                      );
+                    },
+                    builder: (context, state) {
+                      return Row(
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              context.pop();
+                            },
+                            child: Image.asset(
+                              'assets/images/Frame 17.png',
+                              height: 40.h,
+                              width: 40.w,
+                            ),
+                          ),
+                          const Spacer(),
+                          context
+                                  .read<FavouriteCubit>()
+                                  .favoriteID
+                                  .contains(productDataList!.id.toString())
+                              ? GestureDetector(
+                                  onTap: () {
+                                    context
+                                        .read<FavouriteCubit>()
+                                        .addOrRemoveFavourite(
+                                            productId: productDataList!.id!);
+                                  },
+                                  child: Image.asset(
+                                    'assets/images/fav-icon.png',
+                                    height: 40.h,
+                                    width: 40.w,
+                                  ),
+                                )
+                              : GestureDetector(
+                                  onTap: () {
+                                    context
+                                        .read<FavouriteCubit>()
+                                        .addOrRemoveFavourite(
+                                            productId: productDataList!.id!);
+                                  },
+                                  child: Image.asset(
+                                    'assets/images/Frame 16.png',
+                                    height: 40.h,
+                                    width: 40.w,
+                                  ),
+                                ),
+                        ],
+                      );
+                    },
+                  ),
+
                   verticalSpace(24),
                   Container(
                     decoration: const BoxDecoration(),

@@ -29,24 +29,35 @@ class _LayoutShopState extends State<LayoutShop> {
     Icons.person,
   ];
 
-  late List<Widget> _pages;
+  late List<Widget> _pages = [
+    const HomeScreen(),
+    BlocProvider(
+      create: (context) => getit<NotificationCubit>()..getNotification(),
+      child: const NotificationScreen(),
+    ),
+    const CartScreen(),
+    BlocProvider(
+      create: (context) => getit<ProfileCubit>()..getUserData(),
+      child: const ProfileBlocBuilder(),
+    ),
+  ];
 
-  @override
-  void initState() {
-    super.initState();
-    _pages = [
-      const HomeScreen(),
-      BlocProvider(
-        create: (context) => getit<NotificationCubit>()..getNotification(),
-        child: const NotificationScreen(),
-      ),
-      const CartScreen(),
-      BlocProvider(
-        create: (context) => getit<ProfileCubit>()..getUserData(),
-        child: const ProfileBlocBuilder(),
-      ),
-    ];
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   _pages = [
+  //     const HomeScreen(),
+  //     BlocProvider(
+  //       create: (context) => getit<NotificationCubit>()..getNotification(),
+  //       child: const NotificationScreen(),
+  //     ),
+  //     const CartScreen(),
+  //     BlocProvider(
+  //       create: (context) => getit<ProfileCubit>()..getUserData(),
+  //       child: const ProfileBlocBuilder(),
+  //     ),
+  //   ];
+  // }
 
   @override
   Widget build(BuildContext context) {

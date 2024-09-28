@@ -7,6 +7,7 @@ import 'package:snap_shop/core/routings/app_router.dart';
 import 'package:snap_shop/core/routings/routers.dart';
 import 'package:snap_shop/core/theming/colors.dart';
 import 'package:snap_shop/features/cart/logic/cart_cubit.dart';
+import 'package:snap_shop/features/favourite/logic/favourite_cubit.dart';
 import 'package:snap_shop/features/home/logic/home_cubit.dart';
 
 class SnapShop extends StatelessWidget {
@@ -29,6 +30,9 @@ class SnapShop extends StatelessWidget {
             ),
             BlocProvider(
               create: (context) => getit<CartCubit>()..getCart(),
+            ),
+            BlocProvider(
+              create: (context) => getit<FavouriteCubit>()..getFavourites(),
             ),
           ],
           child: MaterialApp(

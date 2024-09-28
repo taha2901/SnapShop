@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:snap_shop/core/widget/custom_show_toast.dart';
 import 'package:snap_shop/features/favourite/logic/favourite_cubit.dart';
 import 'package:snap_shop/features/favourite/ui/widget/my_favourites_grid_view.dart';
 
@@ -10,7 +11,20 @@ class FavouriteBlocBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<FavouriteCubit, FavouriteState>(
+    return BlocConsumer<FavouriteCubit, FavouriteState>(
+      listener: (context, state) {
+        state.maybeWhen(
+          orElse: () {
+            
+          },
+         addOrRemoveFavouriteError: () {
+           return showToast(msg: 'Error', state: ToastStates.ERROR);
+          },
+          addOrRemoveFavouriteSuccess: () {
+            showToast(msg: 'Success', state: ToastStates.SUCCESS);
+          },
+        );
+      },
       buildWhen: (previous, current) =>
           current is  FavouriteLoading ||
           current is FavouriteSuccess ||
@@ -23,6 +37,7 @@ class FavouriteBlocBuilder extends StatelessWidget {
             return setUpSuccess(favouriteList);
           },
           favouriteError: (error) => setupError(),
+         
           orElse: () => const SizedBox.shrink(),
         );
       },

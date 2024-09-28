@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:snap_shop/core/helpers/extentions.dart';
+import 'package:snap_shop/core/helpers/shared_pref_helper.dart';
 import 'package:snap_shop/core/helpers/spacing.dart';
 import 'package:snap_shop/core/routings/routers.dart';
 import 'package:snap_shop/core/theming/styles.dart';
@@ -129,7 +130,7 @@ class ProfileScreen extends StatelessWidget {
                         ),
                         title: const Text("Address"),
                         onTap: () {
-                           context.pushNamed(Routers.address);
+                          context.pushNamed(Routers.address);
                         },
                       ),
                     ),
@@ -141,7 +142,28 @@ class ProfileScreen extends StatelessWidget {
                         ),
                         title: const Text("wishlist"),
                         onTap: () {
-                           context.pushNamed(Routers.favourite);
+                          context.pushNamed(Routers.favourite);
+                        },
+                      ),
+                    ),
+                    verticalSpace(16.0),
+                    // زر تسجيل الخروج
+                    Card(
+                      color: Colors.red,
+                      child: ListTile(
+                        leading: const Icon(Icons.logout, color: Colors.white),
+                        title: const Text(
+                          "Logout",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        onTap: () async {
+                          // حذف البيانات المخزنة
+                          await SharedPrefHelper.clearAllData();
+                          await SharedPrefHelper.clearAllSecuredData();
+
+                          // توجيه المستخدم إلى صفحة تسجيل الدخول
+                          Navigator.pushNamedAndRemoveUntil(
+                              context, Routers.login, (route) => false);
                         },
                       ),
                     ),
