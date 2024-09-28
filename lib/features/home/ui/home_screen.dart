@@ -31,10 +31,7 @@ class HomeScreen extends StatelessWidget {
               verticalSpace(18.0),
               const CategoriesSeeAll(),
               verticalSpace(16.0),
-              SizedBox(
-                height: 100.h,
-                child: const CategoriesBlocBuilder(),
-              ),
+              const CategoriesBlocBuilder(),
               verticalSpace(14.0),
               const TopSellingSeeAll(),
               verticalSpace(16.0),

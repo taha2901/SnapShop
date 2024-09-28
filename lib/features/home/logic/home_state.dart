@@ -11,6 +11,7 @@ class HomeState with _$HomeState {
 
   // Categories
   const factory HomeState.categoriesLoading() = CategoriesLoading;
+  const factory HomeState.cateLoad() = CatLoad;
   const factory HomeState.categoriesSuccess(
           {required List<CategoriesDataList> categoriesDataList}) =
       CategoriesSuccess;
