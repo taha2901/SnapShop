@@ -7,7 +7,6 @@ import 'package:snap_shop/features/address/logic/address_cubit.dart';
 import 'package:snap_shop/features/address/ui/add_address_screen.dart';
 import 'package:snap_shop/features/address/ui/address_screen.dart';
 import 'package:snap_shop/features/cart/ui/checkout_screen.dart';
-import 'package:snap_shop/features/favourite/logic/favourite_cubit.dart';
 import 'package:snap_shop/features/favourite/ui/favourite_screen.dart';
 import 'package:snap_shop/features/home/logic/home_cubit.dart';
 import 'package:snap_shop/features/home/ui/home_screen.dart';
@@ -42,7 +41,7 @@ class AppRouter {
         );
       case Routers.home:
         return MaterialPageRoute(
-          builder: (_) => const HomeScreen(),
+          builder: (_) => const LayoutShop(),
         );
       case Routers.categories:
         return MaterialPageRoute(
@@ -110,10 +109,7 @@ class AppRouter {
 
       case Routers.favourite:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getit<FavouriteCubit>()..getFavourites(),
-            child: const FavouriteScreen(),
-          ),
+          builder: (_) => const FavouriteScreen(),
         );
 
       default:

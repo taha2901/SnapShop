@@ -28,24 +28,48 @@ class DioFactory {
 
   static void addDioHeaders() async {
     String? token = await SharedPrefHelper.getString(SharedPrefKeys.userToken);
-    print('Token: $token'); // Debug the token
+    print('Current Token: $token'); // Debug the token
     dio?.options.headers = {
       'lang': 'en',
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'Authorization':
-          '$token',
+      'Authorization': '$token',
     };
   }
 
-  static void setTokenIntoHeaderAfterLogin(String token) {
-    dio?.options.headers = {
-      'lang': 'en',
-      'Authorization': 'Bearer $token',
-    };
+  // static void setTokenIntoHeaderAfterLogin(String token) {
+  //   dio?.options.headers = {
+  //     'lang': 'en',
+  //     'Authorization': '$token',
+  //   };
+  // }
+  static void setTokenIntoHeaderAfterLogin(String token) async {
+    await SharedPrefHelper.setData(SharedPrefKeys.userToken, token);
+    dio?.options.headers['Authorization'] = '$token';
   }
+
+  // static void addDioInterceptor() {
+  //   dio?.interceptors.add(
+  //     PrettyDioLogger(
+  //       requestBody: true,
+  //       requestHeader: true,
+  //       responseHeader: true,
+  //     ),
+  //   );
+  // }
 
   static void addDioInterceptor() {
+    dio?.interceptors.add(InterceptorsWrapper(
+      onRequest: (options, handler) async {
+        String? token =
+            await SharedPrefHelper.getString(SharedPrefKeys.userToken);
+        options.headers['Authorization'] =
+            '$token'; // Adding token to headers
+        print('Token used in request: $token'); // Debugging token
+        return handler.next(options);
+      },
+    ));
+
     dio?.interceptors.add(
       PrettyDioLogger(
         requestBody: true,

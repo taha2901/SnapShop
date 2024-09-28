@@ -14,7 +14,7 @@ class MyFavouriteGridView extends StatelessWidget {
           crossAxisCount: 2, 
           crossAxisSpacing: 10.0, 
           mainAxisSpacing: 10.0, 
-          childAspectRatio: 1 / 1.6, 
+          childAspectRatio: 1 / 1.4, 
         ),
         itemCount: favouriteDataList.length,
         itemBuilder: (context, index) {

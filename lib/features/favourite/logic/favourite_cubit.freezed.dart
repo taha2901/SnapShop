@@ -22,6 +22,8 @@ mixin _$FavouriteState {
     required TResult Function() favouriteLoading,
     required TResult Function(List<FavouriteDataList> data) favouriteSuccess,
     required TResult Function(String message) favouriteError,
+    required TResult Function() addOrRemoveFavouriteSuccess,
+    required TResult Function() addOrRemoveFavouriteError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +32,8 @@ mixin _$FavouriteState {
     TResult? Function()? favouriteLoading,
     TResult? Function(List<FavouriteDataList> data)? favouriteSuccess,
     TResult? Function(String message)? favouriteError,
+    TResult? Function()? addOrRemoveFavouriteSuccess,
+    TResult? Function()? addOrRemoveFavouriteError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +42,8 @@ mixin _$FavouriteState {
     TResult Function()? favouriteLoading,
     TResult Function(List<FavouriteDataList> data)? favouriteSuccess,
     TResult Function(String message)? favouriteError,
+    TResult Function()? addOrRemoveFavouriteSuccess,
+    TResult Function()? addOrRemoveFavouriteError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +53,10 @@ mixin _$FavouriteState {
     required TResult Function(FavouriteLoading value) favouriteLoading,
     required TResult Function(FavouriteSuccess value) favouriteSuccess,
     required TResult Function(FavouriteError value) favouriteError,
+    required TResult Function(AddOrRemoveFavouriteSuccess value)
+        addOrRemoveFavouriteSuccess,
+    required TResult Function(AddOrRemoveFavouriteError value)
+        addOrRemoveFavouriteError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +65,10 @@ mixin _$FavouriteState {
     TResult? Function(FavouriteLoading value)? favouriteLoading,
     TResult? Function(FavouriteSuccess value)? favouriteSuccess,
     TResult? Function(FavouriteError value)? favouriteError,
+    TResult? Function(AddOrRemoveFavouriteSuccess value)?
+        addOrRemoveFavouriteSuccess,
+    TResult? Function(AddOrRemoveFavouriteError value)?
+        addOrRemoveFavouriteError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +77,10 @@ mixin _$FavouriteState {
     TResult Function(FavouriteLoading value)? favouriteLoading,
     TResult Function(FavouriteSuccess value)? favouriteSuccess,
     TResult Function(FavouriteError value)? favouriteError,
+    TResult Function(AddOrRemoveFavouriteSuccess value)?
+        addOrRemoveFavouriteSuccess,
+    TResult Function(AddOrRemoveFavouriteError value)?
+        addOrRemoveFavouriteError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -134,6 +152,8 @@ class _$InitialImpl implements _Initial {
     required TResult Function() favouriteLoading,
     required TResult Function(List<FavouriteDataList> data) favouriteSuccess,
     required TResult Function(String message) favouriteError,
+    required TResult Function() addOrRemoveFavouriteSuccess,
+    required TResult Function() addOrRemoveFavouriteError,
   }) {
     return initial();
   }
@@ -145,6 +165,8 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? favouriteLoading,
     TResult? Function(List<FavouriteDataList> data)? favouriteSuccess,
     TResult? Function(String message)? favouriteError,
+    TResult? Function()? addOrRemoveFavouriteSuccess,
+    TResult? Function()? addOrRemoveFavouriteError,
   }) {
     return initial?.call();
   }
@@ -156,6 +178,8 @@ class _$InitialImpl implements _Initial {
     TResult Function()? favouriteLoading,
     TResult Function(List<FavouriteDataList> data)? favouriteSuccess,
     TResult Function(String message)? favouriteError,
+    TResult Function()? addOrRemoveFavouriteSuccess,
+    TResult Function()? addOrRemoveFavouriteError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -171,6 +195,10 @@ class _$InitialImpl implements _Initial {
     required TResult Function(FavouriteLoading value) favouriteLoading,
     required TResult Function(FavouriteSuccess value) favouriteSuccess,
     required TResult Function(FavouriteError value) favouriteError,
+    required TResult Function(AddOrRemoveFavouriteSuccess value)
+        addOrRemoveFavouriteSuccess,
+    required TResult Function(AddOrRemoveFavouriteError value)
+        addOrRemoveFavouriteError,
   }) {
     return initial(this);
   }
@@ -182,6 +210,10 @@ class _$InitialImpl implements _Initial {
     TResult? Function(FavouriteLoading value)? favouriteLoading,
     TResult? Function(FavouriteSuccess value)? favouriteSuccess,
     TResult? Function(FavouriteError value)? favouriteError,
+    TResult? Function(AddOrRemoveFavouriteSuccess value)?
+        addOrRemoveFavouriteSuccess,
+    TResult? Function(AddOrRemoveFavouriteError value)?
+        addOrRemoveFavouriteError,
   }) {
     return initial?.call(this);
   }
@@ -193,6 +225,10 @@ class _$InitialImpl implements _Initial {
     TResult Function(FavouriteLoading value)? favouriteLoading,
     TResult Function(FavouriteSuccess value)? favouriteSuccess,
     TResult Function(FavouriteError value)? favouriteError,
+    TResult Function(AddOrRemoveFavouriteSuccess value)?
+        addOrRemoveFavouriteSuccess,
+    TResult Function(AddOrRemoveFavouriteError value)?
+        addOrRemoveFavouriteError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -251,6 +287,8 @@ class _$FavouriteLoadingImpl implements FavouriteLoading {
     required TResult Function() favouriteLoading,
     required TResult Function(List<FavouriteDataList> data) favouriteSuccess,
     required TResult Function(String message) favouriteError,
+    required TResult Function() addOrRemoveFavouriteSuccess,
+    required TResult Function() addOrRemoveFavouriteError,
   }) {
     return favouriteLoading();
   }
@@ -262,6 +300,8 @@ class _$FavouriteLoadingImpl implements FavouriteLoading {
     TResult? Function()? favouriteLoading,
     TResult? Function(List<FavouriteDataList> data)? favouriteSuccess,
     TResult? Function(String message)? favouriteError,
+    TResult? Function()? addOrRemoveFavouriteSuccess,
+    TResult? Function()? addOrRemoveFavouriteError,
   }) {
     return favouriteLoading?.call();
   }
@@ -273,6 +313,8 @@ class _$FavouriteLoadingImpl implements FavouriteLoading {
     TResult Function()? favouriteLoading,
     TResult Function(List<FavouriteDataList> data)? favouriteSuccess,
     TResult Function(String message)? favouriteError,
+    TResult Function()? addOrRemoveFavouriteSuccess,
+    TResult Function()? addOrRemoveFavouriteError,
     required TResult orElse(),
   }) {
     if (favouriteLoading != null) {
@@ -288,6 +330,10 @@ class _$FavouriteLoadingImpl implements FavouriteLoading {
     required TResult Function(FavouriteLoading value) favouriteLoading,
     required TResult Function(FavouriteSuccess value) favouriteSuccess,
     required TResult Function(FavouriteError value) favouriteError,
+    required TResult Function(AddOrRemoveFavouriteSuccess value)
+        addOrRemoveFavouriteSuccess,
+    required TResult Function(AddOrRemoveFavouriteError value)
+        addOrRemoveFavouriteError,
   }) {
     return favouriteLoading(this);
   }
@@ -299,6 +345,10 @@ class _$FavouriteLoadingImpl implements FavouriteLoading {
     TResult? Function(FavouriteLoading value)? favouriteLoading,
     TResult? Function(FavouriteSuccess value)? favouriteSuccess,
     TResult? Function(FavouriteError value)? favouriteError,
+    TResult? Function(AddOrRemoveFavouriteSuccess value)?
+        addOrRemoveFavouriteSuccess,
+    TResult? Function(AddOrRemoveFavouriteError value)?
+        addOrRemoveFavouriteError,
   }) {
     return favouriteLoading?.call(this);
   }
@@ -310,6 +360,10 @@ class _$FavouriteLoadingImpl implements FavouriteLoading {
     TResult Function(FavouriteLoading value)? favouriteLoading,
     TResult Function(FavouriteSuccess value)? favouriteSuccess,
     TResult Function(FavouriteError value)? favouriteError,
+    TResult Function(AddOrRemoveFavouriteSuccess value)?
+        addOrRemoveFavouriteSuccess,
+    TResult Function(AddOrRemoveFavouriteError value)?
+        addOrRemoveFavouriteError,
     required TResult orElse(),
   }) {
     if (favouriteLoading != null) {
@@ -403,6 +457,8 @@ class _$FavouriteSuccessImpl implements FavouriteSuccess {
     required TResult Function() favouriteLoading,
     required TResult Function(List<FavouriteDataList> data) favouriteSuccess,
     required TResult Function(String message) favouriteError,
+    required TResult Function() addOrRemoveFavouriteSuccess,
+    required TResult Function() addOrRemoveFavouriteError,
   }) {
     return favouriteSuccess(data);
   }
@@ -414,6 +470,8 @@ class _$FavouriteSuccessImpl implements FavouriteSuccess {
     TResult? Function()? favouriteLoading,
     TResult? Function(List<FavouriteDataList> data)? favouriteSuccess,
     TResult? Function(String message)? favouriteError,
+    TResult? Function()? addOrRemoveFavouriteSuccess,
+    TResult? Function()? addOrRemoveFavouriteError,
   }) {
     return favouriteSuccess?.call(data);
   }
@@ -425,6 +483,8 @@ class _$FavouriteSuccessImpl implements FavouriteSuccess {
     TResult Function()? favouriteLoading,
     TResult Function(List<FavouriteDataList> data)? favouriteSuccess,
     TResult Function(String message)? favouriteError,
+    TResult Function()? addOrRemoveFavouriteSuccess,
+    TResult Function()? addOrRemoveFavouriteError,
     required TResult orElse(),
   }) {
     if (favouriteSuccess != null) {
@@ -440,6 +500,10 @@ class _$FavouriteSuccessImpl implements FavouriteSuccess {
     required TResult Function(FavouriteLoading value) favouriteLoading,
     required TResult Function(FavouriteSuccess value) favouriteSuccess,
     required TResult Function(FavouriteError value) favouriteError,
+    required TResult Function(AddOrRemoveFavouriteSuccess value)
+        addOrRemoveFavouriteSuccess,
+    required TResult Function(AddOrRemoveFavouriteError value)
+        addOrRemoveFavouriteError,
   }) {
     return favouriteSuccess(this);
   }
@@ -451,6 +515,10 @@ class _$FavouriteSuccessImpl implements FavouriteSuccess {
     TResult? Function(FavouriteLoading value)? favouriteLoading,
     TResult? Function(FavouriteSuccess value)? favouriteSuccess,
     TResult? Function(FavouriteError value)? favouriteError,
+    TResult? Function(AddOrRemoveFavouriteSuccess value)?
+        addOrRemoveFavouriteSuccess,
+    TResult? Function(AddOrRemoveFavouriteError value)?
+        addOrRemoveFavouriteError,
   }) {
     return favouriteSuccess?.call(this);
   }
@@ -462,6 +530,10 @@ class _$FavouriteSuccessImpl implements FavouriteSuccess {
     TResult Function(FavouriteLoading value)? favouriteLoading,
     TResult Function(FavouriteSuccess value)? favouriteSuccess,
     TResult Function(FavouriteError value)? favouriteError,
+    TResult Function(AddOrRemoveFavouriteSuccess value)?
+        addOrRemoveFavouriteSuccess,
+    TResult Function(AddOrRemoveFavouriteError value)?
+        addOrRemoveFavouriteError,
     required TResult orElse(),
   }) {
     if (favouriteSuccess != null) {
@@ -557,6 +629,8 @@ class _$FavouriteErrorImpl implements FavouriteError {
     required TResult Function() favouriteLoading,
     required TResult Function(List<FavouriteDataList> data) favouriteSuccess,
     required TResult Function(String message) favouriteError,
+    required TResult Function() addOrRemoveFavouriteSuccess,
+    required TResult Function() addOrRemoveFavouriteError,
   }) {
     return favouriteError(message);
   }
@@ -568,6 +642,8 @@ class _$FavouriteErrorImpl implements FavouriteError {
     TResult? Function()? favouriteLoading,
     TResult? Function(List<FavouriteDataList> data)? favouriteSuccess,
     TResult? Function(String message)? favouriteError,
+    TResult? Function()? addOrRemoveFavouriteSuccess,
+    TResult? Function()? addOrRemoveFavouriteError,
   }) {
     return favouriteError?.call(message);
   }
@@ -579,6 +655,8 @@ class _$FavouriteErrorImpl implements FavouriteError {
     TResult Function()? favouriteLoading,
     TResult Function(List<FavouriteDataList> data)? favouriteSuccess,
     TResult Function(String message)? favouriteError,
+    TResult Function()? addOrRemoveFavouriteSuccess,
+    TResult Function()? addOrRemoveFavouriteError,
     required TResult orElse(),
   }) {
     if (favouriteError != null) {
@@ -594,6 +672,10 @@ class _$FavouriteErrorImpl implements FavouriteError {
     required TResult Function(FavouriteLoading value) favouriteLoading,
     required TResult Function(FavouriteSuccess value) favouriteSuccess,
     required TResult Function(FavouriteError value) favouriteError,
+    required TResult Function(AddOrRemoveFavouriteSuccess value)
+        addOrRemoveFavouriteSuccess,
+    required TResult Function(AddOrRemoveFavouriteError value)
+        addOrRemoveFavouriteError,
   }) {
     return favouriteError(this);
   }
@@ -605,6 +687,10 @@ class _$FavouriteErrorImpl implements FavouriteError {
     TResult? Function(FavouriteLoading value)? favouriteLoading,
     TResult? Function(FavouriteSuccess value)? favouriteSuccess,
     TResult? Function(FavouriteError value)? favouriteError,
+    TResult? Function(AddOrRemoveFavouriteSuccess value)?
+        addOrRemoveFavouriteSuccess,
+    TResult? Function(AddOrRemoveFavouriteError value)?
+        addOrRemoveFavouriteError,
   }) {
     return favouriteError?.call(this);
   }
@@ -616,6 +702,10 @@ class _$FavouriteErrorImpl implements FavouriteError {
     TResult Function(FavouriteLoading value)? favouriteLoading,
     TResult Function(FavouriteSuccess value)? favouriteSuccess,
     TResult Function(FavouriteError value)? favouriteError,
+    TResult Function(AddOrRemoveFavouriteSuccess value)?
+        addOrRemoveFavouriteSuccess,
+    TResult Function(AddOrRemoveFavouriteError value)?
+        addOrRemoveFavouriteError,
     required TResult orElse(),
   }) {
     if (favouriteError != null) {
@@ -636,4 +726,282 @@ abstract class FavouriteError implements FavouriteState {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FavouriteErrorImplCopyWith<_$FavouriteErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddOrRemoveFavouriteSuccessImplCopyWith<$Res> {
+  factory _$$AddOrRemoveFavouriteSuccessImplCopyWith(
+          _$AddOrRemoveFavouriteSuccessImpl value,
+          $Res Function(_$AddOrRemoveFavouriteSuccessImpl) then) =
+      __$$AddOrRemoveFavouriteSuccessImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$AddOrRemoveFavouriteSuccessImplCopyWithImpl<$Res>
+    extends _$FavouriteStateCopyWithImpl<$Res,
+        _$AddOrRemoveFavouriteSuccessImpl>
+    implements _$$AddOrRemoveFavouriteSuccessImplCopyWith<$Res> {
+  __$$AddOrRemoveFavouriteSuccessImplCopyWithImpl(
+      _$AddOrRemoveFavouriteSuccessImpl _value,
+      $Res Function(_$AddOrRemoveFavouriteSuccessImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of FavouriteState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$AddOrRemoveFavouriteSuccessImpl implements AddOrRemoveFavouriteSuccess {
+  const _$AddOrRemoveFavouriteSuccessImpl();
+
+  @override
+  String toString() {
+    return 'FavouriteState.addOrRemoveFavouriteSuccess()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddOrRemoveFavouriteSuccessImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() favouriteLoading,
+    required TResult Function(List<FavouriteDataList> data) favouriteSuccess,
+    required TResult Function(String message) favouriteError,
+    required TResult Function() addOrRemoveFavouriteSuccess,
+    required TResult Function() addOrRemoveFavouriteError,
+  }) {
+    return addOrRemoveFavouriteSuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? favouriteLoading,
+    TResult? Function(List<FavouriteDataList> data)? favouriteSuccess,
+    TResult? Function(String message)? favouriteError,
+    TResult? Function()? addOrRemoveFavouriteSuccess,
+    TResult? Function()? addOrRemoveFavouriteError,
+  }) {
+    return addOrRemoveFavouriteSuccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? favouriteLoading,
+    TResult Function(List<FavouriteDataList> data)? favouriteSuccess,
+    TResult Function(String message)? favouriteError,
+    TResult Function()? addOrRemoveFavouriteSuccess,
+    TResult Function()? addOrRemoveFavouriteError,
+    required TResult orElse(),
+  }) {
+    if (addOrRemoveFavouriteSuccess != null) {
+      return addOrRemoveFavouriteSuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(FavouriteLoading value) favouriteLoading,
+    required TResult Function(FavouriteSuccess value) favouriteSuccess,
+    required TResult Function(FavouriteError value) favouriteError,
+    required TResult Function(AddOrRemoveFavouriteSuccess value)
+        addOrRemoveFavouriteSuccess,
+    required TResult Function(AddOrRemoveFavouriteError value)
+        addOrRemoveFavouriteError,
+  }) {
+    return addOrRemoveFavouriteSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(FavouriteLoading value)? favouriteLoading,
+    TResult? Function(FavouriteSuccess value)? favouriteSuccess,
+    TResult? Function(FavouriteError value)? favouriteError,
+    TResult? Function(AddOrRemoveFavouriteSuccess value)?
+        addOrRemoveFavouriteSuccess,
+    TResult? Function(AddOrRemoveFavouriteError value)?
+        addOrRemoveFavouriteError,
+  }) {
+    return addOrRemoveFavouriteSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(FavouriteLoading value)? favouriteLoading,
+    TResult Function(FavouriteSuccess value)? favouriteSuccess,
+    TResult Function(FavouriteError value)? favouriteError,
+    TResult Function(AddOrRemoveFavouriteSuccess value)?
+        addOrRemoveFavouriteSuccess,
+    TResult Function(AddOrRemoveFavouriteError value)?
+        addOrRemoveFavouriteError,
+    required TResult orElse(),
+  }) {
+    if (addOrRemoveFavouriteSuccess != null) {
+      return addOrRemoveFavouriteSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AddOrRemoveFavouriteSuccess implements FavouriteState {
+  const factory AddOrRemoveFavouriteSuccess() =
+      _$AddOrRemoveFavouriteSuccessImpl;
+}
+
+/// @nodoc
+abstract class _$$AddOrRemoveFavouriteErrorImplCopyWith<$Res> {
+  factory _$$AddOrRemoveFavouriteErrorImplCopyWith(
+          _$AddOrRemoveFavouriteErrorImpl value,
+          $Res Function(_$AddOrRemoveFavouriteErrorImpl) then) =
+      __$$AddOrRemoveFavouriteErrorImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$AddOrRemoveFavouriteErrorImplCopyWithImpl<$Res>
+    extends _$FavouriteStateCopyWithImpl<$Res, _$AddOrRemoveFavouriteErrorImpl>
+    implements _$$AddOrRemoveFavouriteErrorImplCopyWith<$Res> {
+  __$$AddOrRemoveFavouriteErrorImplCopyWithImpl(
+      _$AddOrRemoveFavouriteErrorImpl _value,
+      $Res Function(_$AddOrRemoveFavouriteErrorImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of FavouriteState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$AddOrRemoveFavouriteErrorImpl implements AddOrRemoveFavouriteError {
+  const _$AddOrRemoveFavouriteErrorImpl();
+
+  @override
+  String toString() {
+    return 'FavouriteState.addOrRemoveFavouriteError()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddOrRemoveFavouriteErrorImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() favouriteLoading,
+    required TResult Function(List<FavouriteDataList> data) favouriteSuccess,
+    required TResult Function(String message) favouriteError,
+    required TResult Function() addOrRemoveFavouriteSuccess,
+    required TResult Function() addOrRemoveFavouriteError,
+  }) {
+    return addOrRemoveFavouriteError();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? favouriteLoading,
+    TResult? Function(List<FavouriteDataList> data)? favouriteSuccess,
+    TResult? Function(String message)? favouriteError,
+    TResult? Function()? addOrRemoveFavouriteSuccess,
+    TResult? Function()? addOrRemoveFavouriteError,
+  }) {
+    return addOrRemoveFavouriteError?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? favouriteLoading,
+    TResult Function(List<FavouriteDataList> data)? favouriteSuccess,
+    TResult Function(String message)? favouriteError,
+    TResult Function()? addOrRemoveFavouriteSuccess,
+    TResult Function()? addOrRemoveFavouriteError,
+    required TResult orElse(),
+  }) {
+    if (addOrRemoveFavouriteError != null) {
+      return addOrRemoveFavouriteError();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(FavouriteLoading value) favouriteLoading,
+    required TResult Function(FavouriteSuccess value) favouriteSuccess,
+    required TResult Function(FavouriteError value) favouriteError,
+    required TResult Function(AddOrRemoveFavouriteSuccess value)
+        addOrRemoveFavouriteSuccess,
+    required TResult Function(AddOrRemoveFavouriteError value)
+        addOrRemoveFavouriteError,
+  }) {
+    return addOrRemoveFavouriteError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(FavouriteLoading value)? favouriteLoading,
+    TResult? Function(FavouriteSuccess value)? favouriteSuccess,
+    TResult? Function(FavouriteError value)? favouriteError,
+    TResult? Function(AddOrRemoveFavouriteSuccess value)?
+        addOrRemoveFavouriteSuccess,
+    TResult? Function(AddOrRemoveFavouriteError value)?
+        addOrRemoveFavouriteError,
+  }) {
+    return addOrRemoveFavouriteError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(FavouriteLoading value)? favouriteLoading,
+    TResult Function(FavouriteSuccess value)? favouriteSuccess,
+    TResult Function(FavouriteError value)? favouriteError,
+    TResult Function(AddOrRemoveFavouriteSuccess value)?
+        addOrRemoveFavouriteSuccess,
+    TResult Function(AddOrRemoveFavouriteError value)?
+        addOrRemoveFavouriteError,
+    required TResult orElse(),
+  }) {
+    if (addOrRemoveFavouriteError != null) {
+      return addOrRemoveFavouriteError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AddOrRemoveFavouriteError implements FavouriteState {
+  const factory AddOrRemoveFavouriteError() = _$AddOrRemoveFavouriteErrorImpl;
 }

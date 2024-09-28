@@ -498,14 +498,14 @@ class _ApiServices implements ApiServices {
   }
 
   @override
-  Future<FavouriteModel> addOrRemoveFavourite(
-      AddOrRemoveFavouriteModel addOrRemoveFavouriteRequestModel) async {
+  Future<AddOrRemoveFavouriteResponseModel> addOrRemoveFavourite(
+      AddOrRemoveFavouriteRequestModel addOrRemoveFavouriteRequestModel) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(addOrRemoveFavouriteRequestModel.toJson());
-    final _options = _setStreamType<FavouriteModel>(Options(
+    final _options = _setStreamType<AddOrRemoveFavouriteResponseModel>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -522,9 +522,9 @@ class _ApiServices implements ApiServices {
           baseUrl,
         )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late FavouriteModel _value;
+    late AddOrRemoveFavouriteResponseModel _value;
     try {
-      _value = FavouriteModel.fromJson(_result.data!);
+      _value = AddOrRemoveFavouriteResponseModel.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

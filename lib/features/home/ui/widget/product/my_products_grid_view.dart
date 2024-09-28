@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:snap_shop/core/helpers/extentions.dart';
-import 'package:snap_shop/core/routings/routers.dart';
 import 'package:snap_shop/features/home/data/model/products/product.dart';
 import 'package:snap_shop/features/home/ui/product_details_screen.dart';
 import 'package:snap_shop/features/home/ui/widget/product/my_products_grid_view_item.dart';

@@ -1,14 +1,14 @@
 import 'data.dart';
 
-class AddOrRemoveFavouriteModel {
+class AddOrRemoveFavouriteResponseModel {
   bool? status;
   String? message;
   Data? data;
 
-  AddOrRemoveFavouriteModel({this.status, this.message, this.data});
+  AddOrRemoveFavouriteResponseModel({this.status, this.message, this.data});
 
-  factory AddOrRemoveFavouriteModel.fromJson(Map<String, dynamic> json) {
-    return AddOrRemoveFavouriteModel(
+  factory AddOrRemoveFavouriteResponseModel.fromJson(Map<String, dynamic> json) {
+    return AddOrRemoveFavouriteResponseModel(
       status: json['status'] as bool?,
       message: json['message'] as String?,
       data: json['data'] == null
