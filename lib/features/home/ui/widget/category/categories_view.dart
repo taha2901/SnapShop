@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -7,8 +6,7 @@ import 'package:snap_shop/features/home/ui/widget/category/categories_view_item.
 
 class CategoriesListView extends StatelessWidget {
   final List<CategoriesDataList?> categoriesData;
-  const CategoriesListView(
-      {super.key, required this.categoriesData});
+  const CategoriesListView({super.key, required this.categoriesData});
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +17,8 @@ class CategoriesListView extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           return GestureDetector(
-            onTap: () {
-            //  context.pushNamed(Routers.categories);
-            },
             child: CategoriesListViewitem(
-              categoriesDate:categoriesData[index],
+              categoriesDate: categoriesData[index],
               itemIndex: index,
             ),
           );

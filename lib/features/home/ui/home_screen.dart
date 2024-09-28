@@ -17,7 +17,7 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 16.0.h),
-          child: Column( 
+          child: Column(
             children: [
               const CustomAppBar(),
               verticalSpace(24.0),
@@ -31,7 +31,10 @@ class HomeScreen extends StatelessWidget {
               verticalSpace(18.0),
               const CategoriesSeeAll(),
               verticalSpace(16.0),
-              const CategoriesBlocBuilder(),
+              SizedBox(
+                height: 100.h,
+                child: const CategoriesBlocBuilder(),
+              ),
               verticalSpace(14.0),
               const TopSellingSeeAll(),
               verticalSpace(16.0),

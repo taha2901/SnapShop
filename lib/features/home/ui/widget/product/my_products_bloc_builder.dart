@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:snap_shop/features/home/logic/home_cubit.dart';
 import 'package:snap_shop/features/home/logic/home_state.dart';
 import 'package:snap_shop/features/home/ui/widget/product/my_products_grid_view.dart';
+import 'package:snap_shop/features/home/ui/widget/product/products_shimmer_loading.dart';
 
 class ProductBlocBuilder extends StatelessWidget {
   const ProductBlocBuilder({
@@ -41,6 +42,6 @@ class ProductBlocBuilder extends StatelessWidget {
   }
 
   Widget setUpLoading() {
-    return const Center(child: CircularProgressIndicator());
+    return const ProductsShimmerLoading();
   }
 }
