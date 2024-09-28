@@ -15,30 +15,33 @@ class CategoriesShimmerLoading extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: 6,
         itemBuilder: (context, index) {
-          return Column(
-            children: [
-              Shimmer.fromColors(
-                baseColor: ColorsManager.lightGrey,
-                highlightColor: Colors.white,
-                child: const CircleAvatar(
-                  radius: 28,
-                  backgroundColor: Colors.white,
-                ),
-              ),
-              verticalSpace(14),
-              Shimmer.fromColors(
-                baseColor: ColorsManager.lightGrey,
-                highlightColor: Colors.white,
-                child: Container(
-                  height: 14.h,
-                  width: 50.w,
-                  decoration: BoxDecoration(
-                    color: ColorsManager.lightGrey,
-                    borderRadius: BorderRadius.circular(12),
+          return Padding(
+            padding: EdgeInsetsDirectional.only(start: 24.w),
+            child: Column(
+              children: [
+                Shimmer.fromColors(
+                  baseColor: ColorsManager.lightGrey,
+                  highlightColor: Colors.white,
+                  child: CircleAvatar(
+                    radius: 26.r,
+                    backgroundColor: Colors.white,
                   ),
                 ),
-              ),
-            ],
+                verticalSpace(14),
+                Shimmer.fromColors(
+                  baseColor: ColorsManager.lightGrey,
+                  highlightColor: Colors.white,
+                  child: Container(
+                    height: 14.h,
+                    width: 50.w,
+                    decoration: BoxDecoration(
+                      color: ColorsManager.lightGrey,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           );
         },
       ),

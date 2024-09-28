@@ -9,16 +9,12 @@ class HomeCubit extends Cubit<HomeState> {
 
   void getCategories() async {
     emit(const HomeState.categoriesLoading());
-
     final response = await _homeRepo.getCategories();
     response.when(success: (categoriesResponseModel) {
-      print(
-          'categoriesRRResponseModel: ${categoriesResponseModel.categoriesData}');
       emit(HomeState.categoriesSuccess(
           categoriesDataList:
               categoriesResponseModel.categoriesData!.categoriesDataList!));
     }, failure: (errorHandler) {
-      print('Error: ${errorHandler.apiErrorModel.message}');
       emit(HomeState.categoriesError(errorHandler: errorHandler));
     });
   }

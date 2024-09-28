@@ -12,7 +12,15 @@ class CategoriesBlocBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeCubit, HomeState>(
+    return BlocConsumer<HomeCubit, HomeState>(
+      listener: (context, state) {
+        state.maybeWhen(
+          // categoriesLoading: () {
+          //   const CategoriesShimmerLoading();
+          // },
+          orElse: () {},
+        );
+      },
       buildWhen: (previous, current) =>
           current is CategoriesLoading ||
           current is CategoriesSuccess ||
