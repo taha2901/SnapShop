@@ -37,7 +37,7 @@ class CategoriesBlocBuilder extends StatelessWidget {
 
   Widget setUpSuccess(categoriesDataList) {
     return CategoriesListView(
-      categoriesData: categoriesDataList ?? [],
+      categoriesData: categoriesDataList,
     );
   }
 

@@ -43,11 +43,13 @@ class MyProductsGridViewItem extends StatelessWidget {
                     Expanded(
                       child: Center(
                         child: Image.network(
+                          errorBuilder: (context, error, stackTrace) {
+                            return Icon(Icons.error);
+                          },
                           height: 100.h,
                           width: 100.w,
                           fit: BoxFit.cover,
-                          productsData?.image ??
-                              'https://student.valuxapps.com/storage/uploads/products/16445230161CiW8.Light bulb-amico.png',
+                          productsData?.image ?? 'https://student.valuxapps.com/storage/uploads/products/163873839146spo.21.jpg',
                         ),
                       ),
                     ),

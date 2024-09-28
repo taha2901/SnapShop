@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:snap_shop/core/widget/custom_show_toast.dart';
 import 'package:snap_shop/features/favourite/logic/favourite_cubit.dart';
+import 'package:snap_shop/features/favourite/ui/widget/favourite_shimmer_loading.dart';
 import 'package:snap_shop/features/favourite/ui/widget/my_favourites_grid_view.dart';
 
 class FavouriteBlocBuilder extends StatelessWidget {
@@ -55,6 +56,6 @@ class FavouriteBlocBuilder extends StatelessWidget {
   }
 
   Widget setUpLoading() {
-    return const Center(child: CircularProgressIndicator());
+    return const FavouriteShimmerLoading();
   }
 }

@@ -50,7 +50,7 @@ class AddressCubit extends Cubit<AddressState> {
   }
 
   void emitGetAddressStates() async {
-    emit(const AddressState.addAddressLoading());
+    emit(const AddressState.addressLoading());
     final response = await _addressRepo.getAddresses();
     response.when(
       success: (getAddressResponse) {

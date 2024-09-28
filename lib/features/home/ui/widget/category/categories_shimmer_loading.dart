@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
-
 import '../../../../../../../../core/helpers/spacing.dart';
 import '../../../../../../../../core/theming/colors.dart';
 
@@ -17,14 +16,14 @@ class CategoriesShimmerLoading extends StatelessWidget {
         itemCount: 6,
         itemBuilder: (context, index) {
           return Padding(
-            padding: EdgeInsetsDirectional.only(start: index == 0 ? 0 : 24.w),
+            padding: EdgeInsetsDirectional.only(start: 24.w),
             child: Column(
               children: [
                 Shimmer.fromColors(
                   baseColor: ColorsManager.lightGrey,
                   highlightColor: Colors.white,
-                  child: const CircleAvatar(
-                    radius: 28,
+                  child: CircleAvatar(
+                    radius: 26.r,
                     backgroundColor: Colors.white,
                   ),
                 ),

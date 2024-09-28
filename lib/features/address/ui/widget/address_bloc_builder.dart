@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:snap_shop/core/networking/api_error_handler.dart';
 import 'package:snap_shop/features/address/logic/address_cubit.dart';
 import 'package:snap_shop/features/address/ui/widget/address_list_view.dart';
+import 'package:snap_shop/features/address/ui/widget/address_shimmer_loading.dart';
 
 class AddressBlocBuilder extends StatelessWidget {
   const AddressBlocBuilder({super.key});
@@ -40,6 +41,6 @@ class AddressBlocBuilder extends StatelessWidget {
   }
 
   Widget setUpLoading() {
-    return const Scaffold(body: Center(child: CircularProgressIndicator()));
+    return const Scaffold(body: AddressShimmerLoading());
   }
 }

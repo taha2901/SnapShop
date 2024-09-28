@@ -5,6 +5,7 @@ import 'package:snap_shop/features/notification/data/model/notification_data_lis
 import 'package:snap_shop/features/notification/logic/notification_cubit.dart';
 import 'package:snap_shop/features/notification/logic/notification_state.dart';
 import 'package:snap_shop/features/notification/ui/widget/notification_list_view.dart';
+import 'package:snap_shop/features/notification/ui/widget/notification_shimmer_laoding.dart';
 
 class NotificationBlocBuilder extends StatelessWidget {
   const NotificationBlocBuilder({super.key});
@@ -47,6 +48,6 @@ class NotificationBlocBuilder extends StatelessWidget {
   }
 
   Widget setUpLoading() {
-    return const Scaffold(body: Center(child: CircularProgressIndicator()));
+    return const Scaffold(body: NotificationShimmerLoading());
   }
 }

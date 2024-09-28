@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:snap_shop/features/home/logic/home_cubit.dart';
 import 'package:snap_shop/features/home/logic/home_state.dart';
+import 'package:snap_shop/features/home/ui/widget/all_category_screen/all_categories_shimmer.dart';
 import 'package:snap_shop/features/home/ui/widget/all_category_screen/categories_screen_list_view.dart';
 
 class CategoriesScreenBlocBuilder extends StatelessWidget {
@@ -41,6 +42,8 @@ class CategoriesScreenBlocBuilder extends StatelessWidget {
   }
 
   Widget setUpLoading() {
-    return const Scaffold(body:  Center(child: CircularProgressIndicator()));
+    return Scaffold(
+      body: const AllCategoriesShimmerLoading(),
+    );
   }
 }
