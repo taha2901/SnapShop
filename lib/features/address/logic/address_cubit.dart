@@ -25,6 +25,7 @@ class AddressCubit extends Cubit<AddressState> {
   final formKey = GlobalKey<FormState>();
 
   void emitAddressStates() async {
+    if (isClosed) return;
     emit(const AddressState.addAddressLoading());
     final response = await _addressRepo.addAddress(
       AddressRequestModel(
@@ -40,9 +41,11 @@ class AddressCubit extends Cubit<AddressState> {
 
     response.when(
       success: (addressResponse) {
+        if (isClosed) return;
         emit(AddressState.addAddressSuccess(addressResponse));
       },
       failure: (error) {
+        if (isClosed) return;
         emit(AddressState.addAddressError(
             error: error.apiErrorModel.message ?? ''));
       },
@@ -50,13 +53,16 @@ class AddressCubit extends Cubit<AddressState> {
   }
 
   void emitGetAddressStates() async {
+    if (isClosed) return;
     emit(const AddressState.addressLoading());
     final response = await _addressRepo.getAddresses();
     response.when(
       success: (getAddressResponse) {
+        if (isClosed) return;
         emit(AddressState.addressSuccess(data: getAddressResponse.data!.data!));
       },
       failure: (error) {
+        if (isClosed) return;
         emit(AddressState.addressError(
             error: error));
       },
