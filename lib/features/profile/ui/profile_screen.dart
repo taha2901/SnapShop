@@ -10,10 +10,31 @@ import 'package:snap_shop/core/theming/styles.dart';
 import 'package:snap_shop/features/profile/logic/profile_cubit.dart';
 import 'package:snap_shop/features/profile/ui/widget/profile_user_data_shimmer_laoding.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   // final ProfileModel profileModel;
 
   const ProfileScreen({super.key});
+
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  ProfileCubit? _profileCubit;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // حفظ المرجع إلى الـ Cubit
+    _profileCubit = context.read<ProfileCubit>();
+  }
+
+  @override
+  void dispose() {
+    // غلق الـ Cubit هنا بدون الحاجة لاستخدام context
+    _profileCubit?.close();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -162,5 +183,3 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 }
-
-

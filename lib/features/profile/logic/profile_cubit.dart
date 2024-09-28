@@ -15,27 +15,34 @@ class ProfileCubit extends Cubit<ProfileState> {
   ProfileCubit(this._profileRepo) : super(const ProfileState.initial());
 
   void getUserData() async {
+    if (isClosed) return;
     emit(const ProfileState.profileLoading());
+
     final response = await _profileRepo.getProfile();
     response.when(success: (profileModel) {
+      if (isClosed) return;
       emit(ProfileState.profileSuccess(profileModel: profileModel));
     }, failure: (errorHandler) {
+      if (isClosed) return;
       emit(ProfileState.profileError(errorHandler: errorHandler));
     });
   }
 
   void changePassword(String oldPassword, String newPassword) async {
+    if (isClosed) return;
     emit(const ProfileState.changePasswordLoading());
     final response = await _profileRepo.changePassword(
       ChangePasswordRequestModel(
           currentPassword: oldPassword, newPassword: newPassword),
     );
     response.when(success: (changePasswordResponseModel) {
+      if (isClosed) return;
       emit(ProfileState.changePasswordSuccess(
           changePasswordResponseModel: changePasswordResponseModel));
       // SharedPrefHelper.setData(SharedPrefKeys.userPassword, newPassword);
       // SharedPrefHelper.getString(SharedPrefKeys.userPassword);
     }, failure: (errorHandler) {
+      if (isClosed) return;
       emit(ProfileState.changePasswordError(errorHandler: errorHandler));
     });
   }
@@ -45,6 +52,7 @@ class ProfileCubit extends Cubit<ProfileState> {
     String phone,
     String email,
   ) async {
+    if (isClosed) return;
     emit(const ProfileState.updateProfileLoading());
     final response = await _profileRepo.updateProfile(
       UpdateProfileRequestModel(
@@ -54,8 +62,10 @@ class ProfileCubit extends Cubit<ProfileState> {
       ),
     );
     response.when(success: (loginResponseBody) {
+      if (isClosed) return;
       emit(const ProfileState.updateProfileSuccess());
     }, failure: (errorHandler) {
+      if (isClosed) return;
       emit(ProfileState.updateProfileError(errorHandler: errorHandler));
     });
   }

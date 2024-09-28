@@ -7,12 +7,35 @@ import 'package:snap_shop/core/theming/colors.dart';
 import 'package:snap_shop/core/theming/styles.dart';
 import 'package:snap_shop/core/widget/app_text_button.dart';
 import 'package:snap_shop/features/cart/data/model/cart_response_model/cart_item.dart';
+import 'package:snap_shop/features/cart/logic/cart_cubit.dart';
 import 'package:snap_shop/features/cart/ui/widget/cart/cart_app_bar.dart';
 import 'package:snap_shop/features/cart/ui/widget/cart/cart_bloc_builder.dart';
 
-class CartScreen extends StatelessWidget {
+class CartScreen extends StatefulWidget {
   final CartItem? cartDataList;
   const CartScreen({super.key, this.cartDataList});
+
+  @override
+  State<CartScreen> createState() => _CartScreenState();
+}
+
+class _CartScreenState extends State<CartScreen> {
+    CartCubit? _cartCubit;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // حفظ المرجع إلى الـ Cubit
+    _cartCubit = context.read<CartCubit>();
+  }
+
+  @override
+  void dispose() {
+    // غلق الـ Cubit هنا بدون الحاجة لاستخدام context
+    _cartCubit?.close();
+    super.dispose();
+  }
+
 
   @override
   Widget build(BuildContext context) {

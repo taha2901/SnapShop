@@ -18,6 +18,7 @@ class CartCubit extends Cubit<CartState> {
 
   // دالة لجلب بيانات السلة
   Future<void> getCart() async {
+    if (isClosed) return;
     emit(const CartState.cartloading());
 
     final response = await _cartRepo.getCart();
@@ -28,9 +29,10 @@ class CartCubit extends Cubit<CartState> {
       cartResponseModel.data!.cartItems?.forEach((item) {
         cartsId.add(item.product!.id.toString());
       });
-      print('Carts Number is ${cartResponseModel.data!.cartItems!.length}');
+      if (isClosed) return;
       emit(CartState.cartsuccess(cartDataList: cartItems));
     }, failure: (errorHandler) {
+      if (isClosed) return;
       emit(CartState.carterror(error: errorHandler));
     });
   }
@@ -48,14 +50,14 @@ class CartCubit extends Cubit<CartState> {
         } else {
           cartsId.add(productId.toString());
         }
+        if (isClosed) return;
         emit(CartState.addOrRemoveCartSuccess(
           addOrRemoveCartResponseModel,
         ));
-        print('you are success adding to cart or remove from cart');
         await getCart();
       },
       failure: (error) {
-        print('you are failed adding to cart or remove from cart');
+        if (isClosed) return;
         emit(CartState.addOrRemoveCartError(error: error));
       },
     );
