@@ -28,6 +28,7 @@ class CartListViewItem extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Image.network(
+                errorBuilder: (context, error, stackTrace) => const Icon(Icons.error),
                 cartItem.product!.image.toString(),
                 height: 100.h,
                 width: 100.w,

@@ -7,6 +7,8 @@ import 'package:snap_shop/features/address/logic/address_cubit.dart';
 import 'package:snap_shop/features/address/ui/add_address_screen.dart';
 import 'package:snap_shop/features/address/ui/address_screen.dart';
 import 'package:snap_shop/features/cart/ui/checkout_screen.dart';
+import 'package:snap_shop/features/cart_details/ui/my_cart_view.dart';
+import 'package:snap_shop/features/cart_details/ui/thank_you_view.dart';
 import 'package:snap_shop/features/favourite/ui/favourite_screen.dart';
 import 'package:snap_shop/features/home/logic/home_cubit.dart';
 import 'package:snap_shop/features/home/ui/home_screen.dart';
@@ -64,6 +66,15 @@ class AppRouter {
       case Routers.layoutShop:
         return MaterialPageRoute(
           builder: (_) => const LayoutShop(),
+        );
+
+      // case Routers.cartDetails:
+      //   return MaterialPageRoute(
+      //     builder: (_) =>  MyCartView(),
+      //   );
+      case Routers.thankYouView:
+        return MaterialPageRoute(
+          builder: (_) => const ThankYouView(),
         );
 
       case Routers.changePassword:

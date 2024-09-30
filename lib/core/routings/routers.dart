@@ -17,5 +17,8 @@ class Routers {
   static const String favourite = '/favourite';
   static const String address = '/address';
   static const String addAddress = '/addAddress';
+  static const String thankYouView = '/thankYouView';
+
+  static const String cartDetails = '/cartDetails';
 
 }

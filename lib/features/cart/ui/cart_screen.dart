@@ -10,6 +10,7 @@ import 'package:snap_shop/features/cart/data/model/cart_response_model/cart_item
 import 'package:snap_shop/features/cart/logic/cart_cubit.dart';
 import 'package:snap_shop/features/cart/ui/widget/cart/cart_app_bar.dart';
 import 'package:snap_shop/features/cart/ui/widget/cart/cart_bloc_builder.dart';
+import 'package:snap_shop/features/cart_details/ui/my_cart_view.dart';
 
 class CartScreen extends StatefulWidget {
   final CartItem? cartDataList;
@@ -67,9 +68,7 @@ class _CartScreenState extends State<CartScreen> {
               verticalSpace(24),
               Expanded(
                 child: BlocConsumer<CartCubit, CartState>(
-                  listener: (context, state) {
-                    // TODO: implement listener
-                  },
+                  listener: (context, state) {},
                   builder: (context, state) {
                     return state.maybeWhen(orElse: () {
                       return const SizedBox.shrink();
@@ -88,14 +87,16 @@ class _CartScreenState extends State<CartScreen> {
                               ),
                             ],
                           ),
-                          // verticalSpace(24),
                           AppTextButton(
                             buttonText: 'Checkout',
                             textStyle: TextStyles.font16WhiteSemiBold,
                             onPressed: () {
-                              context.pushNamed(
-                                Routers.checkout,
-                              );
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => MyCartView(
+                                            total: cartsDataList.data!.total!,
+                                          )));
                             },
                             backgroundColor: ColorsManager.mainColor,
                             borderRadius: 50.0,

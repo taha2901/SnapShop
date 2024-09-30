@@ -4,6 +4,7 @@ import 'package:snap_shop/core/helpers/constants.dart';
 
 import '../helpers/shared_pref_helper.dart';
 
+
 class DioFactory {
   /// private constructor as I don't want to allow creating an instance of this class
   DioFactory._();
@@ -27,49 +28,23 @@ class DioFactory {
   }
 
   static void addDioHeaders() async {
-    String? token = await SharedPrefHelper.getString(SharedPrefKeys.userToken);
-    print('Current Token: $token'); // Debug the token
     dio?.options.headers = {
       'lang': 'en',
       'Accept': 'application/json',
       'Content-Type': 'application/json',
+      'Authorization': 
+          '${await SharedPrefHelper.getString(SharedPrefKeys.userToken)}',
+    };
+  }
+
+  static void setTokenIntoHeaderAfterLogin(String token) {
+    dio?.options.headers = {
+      'lang': 'en',
       'Authorization': '$token',
     };
   }
 
-  // static void setTokenIntoHeaderAfterLogin(String token) {
-  //   dio?.options.headers = {
-  //     'lang': 'en',
-  //     'Authorization': '$token',
-  //   };
-  // }
-  static void setTokenIntoHeaderAfterLogin(String token) async {
-    await SharedPrefHelper.setData(SharedPrefKeys.userToken, token);
-    dio?.options.headers['Authorization'] = '$token';
-  }
-
-  // static void addDioInterceptor() {
-  //   dio?.interceptors.add(
-  //     PrettyDioLogger(
-  //       requestBody: true,
-  //       requestHeader: true,
-  //       responseHeader: true,
-  //     ),
-  //   );
-  // }
-
   static void addDioInterceptor() {
-    dio?.interceptors.add(InterceptorsWrapper(
-      onRequest: (options, handler) async {
-        String? token =
-            await SharedPrefHelper.getString(SharedPrefKeys.userToken);
-        options.headers['Authorization'] =
-            '$token'; // Adding token to headers
-        print('Token used in request: $token'); // Debugging token
-        return handler.next(options);
-      },
-    ));
-
     dio?.interceptors.add(
       PrettyDioLogger(
         requestBody: true,
