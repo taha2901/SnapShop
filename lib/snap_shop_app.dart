@@ -36,7 +36,7 @@ class SnapShop extends StatelessWidget {
             ),
           ],
           child: MaterialApp(
-            title: 'Snap Shop',
+            title: 'Shopping',
             theme: ThemeData(
               primaryColor: ColorsManager.mainColor,
               scaffoldBackgroundColor: Colors.white,

@@ -2,7 +2,7 @@
     <application
         android:label="snap_shop"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/jbtronic">
         <activity
             android:name=".MainActivity"
             android:exported="true"
