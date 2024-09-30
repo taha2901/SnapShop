@@ -20,7 +20,7 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
-    CartCubit? _cartCubit;
+  CartCubit? _cartCubit;
 
   @override
   void didChangeDependencies() {
@@ -35,7 +35,6 @@ class _CartScreenState extends State<CartScreen> {
     _cartCubit?.close();
     super.dispose();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +58,7 @@ class _CartScreenState extends State<CartScreen> {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     verticalSpace(24),
-                    const Expanded(
+                    Expanded(
                       child: CartBlocBuilder(),
                     ),
                   ],
@@ -67,23 +66,44 @@ class _CartScreenState extends State<CartScreen> {
               ),
               verticalSpace(24),
               Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    verticalSpace(24),
-                    AppTextButton(
-                      buttonText: 'Checkout',
-                      textStyle: TextStyles.font16WhiteSemiBold,
-                      onPressed: () {
-                        context.pushNamed(
-                          Routers.checkout,
-                        );
-                      },
-                      backgroundColor: ColorsManager.mainColor,
-                      borderRadius: 50.0,
-                    ),
-                  ],
+                child: BlocConsumer<CartCubit, CartState>(
+                  listener: (context, state) {
+                    // TODO: implement listener
+                  },
+                  builder: (context, state) {
+                    return state.maybeWhen(orElse: () {
+                      return const SizedBox.shrink();
+                    }, cartsuccess: (cartsDataList) {
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Row(
+                            children: [
+                              Text('Total', style: TextStyles.font16BlackBold),
+                              const Spacer(),
+                              Text(
+                                '\$${cartsDataList!.data!.total}',
+                                style: TextStyles.font16BlackBold,
+                              ),
+                            ],
+                          ),
+                          // verticalSpace(24),
+                          AppTextButton(
+                            buttonText: 'Checkout',
+                            textStyle: TextStyles.font16WhiteSemiBold,
+                            onPressed: () {
+                              context.pushNamed(
+                                Routers.checkout,
+                              );
+                            },
+                            backgroundColor: ColorsManager.mainColor,
+                            borderRadius: 50.0,
+                          ),
+                        ],
+                      );
+                    });
+                  },
                 ),
               ),
             ],

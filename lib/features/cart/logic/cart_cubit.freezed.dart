@@ -20,7 +20,7 @@ mixin _$CartState<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() cartloading,
-    required TResult Function(List<CartItem>? cartDataList) cartsuccess,
+    required TResult Function(CartResponseModel? cartDataList) cartsuccess,
     required TResult Function(ErrorHandler error) carterror,
     required TResult Function(T data) addOrRemoveCartSuccess,
     required TResult Function(ErrorHandler error) addOrRemoveCartError,
@@ -30,7 +30,7 @@ mixin _$CartState<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? cartloading,
-    TResult? Function(List<CartItem>? cartDataList)? cartsuccess,
+    TResult? Function(CartResponseModel? cartDataList)? cartsuccess,
     TResult? Function(ErrorHandler error)? carterror,
     TResult? Function(T data)? addOrRemoveCartSuccess,
     TResult? Function(ErrorHandler error)? addOrRemoveCartError,
@@ -40,7 +40,7 @@ mixin _$CartState<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? cartloading,
-    TResult Function(List<CartItem>? cartDataList)? cartsuccess,
+    TResult Function(CartResponseModel? cartDataList)? cartsuccess,
     TResult Function(ErrorHandler error)? carterror,
     TResult Function(T data)? addOrRemoveCartSuccess,
     TResult Function(ErrorHandler error)? addOrRemoveCartError,
@@ -146,7 +146,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() cartloading,
-    required TResult Function(List<CartItem>? cartDataList) cartsuccess,
+    required TResult Function(CartResponseModel? cartDataList) cartsuccess,
     required TResult Function(ErrorHandler error) carterror,
     required TResult Function(T data) addOrRemoveCartSuccess,
     required TResult Function(ErrorHandler error) addOrRemoveCartError,
@@ -159,7 +159,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? cartloading,
-    TResult? Function(List<CartItem>? cartDataList)? cartsuccess,
+    TResult? Function(CartResponseModel? cartDataList)? cartsuccess,
     TResult? Function(ErrorHandler error)? carterror,
     TResult? Function(T data)? addOrRemoveCartSuccess,
     TResult? Function(ErrorHandler error)? addOrRemoveCartError,
@@ -172,7 +172,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? cartloading,
-    TResult Function(List<CartItem>? cartDataList)? cartsuccess,
+    TResult Function(CartResponseModel? cartDataList)? cartsuccess,
     TResult Function(ErrorHandler error)? carterror,
     TResult Function(T data)? addOrRemoveCartSuccess,
     TResult Function(ErrorHandler error)? addOrRemoveCartError,
@@ -277,7 +277,7 @@ class _$CartLoadingImpl<T> implements CartLoading<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() cartloading,
-    required TResult Function(List<CartItem>? cartDataList) cartsuccess,
+    required TResult Function(CartResponseModel? cartDataList) cartsuccess,
     required TResult Function(ErrorHandler error) carterror,
     required TResult Function(T data) addOrRemoveCartSuccess,
     required TResult Function(ErrorHandler error) addOrRemoveCartError,
@@ -290,7 +290,7 @@ class _$CartLoadingImpl<T> implements CartLoading<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? cartloading,
-    TResult? Function(List<CartItem>? cartDataList)? cartsuccess,
+    TResult? Function(CartResponseModel? cartDataList)? cartsuccess,
     TResult? Function(ErrorHandler error)? carterror,
     TResult? Function(T data)? addOrRemoveCartSuccess,
     TResult? Function(ErrorHandler error)? addOrRemoveCartError,
@@ -303,7 +303,7 @@ class _$CartLoadingImpl<T> implements CartLoading<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? cartloading,
-    TResult Function(List<CartItem>? cartDataList)? cartsuccess,
+    TResult Function(CartResponseModel? cartDataList)? cartsuccess,
     TResult Function(ErrorHandler error)? carterror,
     TResult Function(T data)? addOrRemoveCartSuccess,
     TResult Function(ErrorHandler error)? addOrRemoveCartError,
@@ -371,7 +371,7 @@ abstract class _$$CartSuccessImplCopyWith<T, $Res> {
           $Res Function(_$CartSuccessImpl<T>) then) =
       __$$CartSuccessImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({List<CartItem>? cartDataList});
+  $Res call({CartResponseModel? cartDataList});
 }
 
 /// @nodoc
@@ -391,9 +391,9 @@ class __$$CartSuccessImplCopyWithImpl<T, $Res>
   }) {
     return _then(_$CartSuccessImpl<T>(
       cartDataList: freezed == cartDataList
-          ? _value._cartDataList
+          ? _value.cartDataList
           : cartDataList // ignore: cast_nullable_to_non_nullable
-              as List<CartItem>?,
+              as CartResponseModel?,
     ));
   }
 }
@@ -401,18 +401,10 @@ class __$$CartSuccessImplCopyWithImpl<T, $Res>
 /// @nodoc
 
 class _$CartSuccessImpl<T> implements CartSuccess<T> {
-  const _$CartSuccessImpl({required final List<CartItem>? cartDataList})
-      : _cartDataList = cartDataList;
+  const _$CartSuccessImpl({required this.cartDataList});
 
-  final List<CartItem>? _cartDataList;
   @override
-  List<CartItem>? get cartDataList {
-    final value = _cartDataList;
-    if (value == null) return null;
-    if (_cartDataList is EqualUnmodifiableListView) return _cartDataList;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
+  final CartResponseModel? cartDataList;
 
   @override
   String toString() {
@@ -424,13 +416,12 @@ class _$CartSuccessImpl<T> implements CartSuccess<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CartSuccessImpl<T> &&
-            const DeepCollectionEquality()
-                .equals(other._cartDataList, _cartDataList));
+            (identical(other.cartDataList, cartDataList) ||
+                other.cartDataList == cartDataList));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_cartDataList));
+  int get hashCode => Object.hash(runtimeType, cartDataList);
 
   /// Create a copy of CartState
   /// with the given fields replaced by the non-null parameter values.
@@ -446,7 +437,7 @@ class _$CartSuccessImpl<T> implements CartSuccess<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() cartloading,
-    required TResult Function(List<CartItem>? cartDataList) cartsuccess,
+    required TResult Function(CartResponseModel? cartDataList) cartsuccess,
     required TResult Function(ErrorHandler error) carterror,
     required TResult Function(T data) addOrRemoveCartSuccess,
     required TResult Function(ErrorHandler error) addOrRemoveCartError,
@@ -459,7 +450,7 @@ class _$CartSuccessImpl<T> implements CartSuccess<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? cartloading,
-    TResult? Function(List<CartItem>? cartDataList)? cartsuccess,
+    TResult? Function(CartResponseModel? cartDataList)? cartsuccess,
     TResult? Function(ErrorHandler error)? carterror,
     TResult? Function(T data)? addOrRemoveCartSuccess,
     TResult? Function(ErrorHandler error)? addOrRemoveCartError,
@@ -472,7 +463,7 @@ class _$CartSuccessImpl<T> implements CartSuccess<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? cartloading,
-    TResult Function(List<CartItem>? cartDataList)? cartsuccess,
+    TResult Function(CartResponseModel? cartDataList)? cartsuccess,
     TResult Function(ErrorHandler error)? carterror,
     TResult Function(T data)? addOrRemoveCartSuccess,
     TResult Function(ErrorHandler error)? addOrRemoveCartError,
@@ -531,10 +522,10 @@ class _$CartSuccessImpl<T> implements CartSuccess<T> {
 }
 
 abstract class CartSuccess<T> implements CartState<T> {
-  const factory CartSuccess({required final List<CartItem>? cartDataList}) =
+  const factory CartSuccess({required final CartResponseModel? cartDataList}) =
       _$CartSuccessImpl<T>;
 
-  List<CartItem>? get cartDataList;
+  CartResponseModel? get cartDataList;
 
   /// Create a copy of CartState
   /// with the given fields replaced by the non-null parameter values.
@@ -613,7 +604,7 @@ class _$CartErrorImpl<T> implements CartError<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() cartloading,
-    required TResult Function(List<CartItem>? cartDataList) cartsuccess,
+    required TResult Function(CartResponseModel? cartDataList) cartsuccess,
     required TResult Function(ErrorHandler error) carterror,
     required TResult Function(T data) addOrRemoveCartSuccess,
     required TResult Function(ErrorHandler error) addOrRemoveCartError,
@@ -626,7 +617,7 @@ class _$CartErrorImpl<T> implements CartError<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? cartloading,
-    TResult? Function(List<CartItem>? cartDataList)? cartsuccess,
+    TResult? Function(CartResponseModel? cartDataList)? cartsuccess,
     TResult? Function(ErrorHandler error)? carterror,
     TResult? Function(T data)? addOrRemoveCartSuccess,
     TResult? Function(ErrorHandler error)? addOrRemoveCartError,
@@ -639,7 +630,7 @@ class _$CartErrorImpl<T> implements CartError<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? cartloading,
-    TResult Function(List<CartItem>? cartDataList)? cartsuccess,
+    TResult Function(CartResponseModel? cartDataList)? cartsuccess,
     TResult Function(ErrorHandler error)? carterror,
     TResult Function(T data)? addOrRemoveCartSuccess,
     TResult Function(ErrorHandler error)? addOrRemoveCartError,
@@ -784,7 +775,7 @@ class _$AddOrRemoveCartSuccessImpl<T> implements AddOrRemoveCartSuccess<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() cartloading,
-    required TResult Function(List<CartItem>? cartDataList) cartsuccess,
+    required TResult Function(CartResponseModel? cartDataList) cartsuccess,
     required TResult Function(ErrorHandler error) carterror,
     required TResult Function(T data) addOrRemoveCartSuccess,
     required TResult Function(ErrorHandler error) addOrRemoveCartError,
@@ -797,7 +788,7 @@ class _$AddOrRemoveCartSuccessImpl<T> implements AddOrRemoveCartSuccess<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? cartloading,
-    TResult? Function(List<CartItem>? cartDataList)? cartsuccess,
+    TResult? Function(CartResponseModel? cartDataList)? cartsuccess,
     TResult? Function(ErrorHandler error)? carterror,
     TResult? Function(T data)? addOrRemoveCartSuccess,
     TResult? Function(ErrorHandler error)? addOrRemoveCartError,
@@ -810,7 +801,7 @@ class _$AddOrRemoveCartSuccessImpl<T> implements AddOrRemoveCartSuccess<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? cartloading,
-    TResult Function(List<CartItem>? cartDataList)? cartsuccess,
+    TResult Function(CartResponseModel? cartDataList)? cartsuccess,
     TResult Function(ErrorHandler error)? carterror,
     TResult Function(T data)? addOrRemoveCartSuccess,
     TResult Function(ErrorHandler error)? addOrRemoveCartError,
@@ -953,7 +944,7 @@ class _$AddOrRemoveCartErrorImpl<T> implements AddOrRemoveCartError<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() cartloading,
-    required TResult Function(List<CartItem>? cartDataList) cartsuccess,
+    required TResult Function(CartResponseModel? cartDataList) cartsuccess,
     required TResult Function(ErrorHandler error) carterror,
     required TResult Function(T data) addOrRemoveCartSuccess,
     required TResult Function(ErrorHandler error) addOrRemoveCartError,
@@ -966,7 +957,7 @@ class _$AddOrRemoveCartErrorImpl<T> implements AddOrRemoveCartError<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? cartloading,
-    TResult? Function(List<CartItem>? cartDataList)? cartsuccess,
+    TResult? Function(CartResponseModel? cartDataList)? cartsuccess,
     TResult? Function(ErrorHandler error)? carterror,
     TResult? Function(T data)? addOrRemoveCartSuccess,
     TResult? Function(ErrorHandler error)? addOrRemoveCartError,
@@ -979,7 +970,7 @@ class _$AddOrRemoveCartErrorImpl<T> implements AddOrRemoveCartError<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? cartloading,
-    TResult Function(List<CartItem>? cartDataList)? cartsuccess,
+    TResult Function(CartResponseModel? cartDataList)? cartsuccess,
     TResult Function(ErrorHandler error)? carterror,
     TResult Function(T data)? addOrRemoveCartSuccess,
     TResult Function(ErrorHandler error)? addOrRemoveCartError,

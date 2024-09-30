@@ -32,7 +32,7 @@ class CartBlocBuilder extends StatelessWidget {
           return state.maybeWhen(
             cartloading: () => setUpLoading(),
             cartsuccess: (cartsDataList) {
-              return setUpSuccess(cartsDataList);
+              return setUpSuccess(cartsDataList!.data!.cartItems);
             },
             carterror: (error) => setupError(error),
             orElse: () => const SizedBox.shrink(),

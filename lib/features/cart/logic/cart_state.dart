@@ -6,7 +6,7 @@ class CartState<T> with _$CartState<T> {
 
   const factory CartState.cartloading() = CartLoading;
 
-  const factory CartState.cartsuccess({required List<CartItem>? cartDataList}) =
+  const factory CartState.cartsuccess({required CartResponseModel? cartDataList}) =
       CartSuccess;
 
   const factory CartState.carterror({required ErrorHandler error}) = CartError;
