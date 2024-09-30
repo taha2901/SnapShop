@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:snap_shop/features/address/data/repo/address_repo.dart';
 import 'package:snap_shop/features/address/logic/address_cubit.dart';
+import 'package:snap_shop/features/cart/data/model/cart_response_model/data.dart';
 import 'package:snap_shop/features/cart/data/repo/cart_repo.dart';
 import 'package:snap_shop/features/cart/logic/cart_cubit.dart';
 import 'package:snap_shop/features/favourite/data/repo/favourite_repo.dart';

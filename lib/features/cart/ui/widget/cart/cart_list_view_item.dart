@@ -57,9 +57,6 @@ class CartListViewItem extends StatelessWidget {
                   onPressed: () {
                     context.read<CartCubit>().emitAddOrRemoveCartItem(
                         productId: cartItem.product!.id!.toInt());
-
-                    // context.read<CartCubit>().getCart(); 
-
                   },
                   icon: const Icon(Icons.delete),
                 ),

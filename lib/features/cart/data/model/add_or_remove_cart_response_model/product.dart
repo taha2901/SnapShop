@@ -1,7 +1,7 @@
 class AddOrRemoveCartProduct {
 	int? id;
-	int? price;
-	int? oldPrice;
+	dynamic price;
+	dynamic oldPrice;
 	int? discount;
 	String? image;
 	String? name;
@@ -19,8 +19,8 @@ class AddOrRemoveCartProduct {
 
 	factory AddOrRemoveCartProduct.fromJson(Map<String, dynamic> json) => AddOrRemoveCartProduct(
 				id: json['id'] as int?,
-				price: json['price'] as int?,
-				oldPrice: json['old_price'] as int?,
+				price: json['price'] as dynamic,
+				oldPrice: json['old_price'] as dynamic,
 				discount: json['discount'] as int?,
 				image: json['image'] as String?,
 				name: json['name'] as String?,

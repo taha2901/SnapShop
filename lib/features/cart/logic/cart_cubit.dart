@@ -4,6 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:snap_shop/core/networking/api_error_handler.dart';
 import 'package:snap_shop/features/cart/data/model/add_or_remove_cart_request_model.dart';
 import 'package:snap_shop/features/cart/data/model/cart_response_model/cart_item.dart';
+import 'package:snap_shop/features/cart/data/model/cart_response_model/cart_response_model.dart';
 import 'package:snap_shop/features/cart/data/repo/cart_repo.dart';
 part 'cart_state.dart';
 part 'cart_cubit.freezed.dart';
@@ -12,7 +13,9 @@ class CartCubit extends Cubit<CartState> {
   static CartCubit get(context) => BlocProvider.of(context);
   final CartRepo _cartRepo;
   List<CartItem> cartItems = [];
-  CartCubit(this._cartRepo) : super(const CartState.initial());
+  CartCubit(
+    this._cartRepo,
+  ) : super(const CartState.initial());
 
   Set<String> cartsId = {}; // لمتابعة العناصر في السلة
 
@@ -30,7 +33,7 @@ class CartCubit extends Cubit<CartState> {
         cartsId.add(item.product!.id.toString());
       });
       if (isClosed) return;
-      emit(CartState.cartsuccess(cartDataList: cartItems));
+      emit(CartState.cartsuccess(cartDataList: cartResponseModel));
     }, failure: (errorHandler) {
       if (isClosed) return;
       emit(CartState.carterror(error: errorHandler));
