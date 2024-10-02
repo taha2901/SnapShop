@@ -6,6 +6,7 @@ class Routers {
   static const String categories = '/categories';
   static const String categoriesDetails = '/categoriesDetails';
   static const String layoutShop = '/layoutShop';
+  static const String fcm = '/notification';
 
   static const String checkout = '/checkout';
 
@@ -17,5 +18,8 @@ class Routers {
   static const String favourite = '/favourite';
   static const String address = '/address';
   static const String addAddress = '/addAddress';
+  static const String thankYouView = '/thankYouView';
+
+  static const String cartDetails = '/cartDetails';
 
 }
