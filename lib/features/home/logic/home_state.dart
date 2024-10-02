@@ -32,4 +32,6 @@ class HomeState with _$HomeState {
       CategoriesDetailsSuccess;
   const factory HomeState.categoriesDetailsError(
       {required ErrorHandler errorHandler}) = CategoriesDetailsError;
+
+      const factory HomeState.sendNotification() = SendNotification;
 }

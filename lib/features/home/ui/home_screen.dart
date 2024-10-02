@@ -1,3 +1,4 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,13 +19,37 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-    HomeCubit? _homeCubit;
+  HomeCubit? _homeCubit;
+
+  late String _token;
+
+  @override
+  void initState() {
+    super.initState();
+    FirebaseMessaging.instance.getToken().then((token) {
+      setState(() {
+        _token = token ?? "No Token";
+      });
+      print("Firebase Messaging Token: $_token");
+    });
+
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+      print("Received a message while in the foreground!");
+      print("Message data: ${message.data}");
+
+      if (message.notification != null) {
+        print("Message also contained a notification: ${message.notification}");
+      }
+    });
+  }
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     // حفظ المرجع إلى الـ Cubit
     _homeCubit = context.read<HomeCubit>();
+    // context.read<HomeCubit>().getProducts();
+    // context.read<HomeCubit>().getCategories();
   }
 
   @override
@@ -33,7 +58,6 @@ class _HomeScreenState extends State<HomeScreen> {
     _homeCubit?.close();
     super.dispose();
   }
-
 
   @override
   Widget build(BuildContext context) {

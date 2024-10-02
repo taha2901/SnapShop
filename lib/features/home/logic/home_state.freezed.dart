@@ -33,6 +33,7 @@ mixin _$HomeState {
             List<CategoriesDetailsDataList?>? categoriesDetialsDataList)
         categoriesDetailsSuccess,
     required TResult Function(ErrorHandler errorHandler) categoriesDetailsError,
+    required TResult Function() sendNotification,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -52,6 +53,7 @@ mixin _$HomeState {
             List<CategoriesDetailsDataList?>? categoriesDetialsDataList)?
         categoriesDetailsSuccess,
     TResult? Function(ErrorHandler errorHandler)? categoriesDetailsError,
+    TResult? Function()? sendNotification,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,6 +72,7 @@ mixin _$HomeState {
             List<CategoriesDetailsDataList?>? categoriesDetialsDataList)?
         categoriesDetailsSuccess,
     TResult Function(ErrorHandler errorHandler)? categoriesDetailsError,
+    TResult Function()? sendNotification,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -89,6 +92,7 @@ mixin _$HomeState {
         categoriesDetailsSuccess,
     required TResult Function(CategoriesDetailsError value)
         categoriesDetailsError,
+    required TResult Function(SendNotification value) sendNotification,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -104,6 +108,7 @@ mixin _$HomeState {
     TResult? Function(CategoriesDetailsLoading value)? categoriesDetailsLoading,
     TResult? Function(CategoriesDetailsSuccess value)? categoriesDetailsSuccess,
     TResult? Function(CategoriesDetailsError value)? categoriesDetailsError,
+    TResult? Function(SendNotification value)? sendNotification,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -119,6 +124,7 @@ mixin _$HomeState {
     TResult Function(CategoriesDetailsLoading value)? categoriesDetailsLoading,
     TResult Function(CategoriesDetailsSuccess value)? categoriesDetailsSuccess,
     TResult Function(CategoriesDetailsError value)? categoriesDetailsError,
+    TResult Function(SendNotification value)? sendNotification,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -200,6 +206,7 @@ class _$InitialImpl implements _Initial {
             List<CategoriesDetailsDataList?>? categoriesDetialsDataList)
         categoriesDetailsSuccess,
     required TResult Function(ErrorHandler errorHandler) categoriesDetailsError,
+    required TResult Function() sendNotification,
   }) {
     return initial();
   }
@@ -222,6 +229,7 @@ class _$InitialImpl implements _Initial {
             List<CategoriesDetailsDataList?>? categoriesDetialsDataList)?
         categoriesDetailsSuccess,
     TResult? Function(ErrorHandler errorHandler)? categoriesDetailsError,
+    TResult? Function()? sendNotification,
   }) {
     return initial?.call();
   }
@@ -243,6 +251,7 @@ class _$InitialImpl implements _Initial {
             List<CategoriesDetailsDataList?>? categoriesDetialsDataList)?
         categoriesDetailsSuccess,
     TResult Function(ErrorHandler errorHandler)? categoriesDetailsError,
+    TResult Function()? sendNotification,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -268,6 +277,7 @@ class _$InitialImpl implements _Initial {
         categoriesDetailsSuccess,
     required TResult Function(CategoriesDetailsError value)
         categoriesDetailsError,
+    required TResult Function(SendNotification value) sendNotification,
   }) {
     return initial(this);
   }
@@ -286,6 +296,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(CategoriesDetailsLoading value)? categoriesDetailsLoading,
     TResult? Function(CategoriesDetailsSuccess value)? categoriesDetailsSuccess,
     TResult? Function(CategoriesDetailsError value)? categoriesDetailsError,
+    TResult? Function(SendNotification value)? sendNotification,
   }) {
     return initial?.call(this);
   }
@@ -304,6 +315,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(CategoriesDetailsLoading value)? categoriesDetailsLoading,
     TResult Function(CategoriesDetailsSuccess value)? categoriesDetailsSuccess,
     TResult Function(CategoriesDetailsError value)? categoriesDetailsError,
+    TResult Function(SendNotification value)? sendNotification,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -373,6 +385,7 @@ class _$CategoriesLoadingImpl implements CategoriesLoading {
             List<CategoriesDetailsDataList?>? categoriesDetialsDataList)
         categoriesDetailsSuccess,
     required TResult Function(ErrorHandler errorHandler) categoriesDetailsError,
+    required TResult Function() sendNotification,
   }) {
     return categoriesLoading();
   }
@@ -395,6 +408,7 @@ class _$CategoriesLoadingImpl implements CategoriesLoading {
             List<CategoriesDetailsDataList?>? categoriesDetialsDataList)?
         categoriesDetailsSuccess,
     TResult? Function(ErrorHandler errorHandler)? categoriesDetailsError,
+    TResult? Function()? sendNotification,
   }) {
     return categoriesLoading?.call();
   }
@@ -416,6 +430,7 @@ class _$CategoriesLoadingImpl implements CategoriesLoading {
             List<CategoriesDetailsDataList?>? categoriesDetialsDataList)?
         categoriesDetailsSuccess,
     TResult Function(ErrorHandler errorHandler)? categoriesDetailsError,
+    TResult Function()? sendNotification,
     required TResult orElse(),
   }) {
     if (categoriesLoading != null) {
@@ -441,6 +456,7 @@ class _$CategoriesLoadingImpl implements CategoriesLoading {
         categoriesDetailsSuccess,
     required TResult Function(CategoriesDetailsError value)
         categoriesDetailsError,
+    required TResult Function(SendNotification value) sendNotification,
   }) {
     return categoriesLoading(this);
   }
@@ -459,6 +475,7 @@ class _$CategoriesLoadingImpl implements CategoriesLoading {
     TResult? Function(CategoriesDetailsLoading value)? categoriesDetailsLoading,
     TResult? Function(CategoriesDetailsSuccess value)? categoriesDetailsSuccess,
     TResult? Function(CategoriesDetailsError value)? categoriesDetailsError,
+    TResult? Function(SendNotification value)? sendNotification,
   }) {
     return categoriesLoading?.call(this);
   }
@@ -477,6 +494,7 @@ class _$CategoriesLoadingImpl implements CategoriesLoading {
     TResult Function(CategoriesDetailsLoading value)? categoriesDetailsLoading,
     TResult Function(CategoriesDetailsSuccess value)? categoriesDetailsSuccess,
     TResult Function(CategoriesDetailsError value)? categoriesDetailsError,
+    TResult Function(SendNotification value)? sendNotification,
     required TResult orElse(),
   }) {
     if (categoriesLoading != null) {
@@ -546,6 +564,7 @@ class _$CatLoadImpl implements CatLoad {
             List<CategoriesDetailsDataList?>? categoriesDetialsDataList)
         categoriesDetailsSuccess,
     required TResult Function(ErrorHandler errorHandler) categoriesDetailsError,
+    required TResult Function() sendNotification,
   }) {
     return cateLoad();
   }
@@ -568,6 +587,7 @@ class _$CatLoadImpl implements CatLoad {
             List<CategoriesDetailsDataList?>? categoriesDetialsDataList)?
         categoriesDetailsSuccess,
     TResult? Function(ErrorHandler errorHandler)? categoriesDetailsError,
+    TResult? Function()? sendNotification,
   }) {
     return cateLoad?.call();
   }
@@ -589,6 +609,7 @@ class _$CatLoadImpl implements CatLoad {
             List<CategoriesDetailsDataList?>? categoriesDetialsDataList)?
         categoriesDetailsSuccess,
     TResult Function(ErrorHandler errorHandler)? categoriesDetailsError,
+    TResult Function()? sendNotification,
     required TResult orElse(),
   }) {
     if (cateLoad != null) {
@@ -614,6 +635,7 @@ class _$CatLoadImpl implements CatLoad {
         categoriesDetailsSuccess,
     required TResult Function(CategoriesDetailsError value)
         categoriesDetailsError,
+    required TResult Function(SendNotification value) sendNotification,
   }) {
     return cateLoad(this);
   }
@@ -632,6 +654,7 @@ class _$CatLoadImpl implements CatLoad {
     TResult? Function(CategoriesDetailsLoading value)? categoriesDetailsLoading,
     TResult? Function(CategoriesDetailsSuccess value)? categoriesDetailsSuccess,
     TResult? Function(CategoriesDetailsError value)? categoriesDetailsError,
+    TResult? Function(SendNotification value)? sendNotification,
   }) {
     return cateLoad?.call(this);
   }
@@ -650,6 +673,7 @@ class _$CatLoadImpl implements CatLoad {
     TResult Function(CategoriesDetailsLoading value)? categoriesDetailsLoading,
     TResult Function(CategoriesDetailsSuccess value)? categoriesDetailsSuccess,
     TResult Function(CategoriesDetailsError value)? categoriesDetailsError,
+    TResult Function(SendNotification value)? sendNotification,
     required TResult orElse(),
   }) {
     if (cateLoad != null) {
@@ -757,6 +781,7 @@ class _$CategoriesSuccessImpl implements CategoriesSuccess {
             List<CategoriesDetailsDataList?>? categoriesDetialsDataList)
         categoriesDetailsSuccess,
     required TResult Function(ErrorHandler errorHandler) categoriesDetailsError,
+    required TResult Function() sendNotification,
   }) {
     return categoriesSuccess(categoriesDataList);
   }
@@ -779,6 +804,7 @@ class _$CategoriesSuccessImpl implements CategoriesSuccess {
             List<CategoriesDetailsDataList?>? categoriesDetialsDataList)?
         categoriesDetailsSuccess,
     TResult? Function(ErrorHandler errorHandler)? categoriesDetailsError,
+    TResult? Function()? sendNotification,
   }) {
     return categoriesSuccess?.call(categoriesDataList);
   }
@@ -800,6 +826,7 @@ class _$CategoriesSuccessImpl implements CategoriesSuccess {
             List<CategoriesDetailsDataList?>? categoriesDetialsDataList)?
         categoriesDetailsSuccess,
     TResult Function(ErrorHandler errorHandler)? categoriesDetailsError,
+    TResult Function()? sendNotification,
     required TResult orElse(),
   }) {
     if (categoriesSuccess != null) {
@@ -825,6 +852,7 @@ class _$CategoriesSuccessImpl implements CategoriesSuccess {
         categoriesDetailsSuccess,
     required TResult Function(CategoriesDetailsError value)
         categoriesDetailsError,
+    required TResult Function(SendNotification value) sendNotification,
   }) {
     return categoriesSuccess(this);
   }
@@ -843,6 +871,7 @@ class _$CategoriesSuccessImpl implements CategoriesSuccess {
     TResult? Function(CategoriesDetailsLoading value)? categoriesDetailsLoading,
     TResult? Function(CategoriesDetailsSuccess value)? categoriesDetailsSuccess,
     TResult? Function(CategoriesDetailsError value)? categoriesDetailsError,
+    TResult? Function(SendNotification value)? sendNotification,
   }) {
     return categoriesSuccess?.call(this);
   }
@@ -861,6 +890,7 @@ class _$CategoriesSuccessImpl implements CategoriesSuccess {
     TResult Function(CategoriesDetailsLoading value)? categoriesDetailsLoading,
     TResult Function(CategoriesDetailsSuccess value)? categoriesDetailsSuccess,
     TResult Function(CategoriesDetailsError value)? categoriesDetailsError,
+    TResult Function(SendNotification value)? sendNotification,
     required TResult orElse(),
   }) {
     if (categoriesSuccess != null) {
@@ -969,6 +999,7 @@ class _$CategoriesErrorImpl implements CategoriesError {
             List<CategoriesDetailsDataList?>? categoriesDetialsDataList)
         categoriesDetailsSuccess,
     required TResult Function(ErrorHandler errorHandler) categoriesDetailsError,
+    required TResult Function() sendNotification,
   }) {
     return categoriesError(errorHandler);
   }
@@ -991,6 +1022,7 @@ class _$CategoriesErrorImpl implements CategoriesError {
             List<CategoriesDetailsDataList?>? categoriesDetialsDataList)?
         categoriesDetailsSuccess,
     TResult? Function(ErrorHandler errorHandler)? categoriesDetailsError,
+    TResult? Function()? sendNotification,
   }) {
     return categoriesError?.call(errorHandler);
   }
@@ -1012,6 +1044,7 @@ class _$CategoriesErrorImpl implements CategoriesError {
             List<CategoriesDetailsDataList?>? categoriesDetialsDataList)?
         categoriesDetailsSuccess,
     TResult Function(ErrorHandler errorHandler)? categoriesDetailsError,
+    TResult Function()? sendNotification,
     required TResult orElse(),
   }) {
     if (categoriesError != null) {
@@ -1037,6 +1070,7 @@ class _$CategoriesErrorImpl implements CategoriesError {
         categoriesDetailsSuccess,
     required TResult Function(CategoriesDetailsError value)
         categoriesDetailsError,
+    required TResult Function(SendNotification value) sendNotification,
   }) {
     return categoriesError(this);
   }
@@ -1055,6 +1089,7 @@ class _$CategoriesErrorImpl implements CategoriesError {
     TResult? Function(CategoriesDetailsLoading value)? categoriesDetailsLoading,
     TResult? Function(CategoriesDetailsSuccess value)? categoriesDetailsSuccess,
     TResult? Function(CategoriesDetailsError value)? categoriesDetailsError,
+    TResult? Function(SendNotification value)? sendNotification,
   }) {
     return categoriesError?.call(this);
   }
@@ -1073,6 +1108,7 @@ class _$CategoriesErrorImpl implements CategoriesError {
     TResult Function(CategoriesDetailsLoading value)? categoriesDetailsLoading,
     TResult Function(CategoriesDetailsSuccess value)? categoriesDetailsSuccess,
     TResult Function(CategoriesDetailsError value)? categoriesDetailsError,
+    TResult Function(SendNotification value)? sendNotification,
     required TResult orElse(),
   }) {
     if (categoriesError != null) {
@@ -1151,6 +1187,7 @@ class _$ProductsLoadingImpl implements ProductsLoading {
             List<CategoriesDetailsDataList?>? categoriesDetialsDataList)
         categoriesDetailsSuccess,
     required TResult Function(ErrorHandler errorHandler) categoriesDetailsError,
+    required TResult Function() sendNotification,
   }) {
     return productsLoading();
   }
@@ -1173,6 +1210,7 @@ class _$ProductsLoadingImpl implements ProductsLoading {
             List<CategoriesDetailsDataList?>? categoriesDetialsDataList)?
         categoriesDetailsSuccess,
     TResult? Function(ErrorHandler errorHandler)? categoriesDetailsError,
+    TResult? Function()? sendNotification,
   }) {
     return productsLoading?.call();
   }
@@ -1194,6 +1232,7 @@ class _$ProductsLoadingImpl implements ProductsLoading {
             List<CategoriesDetailsDataList?>? categoriesDetialsDataList)?
         categoriesDetailsSuccess,
     TResult Function(ErrorHandler errorHandler)? categoriesDetailsError,
+    TResult Function()? sendNotification,
     required TResult orElse(),
   }) {
     if (productsLoading != null) {
@@ -1219,6 +1258,7 @@ class _$ProductsLoadingImpl implements ProductsLoading {
         categoriesDetailsSuccess,
     required TResult Function(CategoriesDetailsError value)
         categoriesDetailsError,
+    required TResult Function(SendNotification value) sendNotification,
   }) {
     return productsLoading(this);
   }
@@ -1237,6 +1277,7 @@ class _$ProductsLoadingImpl implements ProductsLoading {
     TResult? Function(CategoriesDetailsLoading value)? categoriesDetailsLoading,
     TResult? Function(CategoriesDetailsSuccess value)? categoriesDetailsSuccess,
     TResult? Function(CategoriesDetailsError value)? categoriesDetailsError,
+    TResult? Function(SendNotification value)? sendNotification,
   }) {
     return productsLoading?.call(this);
   }
@@ -1255,6 +1296,7 @@ class _$ProductsLoadingImpl implements ProductsLoading {
     TResult Function(CategoriesDetailsLoading value)? categoriesDetailsLoading,
     TResult Function(CategoriesDetailsSuccess value)? categoriesDetailsSuccess,
     TResult Function(CategoriesDetailsError value)? categoriesDetailsError,
+    TResult Function(SendNotification value)? sendNotification,
     required TResult orElse(),
   }) {
     if (productsLoading != null) {
@@ -1364,6 +1406,7 @@ class _$ProductsSuccessImpl implements ProductsSuccess {
             List<CategoriesDetailsDataList?>? categoriesDetialsDataList)
         categoriesDetailsSuccess,
     required TResult Function(ErrorHandler errorHandler) categoriesDetailsError,
+    required TResult Function() sendNotification,
   }) {
     return productsSuccess(productsDataList);
   }
@@ -1386,6 +1429,7 @@ class _$ProductsSuccessImpl implements ProductsSuccess {
             List<CategoriesDetailsDataList?>? categoriesDetialsDataList)?
         categoriesDetailsSuccess,
     TResult? Function(ErrorHandler errorHandler)? categoriesDetailsError,
+    TResult? Function()? sendNotification,
   }) {
     return productsSuccess?.call(productsDataList);
   }
@@ -1407,6 +1451,7 @@ class _$ProductsSuccessImpl implements ProductsSuccess {
             List<CategoriesDetailsDataList?>? categoriesDetialsDataList)?
         categoriesDetailsSuccess,
     TResult Function(ErrorHandler errorHandler)? categoriesDetailsError,
+    TResult Function()? sendNotification,
     required TResult orElse(),
   }) {
     if (productsSuccess != null) {
@@ -1432,6 +1477,7 @@ class _$ProductsSuccessImpl implements ProductsSuccess {
         categoriesDetailsSuccess,
     required TResult Function(CategoriesDetailsError value)
         categoriesDetailsError,
+    required TResult Function(SendNotification value) sendNotification,
   }) {
     return productsSuccess(this);
   }
@@ -1450,6 +1496,7 @@ class _$ProductsSuccessImpl implements ProductsSuccess {
     TResult? Function(CategoriesDetailsLoading value)? categoriesDetailsLoading,
     TResult? Function(CategoriesDetailsSuccess value)? categoriesDetailsSuccess,
     TResult? Function(CategoriesDetailsError value)? categoriesDetailsError,
+    TResult? Function(SendNotification value)? sendNotification,
   }) {
     return productsSuccess?.call(this);
   }
@@ -1468,6 +1515,7 @@ class _$ProductsSuccessImpl implements ProductsSuccess {
     TResult Function(CategoriesDetailsLoading value)? categoriesDetailsLoading,
     TResult Function(CategoriesDetailsSuccess value)? categoriesDetailsSuccess,
     TResult Function(CategoriesDetailsError value)? categoriesDetailsError,
+    TResult Function(SendNotification value)? sendNotification,
     required TResult orElse(),
   }) {
     if (productsSuccess != null) {
@@ -1575,6 +1623,7 @@ class _$ProductsErrorImpl implements ProductsError {
             List<CategoriesDetailsDataList?>? categoriesDetialsDataList)
         categoriesDetailsSuccess,
     required TResult Function(ErrorHandler errorHandler) categoriesDetailsError,
+    required TResult Function() sendNotification,
   }) {
     return productsError(errorHandler);
   }
@@ -1597,6 +1646,7 @@ class _$ProductsErrorImpl implements ProductsError {
             List<CategoriesDetailsDataList?>? categoriesDetialsDataList)?
         categoriesDetailsSuccess,
     TResult? Function(ErrorHandler errorHandler)? categoriesDetailsError,
+    TResult? Function()? sendNotification,
   }) {
     return productsError?.call(errorHandler);
   }
@@ -1618,6 +1668,7 @@ class _$ProductsErrorImpl implements ProductsError {
             List<CategoriesDetailsDataList?>? categoriesDetialsDataList)?
         categoriesDetailsSuccess,
     TResult Function(ErrorHandler errorHandler)? categoriesDetailsError,
+    TResult Function()? sendNotification,
     required TResult orElse(),
   }) {
     if (productsError != null) {
@@ -1643,6 +1694,7 @@ class _$ProductsErrorImpl implements ProductsError {
         categoriesDetailsSuccess,
     required TResult Function(CategoriesDetailsError value)
         categoriesDetailsError,
+    required TResult Function(SendNotification value) sendNotification,
   }) {
     return productsError(this);
   }
@@ -1661,6 +1713,7 @@ class _$ProductsErrorImpl implements ProductsError {
     TResult? Function(CategoriesDetailsLoading value)? categoriesDetailsLoading,
     TResult? Function(CategoriesDetailsSuccess value)? categoriesDetailsSuccess,
     TResult? Function(CategoriesDetailsError value)? categoriesDetailsError,
+    TResult? Function(SendNotification value)? sendNotification,
   }) {
     return productsError?.call(this);
   }
@@ -1679,6 +1732,7 @@ class _$ProductsErrorImpl implements ProductsError {
     TResult Function(CategoriesDetailsLoading value)? categoriesDetailsLoading,
     TResult Function(CategoriesDetailsSuccess value)? categoriesDetailsSuccess,
     TResult Function(CategoriesDetailsError value)? categoriesDetailsError,
+    TResult Function(SendNotification value)? sendNotification,
     required TResult orElse(),
   }) {
     if (productsError != null) {
@@ -1760,6 +1814,7 @@ class _$CategoriesDetailsLoadingImpl implements CategoriesDetailsLoading {
             List<CategoriesDetailsDataList?>? categoriesDetialsDataList)
         categoriesDetailsSuccess,
     required TResult Function(ErrorHandler errorHandler) categoriesDetailsError,
+    required TResult Function() sendNotification,
   }) {
     return categoriesDetailsLoading();
   }
@@ -1782,6 +1837,7 @@ class _$CategoriesDetailsLoadingImpl implements CategoriesDetailsLoading {
             List<CategoriesDetailsDataList?>? categoriesDetialsDataList)?
         categoriesDetailsSuccess,
     TResult? Function(ErrorHandler errorHandler)? categoriesDetailsError,
+    TResult? Function()? sendNotification,
   }) {
     return categoriesDetailsLoading?.call();
   }
@@ -1803,6 +1859,7 @@ class _$CategoriesDetailsLoadingImpl implements CategoriesDetailsLoading {
             List<CategoriesDetailsDataList?>? categoriesDetialsDataList)?
         categoriesDetailsSuccess,
     TResult Function(ErrorHandler errorHandler)? categoriesDetailsError,
+    TResult Function()? sendNotification,
     required TResult orElse(),
   }) {
     if (categoriesDetailsLoading != null) {
@@ -1828,6 +1885,7 @@ class _$CategoriesDetailsLoadingImpl implements CategoriesDetailsLoading {
         categoriesDetailsSuccess,
     required TResult Function(CategoriesDetailsError value)
         categoriesDetailsError,
+    required TResult Function(SendNotification value) sendNotification,
   }) {
     return categoriesDetailsLoading(this);
   }
@@ -1846,6 +1904,7 @@ class _$CategoriesDetailsLoadingImpl implements CategoriesDetailsLoading {
     TResult? Function(CategoriesDetailsLoading value)? categoriesDetailsLoading,
     TResult? Function(CategoriesDetailsSuccess value)? categoriesDetailsSuccess,
     TResult? Function(CategoriesDetailsError value)? categoriesDetailsError,
+    TResult? Function(SendNotification value)? sendNotification,
   }) {
     return categoriesDetailsLoading?.call(this);
   }
@@ -1864,6 +1923,7 @@ class _$CategoriesDetailsLoadingImpl implements CategoriesDetailsLoading {
     TResult Function(CategoriesDetailsLoading value)? categoriesDetailsLoading,
     TResult Function(CategoriesDetailsSuccess value)? categoriesDetailsSuccess,
     TResult Function(CategoriesDetailsError value)? categoriesDetailsError,
+    TResult Function(SendNotification value)? sendNotification,
     required TResult orElse(),
   }) {
     if (categoriesDetailsLoading != null) {
@@ -1976,6 +2036,7 @@ class _$CategoriesDetailsSuccessImpl implements CategoriesDetailsSuccess {
             List<CategoriesDetailsDataList?>? categoriesDetialsDataList)
         categoriesDetailsSuccess,
     required TResult Function(ErrorHandler errorHandler) categoriesDetailsError,
+    required TResult Function() sendNotification,
   }) {
     return categoriesDetailsSuccess(categoriesDetialsDataList);
   }
@@ -1998,6 +2059,7 @@ class _$CategoriesDetailsSuccessImpl implements CategoriesDetailsSuccess {
             List<CategoriesDetailsDataList?>? categoriesDetialsDataList)?
         categoriesDetailsSuccess,
     TResult? Function(ErrorHandler errorHandler)? categoriesDetailsError,
+    TResult? Function()? sendNotification,
   }) {
     return categoriesDetailsSuccess?.call(categoriesDetialsDataList);
   }
@@ -2019,6 +2081,7 @@ class _$CategoriesDetailsSuccessImpl implements CategoriesDetailsSuccess {
             List<CategoriesDetailsDataList?>? categoriesDetialsDataList)?
         categoriesDetailsSuccess,
     TResult Function(ErrorHandler errorHandler)? categoriesDetailsError,
+    TResult Function()? sendNotification,
     required TResult orElse(),
   }) {
     if (categoriesDetailsSuccess != null) {
@@ -2044,6 +2107,7 @@ class _$CategoriesDetailsSuccessImpl implements CategoriesDetailsSuccess {
         categoriesDetailsSuccess,
     required TResult Function(CategoriesDetailsError value)
         categoriesDetailsError,
+    required TResult Function(SendNotification value) sendNotification,
   }) {
     return categoriesDetailsSuccess(this);
   }
@@ -2062,6 +2126,7 @@ class _$CategoriesDetailsSuccessImpl implements CategoriesDetailsSuccess {
     TResult? Function(CategoriesDetailsLoading value)? categoriesDetailsLoading,
     TResult? Function(CategoriesDetailsSuccess value)? categoriesDetailsSuccess,
     TResult? Function(CategoriesDetailsError value)? categoriesDetailsError,
+    TResult? Function(SendNotification value)? sendNotification,
   }) {
     return categoriesDetailsSuccess?.call(this);
   }
@@ -2080,6 +2145,7 @@ class _$CategoriesDetailsSuccessImpl implements CategoriesDetailsSuccess {
     TResult Function(CategoriesDetailsLoading value)? categoriesDetailsLoading,
     TResult Function(CategoriesDetailsSuccess value)? categoriesDetailsSuccess,
     TResult Function(CategoriesDetailsError value)? categoriesDetailsError,
+    TResult Function(SendNotification value)? sendNotification,
     required TResult orElse(),
   }) {
     if (categoriesDetailsSuccess != null) {
@@ -2190,6 +2256,7 @@ class _$CategoriesDetailsErrorImpl implements CategoriesDetailsError {
             List<CategoriesDetailsDataList?>? categoriesDetialsDataList)
         categoriesDetailsSuccess,
     required TResult Function(ErrorHandler errorHandler) categoriesDetailsError,
+    required TResult Function() sendNotification,
   }) {
     return categoriesDetailsError(errorHandler);
   }
@@ -2212,6 +2279,7 @@ class _$CategoriesDetailsErrorImpl implements CategoriesDetailsError {
             List<CategoriesDetailsDataList?>? categoriesDetialsDataList)?
         categoriesDetailsSuccess,
     TResult? Function(ErrorHandler errorHandler)? categoriesDetailsError,
+    TResult? Function()? sendNotification,
   }) {
     return categoriesDetailsError?.call(errorHandler);
   }
@@ -2233,6 +2301,7 @@ class _$CategoriesDetailsErrorImpl implements CategoriesDetailsError {
             List<CategoriesDetailsDataList?>? categoriesDetialsDataList)?
         categoriesDetailsSuccess,
     TResult Function(ErrorHandler errorHandler)? categoriesDetailsError,
+    TResult Function()? sendNotification,
     required TResult orElse(),
   }) {
     if (categoriesDetailsError != null) {
@@ -2258,6 +2327,7 @@ class _$CategoriesDetailsErrorImpl implements CategoriesDetailsError {
         categoriesDetailsSuccess,
     required TResult Function(CategoriesDetailsError value)
         categoriesDetailsError,
+    required TResult Function(SendNotification value) sendNotification,
   }) {
     return categoriesDetailsError(this);
   }
@@ -2276,6 +2346,7 @@ class _$CategoriesDetailsErrorImpl implements CategoriesDetailsError {
     TResult? Function(CategoriesDetailsLoading value)? categoriesDetailsLoading,
     TResult? Function(CategoriesDetailsSuccess value)? categoriesDetailsSuccess,
     TResult? Function(CategoriesDetailsError value)? categoriesDetailsError,
+    TResult? Function(SendNotification value)? sendNotification,
   }) {
     return categoriesDetailsError?.call(this);
   }
@@ -2294,6 +2365,7 @@ class _$CategoriesDetailsErrorImpl implements CategoriesDetailsError {
     TResult Function(CategoriesDetailsLoading value)? categoriesDetailsLoading,
     TResult Function(CategoriesDetailsSuccess value)? categoriesDetailsSuccess,
     TResult Function(CategoriesDetailsError value)? categoriesDetailsError,
+    TResult Function(SendNotification value)? sendNotification,
     required TResult orElse(),
   }) {
     if (categoriesDetailsError != null) {
@@ -2315,4 +2387,183 @@ abstract class CategoriesDetailsError implements HomeState {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CategoriesDetailsErrorImplCopyWith<_$CategoriesDetailsErrorImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SendNotificationImplCopyWith<$Res> {
+  factory _$$SendNotificationImplCopyWith(_$SendNotificationImpl value,
+          $Res Function(_$SendNotificationImpl) then) =
+      __$$SendNotificationImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SendNotificationImplCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$SendNotificationImpl>
+    implements _$$SendNotificationImplCopyWith<$Res> {
+  __$$SendNotificationImplCopyWithImpl(_$SendNotificationImpl _value,
+      $Res Function(_$SendNotificationImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$SendNotificationImpl implements SendNotification {
+  const _$SendNotificationImpl();
+
+  @override
+  String toString() {
+    return 'HomeState.sendNotification()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SendNotificationImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() categoriesLoading,
+    required TResult Function() cateLoad,
+    required TResult Function(List<CategoriesDataList> categoriesDataList)
+        categoriesSuccess,
+    required TResult Function(ErrorHandler errorHandler) categoriesError,
+    required TResult Function() productsLoading,
+    required TResult Function(List<ProductDataList?>? productsDataList)
+        productsSuccess,
+    required TResult Function(ErrorHandler errorHandler) productsError,
+    required TResult Function() categoriesDetailsLoading,
+    required TResult Function(
+            List<CategoriesDetailsDataList?>? categoriesDetialsDataList)
+        categoriesDetailsSuccess,
+    required TResult Function(ErrorHandler errorHandler) categoriesDetailsError,
+    required TResult Function() sendNotification,
+  }) {
+    return sendNotification();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? categoriesLoading,
+    TResult? Function()? cateLoad,
+    TResult? Function(List<CategoriesDataList> categoriesDataList)?
+        categoriesSuccess,
+    TResult? Function(ErrorHandler errorHandler)? categoriesError,
+    TResult? Function()? productsLoading,
+    TResult? Function(List<ProductDataList?>? productsDataList)?
+        productsSuccess,
+    TResult? Function(ErrorHandler errorHandler)? productsError,
+    TResult? Function()? categoriesDetailsLoading,
+    TResult? Function(
+            List<CategoriesDetailsDataList?>? categoriesDetialsDataList)?
+        categoriesDetailsSuccess,
+    TResult? Function(ErrorHandler errorHandler)? categoriesDetailsError,
+    TResult? Function()? sendNotification,
+  }) {
+    return sendNotification?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? categoriesLoading,
+    TResult Function()? cateLoad,
+    TResult Function(List<CategoriesDataList> categoriesDataList)?
+        categoriesSuccess,
+    TResult Function(ErrorHandler errorHandler)? categoriesError,
+    TResult Function()? productsLoading,
+    TResult Function(List<ProductDataList?>? productsDataList)? productsSuccess,
+    TResult Function(ErrorHandler errorHandler)? productsError,
+    TResult Function()? categoriesDetailsLoading,
+    TResult Function(
+            List<CategoriesDetailsDataList?>? categoriesDetialsDataList)?
+        categoriesDetailsSuccess,
+    TResult Function(ErrorHandler errorHandler)? categoriesDetailsError,
+    TResult Function()? sendNotification,
+    required TResult orElse(),
+  }) {
+    if (sendNotification != null) {
+      return sendNotification();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(CategoriesLoading value) categoriesLoading,
+    required TResult Function(CatLoad value) cateLoad,
+    required TResult Function(CategoriesSuccess value) categoriesSuccess,
+    required TResult Function(CategoriesError value) categoriesError,
+    required TResult Function(ProductsLoading value) productsLoading,
+    required TResult Function(ProductsSuccess value) productsSuccess,
+    required TResult Function(ProductsError value) productsError,
+    required TResult Function(CategoriesDetailsLoading value)
+        categoriesDetailsLoading,
+    required TResult Function(CategoriesDetailsSuccess value)
+        categoriesDetailsSuccess,
+    required TResult Function(CategoriesDetailsError value)
+        categoriesDetailsError,
+    required TResult Function(SendNotification value) sendNotification,
+  }) {
+    return sendNotification(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(CategoriesLoading value)? categoriesLoading,
+    TResult? Function(CatLoad value)? cateLoad,
+    TResult? Function(CategoriesSuccess value)? categoriesSuccess,
+    TResult? Function(CategoriesError value)? categoriesError,
+    TResult? Function(ProductsLoading value)? productsLoading,
+    TResult? Function(ProductsSuccess value)? productsSuccess,
+    TResult? Function(ProductsError value)? productsError,
+    TResult? Function(CategoriesDetailsLoading value)? categoriesDetailsLoading,
+    TResult? Function(CategoriesDetailsSuccess value)? categoriesDetailsSuccess,
+    TResult? Function(CategoriesDetailsError value)? categoriesDetailsError,
+    TResult? Function(SendNotification value)? sendNotification,
+  }) {
+    return sendNotification?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(CategoriesLoading value)? categoriesLoading,
+    TResult Function(CatLoad value)? cateLoad,
+    TResult Function(CategoriesSuccess value)? categoriesSuccess,
+    TResult Function(CategoriesError value)? categoriesError,
+    TResult Function(ProductsLoading value)? productsLoading,
+    TResult Function(ProductsSuccess value)? productsSuccess,
+    TResult Function(ProductsError value)? productsError,
+    TResult Function(CategoriesDetailsLoading value)? categoriesDetailsLoading,
+    TResult Function(CategoriesDetailsSuccess value)? categoriesDetailsSuccess,
+    TResult Function(CategoriesDetailsError value)? categoriesDetailsError,
+    TResult Function(SendNotification value)? sendNotification,
+    required TResult orElse(),
+  }) {
+    if (sendNotification != null) {
+      return sendNotification(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SendNotification implements HomeState {
+  const factory SendNotification() = _$SendNotificationImpl;
 }
