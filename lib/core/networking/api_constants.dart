@@ -26,6 +26,8 @@ class ApiConstants {
   static const String addresses = 'addresses';
 
   static const String favourite = 'favorites';
+
+  static const String paymentIntent= 'https://api.stripe.com/v1/payment_intents';
 }
 
 class ApiErrors {

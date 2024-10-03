@@ -92,11 +92,13 @@ class _CartScreenState extends State<CartScreen> {
                             textStyle: TextStyles.font16WhiteSemiBold,
                             onPressed: () {
                               Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => MyCartView(
-                                            total: cartsDataList.data!.total!,
-                                          )));
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => MyCartView(
+                                    total: cartsDataList.data!.total!,
+                                  ),
+                                ),
+                              );
                             },
                             backgroundColor: ColorsManager.mainColor,
                             borderRadius: 50.0,
