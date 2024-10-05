@@ -26,7 +26,7 @@ platform :android do
     android_artifact_type: "APK",
     android_artifact_path: "../build/app/outputs/flutter-apk/app-production-release.apk",
     groups: "qa-team, trusted-testers",
-    testers: ["tahahamada2901@gmail.com", "salsabilsayed783@gmail.com"],
+    testers: "tahahamada2901@gmail.com, salsabilsayed783@gmail.com",
     release_notes: "First Fastlane Firebase Distribution"
   )
   end
