@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:snap_shop/core/helpers/extentions.dart';
 import 'package:snap_shop/core/routings/routers.dart';
 import 'package:snap_shop/core/widget/custom_button.dart';
-import 'package:snap_shop/features/cart_details/ui/thank_you_view.dart';
 import 'package:snap_shop/features/cart_details/ui/widgets/custom_credit_card.dart';
 import 'package:snap_shop/features/cart_details/ui/widgets/payment_methods_list_view.dart';
 

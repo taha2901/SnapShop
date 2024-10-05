@@ -11,8 +11,6 @@ import 'package:snap_shop/features/cart/logic/cart_cubit.dart';
 import 'package:snap_shop/features/favourite/logic/favourite_cubit.dart';
 import 'package:snap_shop/features/home/logic/home_cubit.dart';
 
-
-
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 class SnapShop extends StatelessWidget {
   final AppRouter appRouter;
@@ -29,11 +27,10 @@ class SnapShop extends StatelessWidget {
           providers: [
             BlocProvider(
               create: (context) => getit<HomeCubit>()
-                ..getCategories()
-                ..getProducts(),
+                
             ),
             BlocProvider(
-              create: (context) => getit<CartCubit>()..getCart(),
+              create: (context) => getit<CartCubit>(),
             ),
             BlocProvider(
               create: (context) => getit<FavouriteCubit>()..getFavourites(),

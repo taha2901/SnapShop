@@ -74,25 +74,31 @@ class LoginCubit extends Cubit<LoginState> {
 
   /// تسجيل الدخول باستخدام API
   void emitLoginState() async {
-    emit(const LoginState.loading());
-    final response = await _loginRepo.login(
-      LoginRequestBody(
-        email: emailController.text.trim(),
-        password: passwordController.text.trim(),
-      ),
-    );
+  emit(const LoginState.loading());
+  
+  final response = await _loginRepo.login(
+    LoginRequestBody(
+      email: emailController.text.trim(),
+      password: passwordController.text.trim(),
+    ),
+  );
 
-    response.when(
-      success: (loginResponse) async {
-        await saveUserToken(loginResponse.userData?.token ?? '');
+  response.when(
+    success: (loginResponse) async {
+      if (loginResponse.userData?.token != null && loginResponse.userData!.token!.isNotEmpty) {
+        await saveUserToken(loginResponse.userData!.token!);
         await saveUserPassword(passwordController.text.trim());
         emit(LoginState.success(loginResponse));
-      },
-      failure: (error) {
-        emit(LoginState.error(error: error.apiErrorModel.message ?? ''));
-      },
-    );
-  }
+      } else {
+        emit(const LoginState.error(error: 'Login failed: Invalid token'));
+      }
+    },
+    failure: (error) {
+      emit(LoginState.error(error: error.apiErrorModel.message ?? 'Login failed'));
+    },
+  );
+}
+
 
   /// تسجيل الدخول باستخدام Google
   Future<void> signInWithGoogle() async {

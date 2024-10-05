@@ -42,14 +42,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
       listener: (context, state) {
         state.whenOrNull(
           profileSuccess: (profileModel) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Success')),
-            );
+            // ScaffoldMessenger.of(context).showSnackBar(
+            //   const SnackBar(content: Text('Success')),
+            // );
           },
           profileLoading: () {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Loading...')),
-            );
+            // ScaffoldMessenger.of(context).showSnackBar(
+            //   const SnackBar(content: Text('Loading...')),
+            // );
           },
           profileError: (error) {
             ScaffoldMessenger.of(context).showSnackBar(
@@ -60,7 +60,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
       },
       builder: (context, state) {
         return Scaffold(
-          appBar: AppBar(),
+          appBar: AppBar(
+            
+            
+          ),
           body: SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),

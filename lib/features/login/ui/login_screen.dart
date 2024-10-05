@@ -160,16 +160,16 @@ class _LoginScreenState extends State<LoginScreen> {
                     const DontHaveAccountText(),
                     verticalSpace(24),
                     verticalSpace(36),
-                    Container(
-                      width: double.infinity,
-                      height: 55.h,
-                      child: SignInButton(
-                        Buttons.Google,
-                        onPressed: () {
-                          context.read<LoginCubit>().signInWithGoogle();
-                        },
-                      ),
-                    ),
+                    // Container(
+                    //   width: double.infinity,
+                    //   height: 55.h,
+                    //   child: SignInButton(
+                    //     Buttons.Google,
+                    //     onPressed: () {
+                    //       context.read<LoginCubit>().signInWithGoogle();
+                    //     },
+                    //   ),
+                    // ),
                     const LoginBlocListenter(),
                   ],
                 ),

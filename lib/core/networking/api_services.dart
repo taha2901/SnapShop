@@ -6,6 +6,8 @@ import 'package:snap_shop/features/address/data/model/get_address_response_model
 import 'package:snap_shop/features/cart/data/model/add_or_remove_cart_request_model.dart';
 import 'package:snap_shop/features/cart/data/model/add_or_remove_cart_response_model/add_or_remove_cart_response_model.dart';
 import 'package:snap_shop/features/cart/data/model/cart_response_model/cart_response_model.dart';
+import 'package:snap_shop/features/cart_details/data/models/payment_intent_input.dart';
+import 'package:snap_shop/features/cart_details/data/models/payment_intent_response/payment_intent_response.dart';
 import 'package:snap_shop/features/favourite/data/model/add_or_remove_cart_request_model.dart';
 import 'package:snap_shop/features/favourite/data/model/add_or_remove_favourite_model/add_or_remove_favourite_model.dart';
 import 'package:snap_shop/features/favourite/data/model/favourite/favourite.dart';
@@ -86,4 +88,9 @@ abstract class ApiServices {
   Future<AddOrRemoveFavouriteResponseModel> addOrRemoveFavourite(
     @Body() AddOrRemoveFavouriteRequestModel addOrRemoveFavouriteRequestModel,
   );
+
+  // @POST(ApiConstants.paymentIntent)
+  // Future<PaymentIntentResponse> paymentIntent(
+  //   @Body() PaymentIntentInput paymentIntentRequestModel,
+  // );
 }

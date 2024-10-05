@@ -7,17 +7,13 @@ import 'package:snap_shop/core/widget/fcm.dart';
 import 'package:snap_shop/features/address/logic/address_cubit.dart';
 import 'package:snap_shop/features/address/ui/add_address_screen.dart';
 import 'package:snap_shop/features/address/ui/address_screen.dart';
-import 'package:snap_shop/features/cart/ui/checkout_screen.dart';
-import 'package:snap_shop/features/cart_details/ui/my_cart_view.dart';
 import 'package:snap_shop/features/cart_details/ui/thank_you_view.dart';
 import 'package:snap_shop/features/favourite/ui/favourite_screen.dart';
 import 'package:snap_shop/features/home/logic/home_cubit.dart';
-import 'package:snap_shop/features/home/ui/home_screen.dart';
 import 'package:snap_shop/features/home/ui/product_details_screen.dart';
 import 'package:snap_shop/features/home/ui/widget/all_category_screen/categories_screen_bloc_builder.dart';
 import 'package:snap_shop/features/login/logic/login_cubit.dart';
 import 'package:snap_shop/features/login/ui/login_screen.dart';
-import 'package:snap_shop/features/notification/ui/notification_view.dart';
 import 'package:snap_shop/features/profile/logic/profile_cubit.dart';
 import 'package:snap_shop/features/profile/ui/widget/change_password_screen.dart';
 import 'package:snap_shop/features/profile/ui/widget/update_user_data_screen.dart';
@@ -72,11 +68,11 @@ class AppRouter {
 
       case Routers.fcm:
         return MaterialPageRoute(
-          builder: (_) =>  FCMScreen(),
+          builder: (_) => FCMScreen(),
         );
       case Routers.thankYouView:
         return MaterialPageRoute(
-          builder: (_) => const ThankYouView(),
+          builder: (_) =>  ThankYouView(),
         );
 
       case Routers.changePassword:
@@ -92,11 +88,6 @@ class AppRouter {
             create: (context) => getit<ProfileCubit>()..getUserData(),
             child: UpdateUserDataScreen(),
           ),
-        );
-
-      case Routers.checkout:
-        return MaterialPageRoute(
-          builder: (_) => const CheckoutScreen(),
         );
 
       case Routers.productDetails:

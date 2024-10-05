@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
+import 'package:snap_shop/core/helpers/api_keys.dart';
 import 'package:snap_shop/core/helpers/constants.dart';
 import 'package:snap_shop/core/helpers/extentions.dart';
 import 'package:snap_shop/core/helpers/local_notify.dart';
@@ -13,6 +15,7 @@ import 'package:firebase_core/firebase_core.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   NotificationService().requestPermissions();
+  Stripe.publishableKey = ApiKeys.publishableKey;
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
