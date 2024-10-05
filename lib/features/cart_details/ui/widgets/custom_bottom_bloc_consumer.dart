@@ -9,7 +9,8 @@ import 'package:snap_shop/features/cart_details/ui/thank_you_view.dart';
 class CustomButtonBlocConsumer extends StatelessWidget {
   final double total;
   const CustomButtonBlocConsumer({
-    super.key, required this.total,
+    super.key,
+    required this.total,
   });
 
   @override
@@ -18,7 +19,7 @@ class CustomButtonBlocConsumer extends StatelessWidget {
       listener: (context, state) {
         if (state is PaymentSuccess) {
           Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (context) => const ThankYouView(),
+            builder: (context) =>  ThankYouView(total: total,),
           ));
         }
         if (state is PaymentError) {
@@ -33,6 +34,7 @@ class CustomButtonBlocConsumer extends StatelessWidget {
             PaymentIntentInput paymentIntentInput = PaymentIntentInput(
               amount: total.toString(),
               currency: 'usd',
+              // customerId: 'cus_MXW3F1pKXQ9kZb',
             );
             BlocProvider.of<PaymentCubit>(context)
                 .makePayment(paymentIntentInputModel: paymentIntentInput);

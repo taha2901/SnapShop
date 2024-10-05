@@ -50,7 +50,7 @@ class NotificationService {
         displayOnForeground: true,
       ),
       schedule: NotificationInterval(
-        interval: 1 * 60, // 15 minutes in seconds
+        interval: 15 * 60, // 15 minutes in seconds
         timeZone: await AwesomeNotifications().getLocalTimeZoneIdentifier(),
         repeats: true,
       ),

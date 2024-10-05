@@ -9,7 +9,6 @@ import 'package:snap_shop/core/widget/custom_show_toast.dart';
 import 'package:snap_shop/features/cart/logic/cart_cubit.dart';
 import 'package:snap_shop/features/favourite/logic/favourite_cubit.dart';
 import 'package:snap_shop/features/home/data/model/products/product.dart';
-import 'package:snap_shop/features/home/ui/widget/product_details/app_bar.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
   final ProductDataList? productDataList;

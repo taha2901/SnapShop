@@ -16,6 +16,7 @@ class StripeServices {
       body: paymentIntentResponse.toJson(),
       token: ApiKeys.secretkey,
       contentType: Headers.formUrlEncodedContentType,
+      
     );
     var paymentIntentRequestModel =
         PaymentIntentResponse.fromJson(response.data);
@@ -43,4 +44,18 @@ class StripeServices {
         paymentIntentClientSheet: paymentIntentModel.clientSecret!);
     await displayPaymentSheet();
   }
+
+
+  // Future<PaymentIntentResponse> createCustomer(
+  //     PaymentIntentInput paymentIntentResponse) async {
+  //   var response = await apiServeices.POST(
+  //     url: 'https://api.stripe.com/v1/payment_intents',
+  //     body: paymentIntentResponse.toJson(),
+  //     token: ApiKeys.secretkey,
+  //     contentType: Headers.formUrlEncodedContentType,
+  //   );
+  //   var paymentIntentRequestModel =
+  //       PaymentIntentResponse.fromJson(response.data);
+  //   return paymentIntentRequestModel;
+  // }
 }

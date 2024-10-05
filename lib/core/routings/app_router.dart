@@ -72,7 +72,7 @@ class AppRouter {
         );
       case Routers.thankYouView:
         return MaterialPageRoute(
-          builder: (_) => const ThankYouView(),
+          builder: (_) =>  ThankYouView(),
         );
 
       case Routers.changePassword:

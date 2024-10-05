@@ -95,7 +95,6 @@ import 'package:snap_shop/features/notification/logic/notification_cubit.dart';
 import 'package:snap_shop/features/notification/ui/notification_view.dart';
 import 'package:snap_shop/features/profile/logic/profile_cubit.dart';
 import 'package:snap_shop/features/profile/ui/profile_screen.dart';
-import 'package:snap_shop/features/profile/ui/widget/profile_bloc_builder.dart'; // استيراد ProfileScreen هنا
 
 class LayoutShop extends StatefulWidget {
   const LayoutShop({super.key});
