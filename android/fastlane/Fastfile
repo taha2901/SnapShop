@@ -22,10 +22,9 @@ platform :android do
     sh "flutter build apk --release --flavor production --target lib/main_production.dart --no-tree-shake-icons"
     firebase_app_distribution(
     app: "1:858162190081:android:4fde968177f07b3778ad00",
-    firebase_cli_token: '1//03Af8-2KK1DpwCgYIARAAGAMSNwF-L9IrQLz2UrqPW_kv1zBf6wCPV79e8hGyh0glCerQugFOjfwFHV1lXpxcoVQ8MsSY2zL_cBM',
+    firebase_cli_token: ENV["firebase_cli_token"],
     android_artifact_type: "APK",
     android_artifact_path: "../build/app/outputs/flutter-apk/app-production-release.apk",
-    groups: "qa-team, trusted-testers",
     testers: "tahahamada2901@gmail.com, salsabilsayed783@gmail.com",
     release_notes: "First Fastlane Firebase Distribution"
   )
