@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "858162190081",
+    "project_id": "snapshop-4cf42",
+    "storage_bucket": "snapshop-4cf42.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:858162190081:android:4fde968177f07b3778ad00",
+        "android_client_info": {
+          "package_name": "com.example.snap_shop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "858162190081-160bavsgp9477pbof1a6utrjj80dn28u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.snap_shop",
+            "certificate_hash": "50159d9e31719e469c9421bfbc4e3de4c3d2d119"
+          }
+        },
+        {
+          "client_id": "858162190081-63b1usomaha2ugf3rhgspljjl5hq5ll0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfzlysJgLZQf5D1PRRxjlyCtnBOZFT8-k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "858162190081-63b1usomaha2ugf3rhgspljjl5hq5ll0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "858162190081-f9fcskfgq8vorriqra2l72gb5hqt5lul.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.snapShop"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
