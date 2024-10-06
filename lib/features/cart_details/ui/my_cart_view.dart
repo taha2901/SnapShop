@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:snap_shop/core/helpers/spacing.dart';
-import 'package:snap_shop/core/widget/cutom_app_bar.dart';
 import 'package:snap_shop/features/cart_details/ui/widgets/my_cart_view_body.dart';
 
 class MyCartView extends StatelessWidget {

@@ -6,7 +6,6 @@ import 'package:snap_shop/features/cart_details/data/models/payment_intent_respo
 import 'package:flutter_stripe/flutter_stripe.dart';
 
 class StripeServices {
-  final String secretkey = '';
   final ApiServeices apiServeices = ApiServeices();
 
   Future<PaymentIntentResponse> createPaymentIntent(
@@ -14,7 +13,7 @@ class StripeServices {
     var response = await apiServeices.POST(
       url: 'https://api.stripe.com/v1/payment_intents',
       body: paymentIntentResponse.toJson(),
-      token: ApiKeys.secretkey,
+      token: ApiKeys.secretKey,
       contentType: Headers.formUrlEncodedContentType,
       
     );

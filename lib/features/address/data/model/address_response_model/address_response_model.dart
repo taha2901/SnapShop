@@ -3,7 +3,7 @@ import 'data.dart';
 class AddressResponseModel {
 	bool? status;
 	String? message;
-	Data? data;
+	List<Data>? data;
 
 	AddressResponseModel({this.status, this.message, this.data});
 
@@ -11,9 +11,7 @@ class AddressResponseModel {
 		return AddressResponseModel(
 			status: json['status'] as bool?,
 			message: json['message'] as String?,
-			data: json['data'] == null
-						? null
-						: Data.fromJson(json['data'] as Map<String, dynamic>),
+			data: (json['data'] as List<dynamic>?)?.map((e) => Data.fromJson(e as Map<String, dynamic>)).toList(),
 		);
 	}
 
@@ -22,6 +20,6 @@ class AddressResponseModel {
 	Map<String, dynamic> toJson() => {
 				'status': status,
 				'message': message,
-				'data': data?.toJson(),
+				'data': data?.map((e) => e.toJson()).toList(),
 			};
 }

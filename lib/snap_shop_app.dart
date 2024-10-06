@@ -7,11 +7,16 @@ import 'package:snap_shop/core/helpers/constants.dart';
 import 'package:snap_shop/core/routings/app_router.dart';
 import 'package:snap_shop/core/routings/routers.dart';
 import 'package:snap_shop/core/theming/colors.dart';
+import 'package:snap_shop/features/address/logic/address_cubit.dart';
+import 'package:snap_shop/features/address/ui/address_screen.dart';
 import 'package:snap_shop/features/cart/logic/cart_cubit.dart';
 import 'package:snap_shop/features/favourite/logic/favourite_cubit.dart';
 import 'package:snap_shop/features/home/logic/home_cubit.dart';
+import 'package:snap_shop/features/notification/logic/notification_cubit.dart';
+import 'package:snap_shop/features/profile/logic/profile_cubit.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
 class SnapShop extends StatelessWidget {
   final AppRouter appRouter;
   const SnapShop({super.key, required this.appRouter});
@@ -27,13 +32,27 @@ class SnapShop extends StatelessWidget {
           providers: [
             BlocProvider(
               create: (context) => getit<HomeCubit>()
-                
+                ..getCategories()
+                ..getProducts()
+                ..getCategories(),
             ),
             BlocProvider(
-              create: (context) => getit<CartCubit>(),
+              create: (context) => getit<CartCubit>()..getCart(),
+            ),
+            BlocProvider(
+              create: (context) =>
+                  getit<NotificationCubit>()..getNotification(),
             ),
             BlocProvider(
               create: (context) => getit<FavouriteCubit>()..getFavourites(),
+            ),
+            BlocProvider(
+              create: (context) => getit<ProfileCubit>()..getUserData(),
+            ),
+            BlocProvider(
+              create: (context) =>
+                  getit<AddressCubit>()..emitGetAddressStates(),
+              child: const AddressScreen(),
             ),
           ],
           child: ConnectivityAppWrapper(

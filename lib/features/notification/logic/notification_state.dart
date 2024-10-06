@@ -9,7 +9,7 @@ class NotificationState with _$NotificationState {
 
   const factory NotificationState.notificationLoading() = NotificationLoading;
   const factory NotificationState.notificationSuccess(
-          {required List<NotificationDataList> notificationDataList}) =
+          {required List<NotificationDataList?>? notificationDataList}) =
       NotificationSuccess;
   const factory NotificationState.notificationError(
       {required ErrorHandler errorHandler}) = NotificationError;

@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:snap_shop/features/cart/data/model/cart_response_model/cart_item.dart';
+import 'package:snap_shop/features/cart/logic/cart_cubit.dart';
 import 'package:snap_shop/features/cart/ui/cartless_view.dart';
 import 'package:snap_shop/features/cart/ui/widget/cart/cart_list_view_item.dart';
 
 class CartListView extends StatelessWidget {
-  final List<CartItem?>? cartItems;
-
   const CartListView({
     super.key,
-    required this.cartItems,
   });
 
   @override
   Widget build(BuildContext context) {
-    return (cartItems == null || cartItems!.isEmpty)
+    return CartCubit.get(context).cartDataList?.data?.cartItems?.isEmpty ?? true
         ? const CartLessScreen()
         : ListView.separated(
             separatorBuilder: (context, index) => Container(
@@ -25,11 +22,20 @@ class CartListView extends StatelessWidget {
               return Padding(
                 padding: const EdgeInsets.only(bottom: 8.0),
                 child: CartListViewItem(
-                  cartItem: cartItems![index]!,
+                  cartItem: CartCubit.get(context)
+                      .cartDataList!
+                      .data!
+                      .cartItems![index],
                 ),
               );
             },
-            itemCount: cartItems?.length.toInt() ?? 0,
+            itemCount: CartCubit.get(context)
+                    .cartDataList
+                    ?.data
+                    ?.cartItems
+                    ?.length
+                    .toInt() ??
+                0,
             // shrinkWrap: true,
           );
   }
