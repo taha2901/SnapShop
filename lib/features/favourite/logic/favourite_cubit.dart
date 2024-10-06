@@ -1,14 +1,19 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:snap_shop/features/favourite/data/model/add_or_remove_cart_request_model.dart';
 import 'package:snap_shop/features/favourite/data/model/add_or_remove_favourite_model/add_or_remove_favourite_model.dart';
 import 'package:snap_shop/features/favourite/data/model/favourite/data_fav.dart';
+import 'package:snap_shop/features/favourite/data/model/favourite/favourite.dart';
 import 'package:snap_shop/features/favourite/data/repo/favourite_repo.dart';
 
 part 'favourite_state.dart';
 part 'favourite_cubit.freezed.dart';
 
 class FavouriteCubit extends Cubit<FavouriteState> {
+  static FavouriteCubit of(context) => BlocProvider.of(context);
+  AddOrRemoveFavouriteResponseModel? addOrRemoveFavouriteDataList;
+  FavouriteModel? favouriteModelDataList;
   final FavouriteRepo _favouriteRepo;
   FavouriteCubit(this._favouriteRepo) : super(const FavouriteState.initial());
   List<FavouriteDataList> favouriteList = [];
@@ -26,6 +31,7 @@ class FavouriteCubit extends Cubit<FavouriteState> {
         });
         print('favoriteID: $favoriteID');
         print('favouriteList item: ${favouriteList.length}');
+        favouriteModelDataList = data;
         emit(FavouriteState.favouriteSuccess(data: data.data!.data!));
       },
       failure: (failure) {
@@ -47,6 +53,7 @@ class FavouriteCubit extends Cubit<FavouriteState> {
           favoriteID.add(productId.toString());
         }
         getFavourites();
+        addOrRemoveFavouriteDataList = data;
         emit(const FavouriteState.addOrRemoveFavouriteSuccess());
       },
       failure: (failure) {

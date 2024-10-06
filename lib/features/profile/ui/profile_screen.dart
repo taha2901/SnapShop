@@ -8,6 +8,7 @@ import 'package:snap_shop/core/helpers/spacing.dart';
 import 'package:snap_shop/core/routings/routers.dart';
 import 'package:snap_shop/core/theming/styles.dart';
 import 'package:snap_shop/features/profile/logic/profile_cubit.dart';
+import 'package:snap_shop/features/profile/ui/widget/card_user_data.dart';
 import 'package:snap_shop/features/profile/ui/widget/profile_user_data_shimmer_laoding.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -20,37 +21,13 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  ProfileCubit? _profileCubit;
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    // حفظ المرجع إلى الـ Cubit
-    _profileCubit = context.read<ProfileCubit>();
-  }
-
-  @override
-  void dispose() {
-    // غلق الـ Cubit هنا بدون الحاجة لاستخدام context
-    _profileCubit?.close();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ProfileCubit, ProfileState>(
       listener: (context, state) {
         state.whenOrNull(
-          profileSuccess: (profileModel) {
-            // ScaffoldMessenger.of(context).showSnackBar(
-            //   const SnackBar(content: Text('Success')),
-            // );
-          },
-          profileLoading: () {
-            // ScaffoldMessenger.of(context).showSnackBar(
-            //   const SnackBar(content: Text('Loading...')),
-            // );
-          },
+          profileSuccess: (profileModel) {},
+          profileLoading: () {},
           profileError: (error) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text(error.apiErrorModel.message ?? '')),
@@ -60,10 +37,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       },
       builder: (context, state) {
         return Scaffold(
-          appBar: AppBar(
-            
-            
-          ),
+          appBar: AppBar(),
           body: SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -79,69 +53,31 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                     ),
                     verticalSpace(16.0),
-                    // هنا نقوم بإظهار الـ Card حسب حالة التحميل
-                    BlocBuilder<ProfileCubit, ProfileState>(
-                      builder: (context, state) {
-                        if (state is ProfileLoading) {
-                          return ProfileUserDataShimmerLoading();
-                        } else if (state is ProfileSuccess) {
-                          return Card(
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8.0),
-                                color: Colors.grey.shade200,
-                              ),
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: 16.w, vertical: 16.h),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "${state.profileModel!.data?.name}",
-                                      style: TextStyles.font16BlackBold,
-                                    ),
-                                    verticalSpace(8),
-                                    Row(
-                                      children: [
-                                        Text(
-                                          "${state.profileModel!.data?.email}",
-                                          style:
-                                              TextStyles.font14LightGreyRegular,
-                                        ),
-                                        const Spacer(),
-                                        GestureDetector(
-                                          child: Text(
-                                            "Edit",
-                                            style: TextStyles
-                                                .font16MainColorMedium,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    verticalSpace(8),
-                                    Text(
-                                      "${state.profileModel!.data?.phone}",
-                                      style: TextStyles.font14LightGreyRegular,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          );
-                        } else {
-                          return const SizedBox
-                              .shrink(); // إرجاع مساحة فارغة في حالات أخرى
-                        }
-                      },
-                    ),
+                    state is ProfileLoading
+                        ? ProfileUserDataShimmerLoading()
+                        : CardOfUserData(),
                     verticalSpace(16.0),
                     // باقي الأزرار
                     _buildListTile(
                         context, "Change Password", Routers.changePassword),
                     _buildListTile(
                         context, "Update Profile", Routers.updateProfile),
-                    _buildListTile(context, "Address", Routers.address),
+                    // _buildListTile(context, "Address", Routers.address), //
+                    Card(
+                      child: ListTile(
+                        leading: const Icon(Iconsax.timer_1),
+                        trailing: IconButton(
+                          onPressed: () {
+                            context.pushNamed(Routers.addAddress);
+                          },
+                          icon: const Icon(Icons.arrow_forward_ios),
+                        ),
+                        title: const Text("Address"),
+                        onTap: () {
+                           context.pushNamed(Routers.address);
+                        },
+                      ),
+                    ),
                     _buildListTile(context, "Wishlist", Routers.favourite),
                     verticalSpace(16.0),
                     _buildLogoutTile(context),
@@ -186,3 +122,4 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 }
+

@@ -84,10 +84,7 @@ class AppRouter {
 
       case Routers.updateProfile:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getit<ProfileCubit>()..getUserData(),
-            child: UpdateUserDataScreen(),
-          ),
+          builder: (_) => UpdateUserDataScreen(),
         );
 
       case Routers.productDetails:
@@ -105,10 +102,7 @@ class AppRouter {
 
       case Routers.address:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getit<AddressCubit>()..emitGetAddressStates(),
-            child: const AddressScreen(),
-          ),
+          builder: (_) => const AddressScreen(),
         );
 
       case Routers.favourite:

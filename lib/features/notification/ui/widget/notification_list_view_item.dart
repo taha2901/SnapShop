@@ -4,6 +4,7 @@ import 'package:snap_shop/core/helpers/spacing.dart';
 import 'package:snap_shop/core/theming/colors.dart';
 import 'package:snap_shop/features/notification/data/model/notification_data_list.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
+
 class NotificationListViewItem extends StatelessWidget {
   final NotificationDataList notificationDataList;
   const NotificationListViewItem({
@@ -23,7 +24,7 @@ class NotificationListViewItem extends StatelessWidget {
         ),
         child: Row(
           children: [
-             const Icon(Iconsax.notification),
+            const Icon(Iconsax.notification),
             horizontalSpace(24),
             Expanded(
               child: Text(notificationDataList.message.toString(),
@@ -34,6 +35,4 @@ class NotificationListViewItem extends StatelessWidget {
       ),
     );
   }
-
 }
-

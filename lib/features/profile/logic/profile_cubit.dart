@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:snap_shop/core/networking/api_error_handler.dart';
 import 'package:snap_shop/features/profile/data/model/change_password/change_password.dart';
@@ -11,6 +12,8 @@ part 'profile_state.dart';
 part 'profile_cubit.freezed.dart';
 
 class ProfileCubit extends Cubit<ProfileState> {
+  static ProfileCubit get(context) => BlocProvider.of(context);
+  ProfileModel? profileModelList;
   final ProfileRepo _profileRepo;
   ProfileCubit(this._profileRepo) : super(const ProfileState.initial());
 
@@ -21,6 +24,8 @@ class ProfileCubit extends Cubit<ProfileState> {
     final response = await _profileRepo.getProfile();
     response.when(success: (profileModel) {
       if (isClosed) return;
+
+      profileModelList = profileModel;
       emit(ProfileState.profileSuccess(profileModel: profileModel));
     }, failure: (errorHandler) {
       if (isClosed) return;

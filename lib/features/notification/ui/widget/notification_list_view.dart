@@ -1,22 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:snap_shop/features/notification/data/model/notification_data_list.dart';
+import 'package:snap_shop/features/notification/logic/notification_cubit.dart';
 import 'package:snap_shop/features/notification/ui/widget/notification_list_view_item.dart';
 
 class NotificationListView extends StatelessWidget {
-  final List<NotificationDataList> notificationDataList;
-  final bool isLoading;
   const NotificationListView({
     super.key,
-    required this.notificationDataList, required this.isLoading,
   });
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      shrinkWrap: true,
       itemBuilder: (context, index) => NotificationListViewItem(
-        notificationDataList: notificationDataList[index],
+        notificationDataList: NotificationCubit.get(context)
+            .notificationDataList!
+            .notificationData!
+            .notificationDataList![index],
       ),
-      itemCount: notificationDataList.length,
+      itemCount: NotificationCubit.get(context)
+              .notificationDataList
+              ?.notificationData
+              ?.notificationDataList
+              ?.length ??
+          0,
     );
   }
 }

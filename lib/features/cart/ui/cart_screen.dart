@@ -20,60 +20,40 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
-  CartCubit? _cartCubit;
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    // حفظ المرجع إلى الـ Cubit
-    _cartCubit = context.read<CartCubit>();
-  }
-
-  @override
-  void dispose() {
-    // غلق الـ Cubit هنا بدون الحاجة لاستخدام context
-    _cartCubit?.close();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
-    // final cartCubit = context.read<CartCubit>();
-
-    // // التأكد من جلب بيانات السلة عند فتح الشاشة
-    // cartCubit.getCart();
-    return BlocProvider(
-      create: (context) => getit<CartCubit>()..getCart(),
-      child: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: SafeArea(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const CartAppBar(),
-                verticalSpace(24),
-                Container(
-                  decoration: const BoxDecoration(),
-                  height: MediaQuery.of(context).size.height * 0.6,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      verticalSpace(24),
-                      Expanded(
-                        child: CartBlocBuilder(),
-                      ),
-                    ],
-                  ),
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        child: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const CartAppBar(),
+              verticalSpace(24),
+              Container(
+                decoration: const BoxDecoration(),
+                height: MediaQuery.of(context).size.height * 0.6,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    verticalSpace(24),
+                    Expanded(
+                      child: CartBlocBuilder(),
+                    ),
+                  ],
                 ),
-                verticalSpace(24),
-                Expanded(
-                  child: BlocConsumer<CartCubit, CartState>(
-                    listener: (context, state) {},
-                    builder: (context, state) {
-                      return state.maybeWhen(orElse: () {
+              ),
+              verticalSpace(24),
+              Expanded(
+                child: BlocConsumer<CartCubit, CartState>(
+                  listener: (context, state) {},
+                  builder: (context, state) {
+                    return state.maybeWhen(
+                      orElse: () {
                         return const SizedBox.shrink();
-                      }, cartsuccess: (cartsDataList) {
+                      },
+                      cartsuccess: (cartsDataList) {
                         return Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -95,7 +75,7 @@ class _CartScreenState extends State<CartScreen> {
                                     style: TextStyles.font16BlackBold),
                                 const Spacer(),
                                 Text(
-                                  '\$${cartsDataList!.data!.total}',
+                                  '\$${cartsDataList.data!.total}',
                                   style: TextStyles.font16BlackBold,
                                 ),
                               ],
@@ -119,12 +99,12 @@ class _CartScreenState extends State<CartScreen> {
                             ),
                           ],
                         );
-                      });
-                    },
-                  ),
+                      },
+                    );
+                  },
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

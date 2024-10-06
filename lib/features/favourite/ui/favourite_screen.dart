@@ -14,36 +14,25 @@ class FavouriteScreen extends StatefulWidget {
 }
 
 class _FavouriteScreenState extends State<FavouriteScreen> {
-    FavouriteCubit? _favouriteCubit;
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    // حفظ المرجع إلى الـ Cubit
-    _favouriteCubit = context.read<FavouriteCubit>();
-  }
-
-  @override
-  void dispose() {
-    // غلق الـ Cubit هنا بدون الحاجة لاستخدام context
-    _favouriteCubit?.close();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 16.0.h),
-          child: Column(
-            children: [
-              const FavouriteAppBar(),
-              verticalSpace(24),
-               const Expanded(
-                child: FavouriteBlocBuilder(),
-              ),
-            ],
+          child: BlocConsumer<FavouriteCubit, FavouriteState>(
+            listener: (context, state) {},
+            builder: (context, state) {
+              return Column(
+                children: [
+                  const FavouriteAppBar(),
+                  verticalSpace(24),
+                  Expanded(
+                    child: FavouriteBlocBuilder(),
+                  ),
+                ],
+              );
+            },
           ),
         ),
       ),

@@ -57,16 +57,15 @@ class MyFavouritesGridViewItem extends StatelessWidget {
           right: 15.h,
           top: 15.h,
           child: GestureDetector(
-            onTap: () {
-             context.read<FavouriteCubit>()
-                      .addOrRemoveFavourite(productId:  favouritesData?.product?.id ?? 0);
-            },
-            child: Image.asset(
-                    'assets/images/fav-icon.png',
-                    height: 40.h,
-                    width: 40.w,
-                  )
-          ),
+              onTap: () {
+                context.read<FavouriteCubit>().addOrRemoveFavourite(
+                    productId: favouritesData?.product?.id ?? 0);
+              },
+              child: Image.asset(
+                'assets/images/fav-icon.png',
+                height: 40.h,
+                width: 40.w,
+              )),
         ),
       ],
     );

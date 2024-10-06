@@ -11,6 +11,7 @@ part 'cart_cubit.freezed.dart';
 
 class CartCubit extends Cubit<CartState> {
   static CartCubit get(context) => BlocProvider.of(context);
+  CartResponseModel? cartDataList;
   final CartRepo _cartRepo;
   List<CartItem> cartItems = [];
   CartCubit(
@@ -33,6 +34,7 @@ class CartCubit extends Cubit<CartState> {
         cartsId.add(item.product!.id.toString());
       });
       if (isClosed) return;
+      cartDataList = cartResponseModel;
       emit(CartState.cartsuccess(cartDataList: cartResponseModel));
     }, failure: (errorHandler) {
       if (isClosed) return;

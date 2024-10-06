@@ -11,17 +11,12 @@ class AddressBlocBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AddressCubit, AddressState>(
-        buildWhen: (previous, current) =>
-            current is AddressLoading ||
-            current is AddressSuccing ||
-            current is AddressError,
         builder: (context, state) {
           return state.maybeWhen(
             addressLoading: () => setUpLoading(),
             addressSuccess: (addressDataList) {
-              return setUpSuccess(addressDataList);
+              return AddressListView();
             },
-            // addressError: (error) => setupError(),
             orElse: () => const SizedBox.shrink(),
           );
         });
@@ -34,11 +29,7 @@ class AddressBlocBuilder extends StatelessWidget {
                 Center(child: Text('Error: ${error.apiErrorModel.message}'))));
   }
 
-  Widget setUpSuccess(addressDataList) {
-    return AddressListView(
-      addressDataList: addressDataList,
-    );
-  }
+
 
   Widget setUpLoading() {
     return const Scaffold(body: AddressShimmerLoading());

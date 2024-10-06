@@ -20,7 +20,7 @@ mixin _$NotificationState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() notificationLoading,
-    required TResult Function(List<NotificationDataList> notificationDataList)
+    required TResult Function(List<NotificationDataList?>? notificationDataList)
         notificationSuccess,
     required TResult Function(ErrorHandler errorHandler) notificationError,
   }) =>
@@ -29,7 +29,7 @@ mixin _$NotificationState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? notificationLoading,
-    TResult? Function(List<NotificationDataList> notificationDataList)?
+    TResult? Function(List<NotificationDataList?>? notificationDataList)?
         notificationSuccess,
     TResult? Function(ErrorHandler errorHandler)? notificationError,
   }) =>
@@ -38,7 +38,7 @@ mixin _$NotificationState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? notificationLoading,
-    TResult Function(List<NotificationDataList> notificationDataList)?
+    TResult Function(List<NotificationDataList?>? notificationDataList)?
         notificationSuccess,
     TResult Function(ErrorHandler errorHandler)? notificationError,
     required TResult orElse(),
@@ -135,7 +135,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() notificationLoading,
-    required TResult Function(List<NotificationDataList> notificationDataList)
+    required TResult Function(List<NotificationDataList?>? notificationDataList)
         notificationSuccess,
     required TResult Function(ErrorHandler errorHandler) notificationError,
   }) {
@@ -147,7 +147,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? notificationLoading,
-    TResult? Function(List<NotificationDataList> notificationDataList)?
+    TResult? Function(List<NotificationDataList?>? notificationDataList)?
         notificationSuccess,
     TResult? Function(ErrorHandler errorHandler)? notificationError,
   }) {
@@ -159,7 +159,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? notificationLoading,
-    TResult Function(List<NotificationDataList> notificationDataList)?
+    TResult Function(List<NotificationDataList?>? notificationDataList)?
         notificationSuccess,
     TResult Function(ErrorHandler errorHandler)? notificationError,
     required TResult orElse(),
@@ -256,7 +256,7 @@ class _$NotificationLoadingImpl implements NotificationLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() notificationLoading,
-    required TResult Function(List<NotificationDataList> notificationDataList)
+    required TResult Function(List<NotificationDataList?>? notificationDataList)
         notificationSuccess,
     required TResult Function(ErrorHandler errorHandler) notificationError,
   }) {
@@ -268,7 +268,7 @@ class _$NotificationLoadingImpl implements NotificationLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? notificationLoading,
-    TResult? Function(List<NotificationDataList> notificationDataList)?
+    TResult? Function(List<NotificationDataList?>? notificationDataList)?
         notificationSuccess,
     TResult? Function(ErrorHandler errorHandler)? notificationError,
   }) {
@@ -280,7 +280,7 @@ class _$NotificationLoadingImpl implements NotificationLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? notificationLoading,
-    TResult Function(List<NotificationDataList> notificationDataList)?
+    TResult Function(List<NotificationDataList?>? notificationDataList)?
         notificationSuccess,
     TResult Function(ErrorHandler errorHandler)? notificationError,
     required TResult orElse(),
@@ -339,7 +339,7 @@ abstract class _$$NotificationSuccessImplCopyWith<$Res> {
           $Res Function(_$NotificationSuccessImpl) then) =
       __$$NotificationSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<NotificationDataList> notificationDataList});
+  $Res call({List<NotificationDataList?>? notificationDataList});
 }
 
 /// @nodoc
@@ -355,13 +355,13 @@ class __$$NotificationSuccessImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? notificationDataList = null,
+    Object? notificationDataList = freezed,
   }) {
     return _then(_$NotificationSuccessImpl(
-      notificationDataList: null == notificationDataList
+      notificationDataList: freezed == notificationDataList
           ? _value._notificationDataList
           : notificationDataList // ignore: cast_nullable_to_non_nullable
-              as List<NotificationDataList>,
+              as List<NotificationDataList?>?,
     ));
   }
 }
@@ -370,16 +370,18 @@ class __$$NotificationSuccessImplCopyWithImpl<$Res>
 
 class _$NotificationSuccessImpl implements NotificationSuccess {
   const _$NotificationSuccessImpl(
-      {required final List<NotificationDataList> notificationDataList})
+      {required final List<NotificationDataList?>? notificationDataList})
       : _notificationDataList = notificationDataList;
 
-  final List<NotificationDataList> _notificationDataList;
+  final List<NotificationDataList?>? _notificationDataList;
   @override
-  List<NotificationDataList> get notificationDataList {
+  List<NotificationDataList?>? get notificationDataList {
+    final value = _notificationDataList;
+    if (value == null) return null;
     if (_notificationDataList is EqualUnmodifiableListView)
       return _notificationDataList;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_notificationDataList);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -414,7 +416,7 @@ class _$NotificationSuccessImpl implements NotificationSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() notificationLoading,
-    required TResult Function(List<NotificationDataList> notificationDataList)
+    required TResult Function(List<NotificationDataList?>? notificationDataList)
         notificationSuccess,
     required TResult Function(ErrorHandler errorHandler) notificationError,
   }) {
@@ -426,7 +428,7 @@ class _$NotificationSuccessImpl implements NotificationSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? notificationLoading,
-    TResult? Function(List<NotificationDataList> notificationDataList)?
+    TResult? Function(List<NotificationDataList?>? notificationDataList)?
         notificationSuccess,
     TResult? Function(ErrorHandler errorHandler)? notificationError,
   }) {
@@ -438,7 +440,7 @@ class _$NotificationSuccessImpl implements NotificationSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? notificationLoading,
-    TResult Function(List<NotificationDataList> notificationDataList)?
+    TResult Function(List<NotificationDataList?>? notificationDataList)?
         notificationSuccess,
     TResult Function(ErrorHandler errorHandler)? notificationError,
     required TResult orElse(),
@@ -489,10 +491,10 @@ class _$NotificationSuccessImpl implements NotificationSuccess {
 
 abstract class NotificationSuccess implements NotificationState {
   const factory NotificationSuccess(
-          {required final List<NotificationDataList> notificationDataList}) =
+          {required final List<NotificationDataList?>? notificationDataList}) =
       _$NotificationSuccessImpl;
 
-  List<NotificationDataList> get notificationDataList;
+  List<NotificationDataList?>? get notificationDataList;
 
   /// Create a copy of NotificationState
   /// with the given fields replaced by the non-null parameter values.
@@ -573,7 +575,7 @@ class _$NotificationErrorImpl implements NotificationError {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() notificationLoading,
-    required TResult Function(List<NotificationDataList> notificationDataList)
+    required TResult Function(List<NotificationDataList?>? notificationDataList)
         notificationSuccess,
     required TResult Function(ErrorHandler errorHandler) notificationError,
   }) {
@@ -585,7 +587,7 @@ class _$NotificationErrorImpl implements NotificationError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? notificationLoading,
-    TResult? Function(List<NotificationDataList> notificationDataList)?
+    TResult? Function(List<NotificationDataList?>? notificationDataList)?
         notificationSuccess,
     TResult? Function(ErrorHandler errorHandler)? notificationError,
   }) {
@@ -597,7 +599,7 @@ class _$NotificationErrorImpl implements NotificationError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? notificationLoading,
-    TResult Function(List<NotificationDataList> notificationDataList)?
+    TResult Function(List<NotificationDataList?>? notificationDataList)?
         notificationSuccess,
     TResult Function(ErrorHandler errorHandler)? notificationError,
     required TResult orElse(),

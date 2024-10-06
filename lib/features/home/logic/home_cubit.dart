@@ -2,20 +2,29 @@ import 'dart:math';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:snap_shop/core/helpers/local_notify.dart';
+import 'package:snap_shop/features/home/data/model/categories/categories_response_model.dart';
+import 'package:snap_shop/features/home/data/model/products/products_response_model.dart';
 import 'package:snap_shop/features/home/data/repo/home_repo.dart';
 
 import 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
-  final HomeRepo _homeRepo;
-  HomeCubit(this._homeRepo) : super(const HomeState.initial());
+  static HomeCubit get(context) => BlocProvider.of(context);
+  CategoriesResponseModel? categoriesDataList;
+  ProductsResponseModel? productsDataList;
+  final HomeRepo homeRepo;
+  HomeCubit(this.homeRepo) : super(const HomeState.initial());
 
   void getCategories() async {
     if (isClosed) return;
     emit(const HomeState.categoriesLoading());
-    final response = await _homeRepo.getCategories();
+    final response = await homeRepo.getCategories();
     response.when(success: (categoriesResponseModel) {
       if (isClosed) return;
+
+      // حفظ البيانات في المتغير داخل الكيوبيت
+      categoriesDataList = categoriesResponseModel;
+
       emit(HomeState.categoriesSuccess(
           categoriesDataList:
               categoriesResponseModel.categoriesData!.categoriesDataList!));
@@ -29,9 +38,10 @@ class HomeCubit extends Cubit<HomeState> {
     if (isClosed) return;
     emit(const HomeState.productsLoading());
 
-    final response = await _homeRepo.getProducts();
+    final response = await homeRepo.getProducts();
     response.when(success: (productsResponseModel) {
       if (isClosed) return;
+      productsDataList = productsResponseModel;
 
       sendNotification();
       emit(HomeState.productsSuccess(
@@ -45,7 +55,7 @@ class HomeCubit extends Cubit<HomeState> {
   void getCategoriesDetails(int categoryId) async {
     if (isClosed) return;
     emit(const HomeState.categoriesDetailsLoading());
-    final response = await _homeRepo.getCategoriesDetails(categoryId);
+    final response = await homeRepo.getCategoriesDetails(categoryId);
 
     response.when(
       success: (categoriesDetailsResponseModel) {

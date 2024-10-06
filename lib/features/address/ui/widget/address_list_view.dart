@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:snap_shop/features/address/data/model/get_address_response_model/datum.dart';
+import 'package:snap_shop/features/address/logic/address_cubit.dart';
 import 'package:snap_shop/features/address/ui/widget/address_list_view_item.dart';
 
 class AddressListView extends StatelessWidget {
-  final List<AddressDataList> addressDataList;
   const AddressListView({
     super.key,
-    required this.addressDataList,
   });
 
   @override
@@ -15,10 +13,13 @@ class AddressListView extends StatelessWidget {
       shrinkWrap: true,
       itemBuilder: (context, index) {
         return AddressListViewItem(
-          addressDataList: addressDataList[index],
+          addressDataList:
+              AddressCubit.get(context).addressResponseList!.data!.data![index],
         );
       },
-      itemCount: addressDataList.length,
+      itemCount:
+          AddressCubit.get(context).addressResponseList?.data?.data?.length ??
+              0,
     );
   }
 }
