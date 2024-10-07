@@ -1,0 +1,50 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shimmer/shimmer.dart';
+import '../../../../../../../../core/helpers/spacing.dart';
+import '../../../../../../../../core/theming/colors.dart';
+
+class CategoriesShimmerLoading extends StatelessWidget {
+  const CategoriesShimmerLoading({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 100.h,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: 6,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: EdgeInsetsDirectional.only(start: 24.w),
+            child: Column(
+              children: [
+                Shimmer.fromColors(
+                  baseColor: ColorsManager.lightGrey,
+                  highlightColor: Colors.white,
+                  child: CircleAvatar(
+                    radius: 26.r,
+                    backgroundColor: Colors.white,
+                  ),
+                ),
+                verticalSpace(14),
+                Shimmer.fromColors(
+                  baseColor: ColorsManager.lightGrey,
+                  highlightColor: Colors.white,
+                  child: Container(
+                    height: 14.h,
+                    width: 50.w,
+                    decoration: BoxDecoration(
+                      color: ColorsManager.lightGrey,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
