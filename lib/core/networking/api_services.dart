@@ -15,6 +15,7 @@ import 'package:snap_shop/features/home/data/model/categories/categories_respons
 import 'package:snap_shop/features/home/data/model/categories_details_response_model/categories_details_response_model.dart';
 import 'package:snap_shop/features/home/data/model/products/products_response_model.dart';
 import 'package:snap_shop/features/login/data/model/login_request_body.dart';
+import 'package:snap_shop/features/logout/data/model/logout_response_body/logout_response_body.dart';
 import 'package:snap_shop/features/notification/data/model/notification.dart';
 import 'package:snap_shop/features/profile/data/model/change_password/change_password.dart';
 import 'package:snap_shop/features/profile/data/model/change_password/change_password_request_model.dart';
@@ -89,8 +90,6 @@ abstract class ApiServices {
     @Body() AddOrRemoveFavouriteRequestModel addOrRemoveFavouriteRequestModel,
   );
 
-  // @POST(ApiConstants.paymentIntent)
-  // Future<PaymentIntentResponse> paymentIntent(
-  //   @Body() PaymentIntentInput paymentIntentRequestModel,
-  // );
+  @POST('logout')
+  Future<LogoutResponseBody> logout(@Body() Map<String, dynamic> body);
 }

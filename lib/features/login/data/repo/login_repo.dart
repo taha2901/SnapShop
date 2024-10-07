@@ -1,5 +1,3 @@
-
-
 import 'package:snap_shop/core/networking/api_error_handler.dart';
 import 'package:snap_shop/core/networking/api_result.dart';
 import 'package:snap_shop/features/login/data/model/login_request_body.dart';
@@ -14,8 +12,10 @@ class LoginRepo {
       LoginRequestBody loginRequestBody) async {
     try {
       final response = await _apiServices.login(loginRequestBody);
+      print('API Response: ${response.message.toString()}');
       return ApiResult.success(response);
     } catch (error) {
+      print('API Error: $error');
       return ApiResult.failure(
         ErrorHandler.handle(error),
       );

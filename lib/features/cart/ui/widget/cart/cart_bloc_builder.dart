@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:snap_shop/core/widget/custom_show_toast.dart';
 import 'package:snap_shop/features/cart/logic/cart_cubit.dart';
-import 'package:snap_shop/features/cart/ui/cartless_view.dart';
 import 'package:snap_shop/features/cart/ui/widget/cart/cart_list_view.dart';
 import 'package:snap_shop/features/cart/ui/widget/cart/cart_shimmer_loading.dart';
 

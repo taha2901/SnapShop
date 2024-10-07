@@ -34,4 +34,5 @@ class HomeState with _$HomeState {
       {required ErrorHandler errorHandler}) = CategoriesDetailsError;
 
       const factory HomeState.sendNotification() = SendNotification;
+      const factory HomeState.homeFilteredState() = HomeFilteredState;
 }

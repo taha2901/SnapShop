@@ -2,18 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
+import 'package:snap_shop/core/helpers/constants.dart';
 import 'package:snap_shop/core/helpers/extentions.dart';
 import 'package:snap_shop/core/helpers/shared_pref_helper.dart';
 import 'package:snap_shop/core/helpers/spacing.dart';
+import 'package:snap_shop/core/networking/dio_factory.dart';
 import 'package:snap_shop/core/routings/routers.dart';
-import 'package:snap_shop/core/theming/styles.dart';
+import 'package:snap_shop/features/login/logic/login_cubit.dart';
+import 'package:snap_shop/features/logout/logic/cubit/logout_cubit.dart';
 import 'package:snap_shop/features/profile/logic/profile_cubit.dart';
 import 'package:snap_shop/features/profile/ui/widget/card_user_data.dart';
 import 'package:snap_shop/features/profile/ui/widget/profile_user_data_shimmer_laoding.dart';
 
 class ProfileScreen extends StatefulWidget {
-  // final ProfileModel profileModel;
-
   const ProfileScreen({super.key});
 
   @override
@@ -24,17 +25,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ProfileCubit, ProfileState>(
-      listener: (context, state) {
-        state.whenOrNull(
-          profileSuccess: (profileModel) {},
-          profileLoading: () {},
-          profileError: (error) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text(error.apiErrorModel.message ?? '')),
-            );
-          },
-        );
-      },
+      listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(),
@@ -57,12 +48,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ? ProfileUserDataShimmerLoading()
                         : CardOfUserData(),
                     verticalSpace(16.0),
-                    // باقي الأزرار
                     _buildListTile(
                         context, "Change Password", Routers.changePassword),
                     _buildListTile(
                         context, "Update Profile", Routers.updateProfile),
-                    // _buildListTile(context, "Address", Routers.address), //
                     Card(
                       child: ListTile(
                         leading: const Icon(Iconsax.timer_1),
@@ -74,7 +63,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                         title: const Text("Address"),
                         onTap: () {
-                           context.pushNamed(Routers.address);
+                          context.pushNamed(Routers.address);
                         },
                       ),
                     ),
@@ -113,8 +102,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
           style: TextStyle(color: Colors.white),
         ),
         onTap: () async {
-          await SharedPrefHelper.clearAllData();
-          await SharedPrefHelper.clearAllSecuredData();
+          // await SharedPrefHelper.clearAllData();
+          // await SharedPrefHelper.clearAllSecuredData();
+
+          // DioFactory.setTokenIntoHeaderAfterLogin(null.toString());
+
+          // // استدعاء resetFields هنا
+          // LoginCubit.get(context).resetFields();
+
+          context.read<LogoutCubit>().logout(SharedPrefKeys.userToken);
+
           Navigator.pushNamedAndRemoveUntil(
               context, Routers.login, (route) => false);
         },
@@ -122,4 +119,3 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 }
-

@@ -18,16 +18,7 @@ class ProductDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final cartCubit = context.read<CartCubit>();
     return BlocConsumer<CartCubit, CartState>(
-      listener: (context, state) {
-        state.whenOrNull(
-          addOrRemoveCartSuccess: (data) {
-            showToast(msg: 'Succesfully', state: ToastStates.SUCCESS);
-          },
-          addOrRemoveCartError: (error) {
-            showToast(msg: 'Failed', state: ToastStates.ERROR);
-          },
-        );
-      },
+      listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(
           body: SafeArea(
@@ -37,21 +28,8 @@ class ProductDetailsScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   verticalSpace(16),
-                  // const ProductDetailsAppBar(),
-
                   BlocConsumer<FavouriteCubit, FavouriteState>(
-                    listener: (context, state) {
-                      state.maybeWhen(
-                        addOrRemoveFavouriteSuccess: () {
-                          showToast(
-                              msg: 'Succesfully', state: ToastStates.SUCCESS);
-                        },
-                        addOrRemoveFavouriteError: () {
-                          showToast(msg: 'Failed', state: ToastStates.ERROR);
-                        },
-                        orElse: () {},
-                      );
-                    },
+                    listener: (context, state) {},
                     builder: (context, state) {
                       return Row(
                         children: [

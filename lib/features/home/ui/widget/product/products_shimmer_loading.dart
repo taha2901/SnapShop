@@ -11,6 +11,8 @@ class ProductsShimmerLoading extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: GridView.builder(
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2, // عدد الأعمدة
           crossAxisSpacing: 10.0, // المسافة الأفقية بين العناصر

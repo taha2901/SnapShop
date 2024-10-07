@@ -32,6 +32,6 @@ class AddressBlocBuilder extends StatelessWidget {
 
 
   Widget setUpLoading() {
-    return const Scaffold(body: AddressShimmerLoading());
+    return const Center(child: AddressShimmerLoading());
   }
 }
