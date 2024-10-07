@@ -4,7 +4,6 @@ import 'package:snap_shop/core/helpers/constants.dart';
 
 import '../helpers/shared_pref_helper.dart';
 
-
 class DioFactory {
   /// private constructor as I don't want to allow creating an instance of this class
   DioFactory._();
@@ -32,16 +31,29 @@ class DioFactory {
       'lang': 'en',
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'Authorization': 
+      'Authorization':
           '${await SharedPrefHelper.getString(SharedPrefKeys.userToken)}',
     };
   }
 
-  static void setTokenIntoHeaderAfterLogin(String token) {
-    dio?.options.headers = {
-      'lang': 'en',
-      'Authorization': '$token',
-    };
+  // static void setTokenIntoHeaderAfterLogin(String token) {
+  //   dio?.options.headers = {
+  //     'lang': 'en',
+  //     'Authorization': '$token',
+  //   };
+  // }
+
+  static void setTokenIntoHeaderAfterLogin(String? token) {
+    if (token != null) {
+      dio?.options.headers = {
+        'lang': 'en',
+        'Authorization': '$token',
+      };
+      print("Token set in headers: $token");
+    } else {
+      dio?.options.headers.remove('Authorization');
+      print("Authorization header removed");
+    }
   }
 
   static void addDioInterceptor() {

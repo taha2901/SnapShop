@@ -13,7 +13,7 @@ class AppTextFormField extends StatelessWidget {
   final TextEditingController? controller;
   // final FocusNode? focusNode;
   // final ValueChanged<String>? onFieldSubmitted;
-  // final ValueChanged<String>? onChanged;
+  final ValueChanged<String>? onChanged;
   // final VoidCallback? onTap;
   final Color? backFroundColor;
   final bool? isObscureText;
@@ -39,7 +39,7 @@ class AppTextFormField extends StatelessWidget {
     this.backFroundColor,
     this.validator,
     this.controller,
-    this.prefixIcon, required this.borderRadius,
+    this.prefixIcon, required this.borderRadius, this.onChanged,
   });
 
   @override

@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:snap_shop/core/helpers/local_notify.dart';
 import 'package:snap_shop/features/home/data/model/categories/categories_response_model.dart';
+import 'package:snap_shop/features/home/data/model/categories_details_response_model/categories_details_response_model.dart';
+import 'package:snap_shop/features/home/data/model/products/product.dart';
 import 'package:snap_shop/features/home/data/model/products/products_response_model.dart';
 import 'package:snap_shop/features/home/data/repo/home_repo.dart';
 
@@ -11,6 +13,7 @@ import 'home_state.dart';
 class HomeCubit extends Cubit<HomeState> {
   static HomeCubit get(context) => BlocProvider.of(context);
   CategoriesResponseModel? categoriesDataList;
+  CategoriesDetailsResponseModel? categoriesDetailsDataList;
   ProductsResponseModel? productsDataList;
   final HomeRepo homeRepo;
   HomeCubit(this.homeRepo) : super(const HomeState.initial());
@@ -60,6 +63,7 @@ class HomeCubit extends Cubit<HomeState> {
     response.when(
       success: (categoriesDetailsResponseModel) {
         if (isClosed) return;
+        categoriesDetailsDataList = categoriesDetailsResponseModel;
         emit(HomeState.categoriesDetailsSuccess(
           categoriesDetialsDataList: categoriesDetailsResponseModel
               .categoriesDetailsData?.categoriesDetailsDataList,
@@ -70,6 +74,18 @@ class HomeCubit extends Cubit<HomeState> {
         emit(HomeState.categoriesDetailsError(errorHandler: errorHandler));
       },
     );
+  }
+
+  List<ProductDataList> filteredProducts = [];
+
+  void filterProducts({required String input}) {
+    if (productsDataList != null) {
+      filteredProducts = productsDataList!.data!.products!
+          .where((element) =>
+              element.name!.toLowerCase().startsWith(input.toLowerCase()))
+          .toList();
+      emit(HomeState.homeFilteredState());
+    }
   }
 
   final azkar = [

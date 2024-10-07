@@ -14,7 +14,6 @@ import 'package:snap_shop/features/home/ui/product_details_screen.dart';
 import 'package:snap_shop/features/home/ui/widget/all_category_screen/categories_screen_bloc_builder.dart';
 import 'package:snap_shop/features/login/logic/login_cubit.dart';
 import 'package:snap_shop/features/login/ui/login_screen.dart';
-import 'package:snap_shop/features/profile/logic/profile_cubit.dart';
 import 'package:snap_shop/features/profile/ui/widget/change_password_screen.dart';
 import 'package:snap_shop/features/profile/ui/widget/update_user_data_screen.dart';
 import 'package:snap_shop/features/register/logic/register_cubit.dart';
@@ -45,10 +44,7 @@ class AppRouter {
         );
       case Routers.categories:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getit<HomeCubit>()..getCategories(),
-            child: const CategoriesScreenBlocBuilder(),
-          ),
+          builder: (_) => Scaffold(body: const CategoriesScreenBlocBuilder()),
         );
       case Routers.categoriesDetails:
         final categoryId = arguments as int; // استلام categoryId من arguments
@@ -66,21 +62,13 @@ class AppRouter {
           builder: (_) => const LayoutShop(),
         );
 
-      case Routers.fcm:
-        return MaterialPageRoute(
-          builder: (_) => FCMScreen(),
-        );
       case Routers.thankYouView:
         return MaterialPageRoute(
-          builder: (_) =>  ThankYouView(),
+          builder: (_) => ThankYouView(),
         );
 
       case Routers.changePassword:
-        return MaterialPageRoute(
-            builder: (_) => BlocProvider(
-                  create: (context) => getit<ProfileCubit>(),
-                  child: ChangePasswordScreen(),
-                ));
+        return MaterialPageRoute(builder: (_) => ChangePasswordScreen());
 
       case Routers.updateProfile:
         return MaterialPageRoute(

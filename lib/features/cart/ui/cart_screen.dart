@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:snap_shop/core/di/dependency_injection.dart';
 import 'package:snap_shop/core/helpers/spacing.dart';
 import 'package:snap_shop/core/theming/colors.dart';
 import 'package:snap_shop/core/theming/styles.dart';
@@ -11,15 +10,11 @@ import 'package:snap_shop/features/cart/ui/widget/cart/cart_app_bar.dart';
 import 'package:snap_shop/features/cart/ui/widget/cart/cart_bloc_builder.dart';
 import 'package:snap_shop/features/cart_details/ui/my_cart_view.dart';
 
-class CartScreen extends StatefulWidget {
+
+class CartScreen extends StatelessWidget {
   final CartItem? cartDataList;
   const CartScreen({super.key, this.cartDataList});
 
-  @override
-  State<CartScreen> createState() => _CartScreenState();
-}
-
-class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,9 +45,7 @@ class _CartScreenState extends State<CartScreen> {
                   listener: (context, state) {},
                   builder: (context, state) {
                     return state.maybeWhen(
-                      orElse: () {
-                        return const SizedBox.shrink();
-                      },
+                      orElse: () => const SizedBox.shrink(),
                       cartsuccess: (cartsDataList) {
                         return Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,42 +53,23 @@ class _CartScreenState extends State<CartScreen> {
                           children: [
                             Row(
                               children: [
-                                Text('Total',
-                                    style: TextStyle(color: Colors.white)),
+                                const Text('Total', style: TextStyle(color: Colors.white)),
                                 const Spacer(),
                                 Text(
-                                  '\$${cartsDataList!.data!.total}',
-                                  style: TextStyle(color: Colors.white),
+                                  '\$${CartCubit.get(context).cartDataList!.data!.total}',
+                                  style: const TextStyle(color: Colors.white),
                                 ),
                               ],
                             ),
                             Row(
                               children: [
-                                Text('Total',
-                                    style: TextStyles.font16BlackBold),
+                                 Text('Total', style: TextStyles.font16BlackBold),
                                 const Spacer(),
                                 Text(
-                                  '\$${cartsDataList.data!.total}',
+                                  '\$${CartCubit.get(context).cartDataList!.data!.total}',
                                   style: TextStyles.font16BlackBold,
                                 ),
                               ],
-                            ),
-                            AppTextButton(
-                              buttonText: 'Checkout',
-                              textStyle: TextStyles.font16WhiteSemiBold,
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => MyCartView(
-                                      subtotal: cartsDataList.data!.subTotal!,
-                                      total: cartsDataList.data!.total!,
-                                    ),
-                                  ),
-                                );
-                              },
-                              backgroundColor: ColorsManager.mainColor,
-                              borderRadius: 50.0,
                             ),
                           ],
                         );
@@ -104,6 +78,31 @@ class _CartScreenState extends State<CartScreen> {
                   },
                 ),
               ),
+              AppTextButton(
+                buttonText: 'Checkout',
+                textStyle: TextStyles.font16WhiteSemiBold,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MyCartView(
+                        subtotal: CartCubit.get(context)
+                            .cartDataList!
+                            .data!
+                            .subTotal!
+                            .toDouble(),
+                        total: CartCubit.get(context)
+                            .cartDataList!
+                            .data!
+                            .total!
+                            .toDouble(),
+                      ),
+                    ),
+                  );
+                },
+                backgroundColor: ColorsManager.mainColor,
+                borderRadius: 50.0,
+              ),
             ],
           ),
         ),
@@ -111,3 +110,4 @@ class _CartScreenState extends State<CartScreen> {
     );
   }
 }
+

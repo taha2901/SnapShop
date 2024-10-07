@@ -12,6 +12,7 @@ import 'package:snap_shop/features/address/ui/address_screen.dart';
 import 'package:snap_shop/features/cart/logic/cart_cubit.dart';
 import 'package:snap_shop/features/favourite/logic/favourite_cubit.dart';
 import 'package:snap_shop/features/home/logic/home_cubit.dart';
+import 'package:snap_shop/features/logout/logic/cubit/logout_cubit.dart';
 import 'package:snap_shop/features/notification/logic/notification_cubit.dart';
 import 'package:snap_shop/features/profile/logic/profile_cubit.dart';
 
@@ -33,8 +34,10 @@ class SnapShop extends StatelessWidget {
             BlocProvider(
               create: (context) => getit<HomeCubit>()
                 ..getCategories()
-                ..getProducts()
-                ..getCategories(),
+                ..getProducts(),
+            ),
+            BlocProvider<LogoutCubit>(
+              create: (context) => getit<LogoutCubit>(),
             ),
             BlocProvider(
               create: (context) => getit<CartCubit>()..getCart(),

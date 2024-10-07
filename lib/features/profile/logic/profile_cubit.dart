@@ -68,6 +68,12 @@ class ProfileCubit extends Cubit<ProfileState> {
     );
     response.when(success: (loginResponseBody) {
       if (isClosed) return;
+
+      // تحديث البيانات في `profileModelList`
+      profileModelList?.data?.name = name;
+      profileModelList?.data?.phone = phone;
+      profileModelList?.data?.email = email;
+
       emit(const ProfileState.updateProfileSuccess());
     }, failure: (errorHandler) {
       if (isClosed) return;

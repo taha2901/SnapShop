@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snap_shop/core/helpers/spacing.dart';
-import 'package:snap_shop/core/widget/custom_show_toast.dart';
 import 'package:snap_shop/features/favourite/logic/favourite_cubit.dart';
 import 'package:snap_shop/features/home/data/model/products/product.dart';
 
@@ -17,17 +16,7 @@ class MyProductsGridViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<FavouriteCubit, FavouriteState>(
-      listener: (context, state) {
-        state.maybeWhen(
-          addOrRemoveFavouriteSuccess: () {
-            showToast(msg: 'Succesfully', state: ToastStates.SUCCESS);
-          },
-          addOrRemoveFavouriteError: () {
-            showToast(msg: 'Failed', state: ToastStates.ERROR);
-          },
-          orElse: () {},
-        );
-      },
+      listener: (context, state) {},
       builder: (context, state) {
         return Stack(
           children: [
@@ -49,7 +38,8 @@ class MyProductsGridViewItem extends StatelessWidget {
                           height: 100.h,
                           width: 100.w,
                           fit: BoxFit.cover,
-                          productsData?.image ?? 'https://student.valuxapps.com/storage/uploads/products/163873839146spo.21.jpg',
+                          productsData?.image ??
+                              'https://student.valuxapps.com/storage/uploads/products/163873839146spo.21.jpg',
                         ),
                       ),
                     ),

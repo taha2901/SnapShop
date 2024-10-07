@@ -9,6 +9,8 @@ import 'package:snap_shop/features/favourite/data/repo/favourite_repo.dart';
 import 'package:snap_shop/features/favourite/logic/favourite_cubit.dart';
 import 'package:snap_shop/features/home/data/repo/home_repo.dart';
 import 'package:snap_shop/features/home/logic/home_cubit.dart';
+import 'package:snap_shop/features/logout/data/repo/logour_repo.dart';
+import 'package:snap_shop/features/logout/logic/cubit/logout_cubit.dart';
 import 'package:snap_shop/features/notification/data/repo/notification_repo.dart';
 import 'package:snap_shop/features/notification/logic/notification_cubit.dart';
 import 'package:snap_shop/features/profile/data/repo/profile_repo.dart';
@@ -62,7 +64,7 @@ Future<void> setUpGetIt() async {
   getit.registerLazySingleton<FavouriteRepo>(() => FavouriteRepo(getit()));
   getit.registerFactory<FavouriteCubit>(() => FavouriteCubit(getit()));
 
-  //payment
-  // sl.registerLazySingleton<PaymentRepo>(() => PaymentRepo(sl<StripeServices>()));
-  // sl.registerFactory<PaymentCubit>(() => PaymentCubit(getit()));
+  //logout
+  getit.registerLazySingleton<LogoutRepo>(() => LogoutRepo(getit()));
+  getit.registerFactory<LogoutCubit>(() => LogoutCubit(getit()));
 }

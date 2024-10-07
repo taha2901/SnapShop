@@ -56,7 +56,7 @@ class CartListViewItem extends StatelessWidget {
                 verticalSpace(8),
                 IconButton(
                   onPressed: () {
-                    context.read<CartCubit>().emitAddOrRemoveCartItem(
+                    CartCubit.get(context).emitAddOrRemoveCartItem(
                         productId: cartItem.product!.id!.toInt());
                   },
                   icon: const Icon(Icons.delete),

@@ -6,6 +6,7 @@ import 'package:snap_shop/features/favourite/data/model/add_or_remove_favourite_
 import 'package:snap_shop/features/favourite/data/model/favourite/data_fav.dart';
 import 'package:snap_shop/features/favourite/data/model/favourite/favourite.dart';
 import 'package:snap_shop/features/favourite/data/repo/favourite_repo.dart';
+import 'package:snap_shop/features/home/data/model/products/product.dart';
 
 part 'favourite_state.dart';
 part 'favourite_cubit.freezed.dart';
