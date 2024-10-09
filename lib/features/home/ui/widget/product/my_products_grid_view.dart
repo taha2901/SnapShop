@@ -67,10 +67,13 @@ class MyProductsGridView extends StatelessWidget {
           mainAxisSpacing: 10.0,
           childAspectRatio: 1 / 1.3,
         ),
-        itemCount: HomeCubit.get(context).filteredProducts.isEmpty
+        itemCount: HomeCubit.get(context).filteredProductss.isEmpty
             ? HomeCubit.get(context).productsDataList?.data?.products?.length
-            : HomeCubit.get(context).filteredProducts.length,
+            : HomeCubit.get(context).filteredProductss.length,
         itemBuilder: (context, index) {
+           final product = HomeCubit.get(context).filteredProductss.isEmpty
+              ? HomeCubit.get(context).productsDataList?.data?.products![index]
+              : HomeCubit.get(context).filteredProductss[index];
           return GestureDetector(
             onTap: () {
               Navigator.push(
@@ -85,12 +88,7 @@ class MyProductsGridView extends StatelessWidget {
               );
             },
             child: MyProductsGridViewItem(
-              productsData: HomeCubit.get(context).filteredProducts.isEmpty
-                  ? HomeCubit.get(context)
-                      .productsDataList
-                      ?.data
-                      ?.products![index]
-                  : HomeCubit.get(context).filteredProducts[index],
+              productsData: product,
             ),
           );
         },

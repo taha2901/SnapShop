@@ -14,8 +14,10 @@ class RegisterRepo {
       RegisterRequestBody registerRequestBody) async {
     try {
       final response = await _apiService.register( registerRequestBody);
+      print('API Response: $response');
       return ApiResult.success(response);
     } catch (errro) {
+      print('API Error: $errro');
       return ApiResult.failure(ErrorHandler.handle(errro));
     }
   }
