@@ -76,11 +76,11 @@ class HomeCubit extends Cubit<HomeState> {
     );
   }
 
-  List<ProductDataList> filteredProducts = [];
+  List<ProductDataList> filteredProductss = [];
 
   void filterProducts({required String input}) {
-    if (productsDataList != null) {
-      filteredProducts = productsDataList!.data!.products!
+    if (productsDataList?.data?.products != null) {
+      filteredProductss = productsDataList!.data!.products!
           .where((element) =>
               element.name!.toLowerCase().startsWith(input.toLowerCase()))
           .toList();

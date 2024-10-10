@@ -8,7 +8,6 @@ import 'package:snap_shop/features/home/logic/home_state.dart';
 import 'package:snap_shop/features/home/ui/widget/category/categories_bloc_builder.dart';
 import 'package:snap_shop/features/home/ui/widget/category/categories_see_all.dart';
 import 'package:snap_shop/features/home/ui/widget/custom_app_bar.dart';
-import 'package:snap_shop/features/home/ui/widget/product/my_products_bloc_builder.dart';
 import 'package:snap_shop/features/home/ui/widget/product/my_products_grid_view.dart';
 import 'package:snap_shop/features/home/ui/widget/product/products_shimmer_loading.dart';
 import 'package:snap_shop/features/home/ui/widget/top_selling_see_all.dart';
@@ -37,9 +36,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   verticalSpace(24.0),
                   AppTextFormField(
                     onChanged: (value) {
-                      HomeCubit.get(context).filterProducts(input: value);
+                      context.read<HomeCubit>().filterProducts(input: value);
                     },
-                    borderRadius: BorderRadius.all(Radius.circular(50.0.r)),
+                    borderRadius: BorderRadius.all(Radius.circular(10.0.r)),
                     hintText: 'Search',
                     prefixIcon: const Icon(
                       Icons.search,
